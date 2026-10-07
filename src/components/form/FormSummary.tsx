@@ -133,6 +133,19 @@ export const FormSummary: React.FC<FormSummaryProps> = ({
                 </p>
               </div>
             )}
+
+            {shipment.deliveryType && (
+              <div>
+                <p className="text-xs text-slate-500">Tipo de envío</p>
+                <p className="text-sm font-bold text-slate-900 mt-0.5">
+                  {shipment.deliveryType === 'delivery'
+                    ? 'Delivery'
+                    : shipment.deliveryType === 'domicilio'
+                      ? 'A domicilio'
+                      : 'Retiro en agencia'}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -141,12 +154,16 @@ export const FormSummary: React.FC<FormSummaryProps> = ({
           <div className="p-4 sm:p-5 space-y-3">
             <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
               <MapPin className="w-4 h-4 text-rose-500" />
-              <span>Agencia / Dirección de envío</span>
+              <span>{shipment.deliveryType === 'agencia' ? 'Agencia de envío' : 'Dirección de envío'}</span>
             </div>
 
             <div className="space-y-1.5 pl-1">
+              {shipment.district && (
+                <p className="text-xs text-slate-600">Distrito: {shipment.district}</p>
+              )}
               <p className="text-sm font-bold text-slate-900">
-                {shipment.courier?.toLocaleUpperCase() || 'SHALOM'}, {shipment.destinationSede}
+                {shipment.deliveryType === 'agencia' && `${shipment.courier?.toLocaleUpperCase() || 'SHALOM'}, `}
+                {shipment.destinationSede}
               </p>
 
               {shipment.reference && (

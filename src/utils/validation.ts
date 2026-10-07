@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { FormFieldConfig } from '../types/form';
+import { districts } from '../data/district';
 import { cleanDigits, isValidPeruvianPhone, isValidPhoneNumber } from './phone';
 
 /**
@@ -69,7 +70,7 @@ export const baseShipmentSchema = z.object({
         message: 'Ingresa un número de documento válido (8 a 12 dígitos)',
       }
     ),
-  deliveryType: z.enum(['agencia', 'domicilio']).default('agencia'),
+  deliveryType: z.enum(['agencia', 'domicilio', 'delivery']).default('agencia'),
   courier: z.string({ required_error: 'Selecciona la empresa de transporte' }).min(1, 'Selecciona la empresa de transporte'),
   destinationSede: z.string({ required_error: 'Ingresa la ciudad o agencia de destino' }).trim().min(3, 'Ingresa la ciudad o agencia de destino (mínimo 3 caracteres)'),
   department: z.string().optional(),
@@ -78,6 +79,17 @@ export const baseShipmentSchema = z.object({
   reference: z.string().trim().optional(),
   preferredDate: z.string({ required_error: 'Selecciona una fecha de envío' }).min(1, 'Selecciona una fecha de envío'),
   notes: z.string().trim().optional(),
+}).superRefine((shipment, context) => {
+  const isAvailableDistrict = districts.some(
+    ({ name }) => name.toLocaleLowerCase() === shipment.district?.trim().toLocaleLowerCase()
+  );
+  if (shipment.deliveryType === 'delivery' && !isAvailableDistrict) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['district'],
+      message: 'Selecciona un distrito disponible de la lista',
+    });
+  }
 });
 
 export type BaseShipmentFormValues = z.infer<typeof baseShipmentSchema>;

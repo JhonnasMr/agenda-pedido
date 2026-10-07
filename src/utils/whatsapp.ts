@@ -11,7 +11,11 @@ export function buildWhatsAppMessage(
   merchant?: MerchantConfig
 ): string {
   const isAgency = shipment.deliveryType === 'agencia' || (!shipment.deliveryType && shipment.courier !== 'Motorizado');
-  const deliveryHeader = isAgency ? '📦 NUEVO ENVÍO (AGENCIA)' : '🛵 NUEVO ENVÍO (A DOMICILIO)';
+  const deliveryHeader = isAgency
+    ? '📦 NUEVO ENVÍO (AGENCIA)'
+    : shipment.deliveryType === 'delivery'
+      ? '🛵 NUEVO ENVÍO (DELIVERY)'
+      : '🛵 NUEVO ENVÍO (A DOMICILIO)';
 
   const lines: string[] = [];
 
