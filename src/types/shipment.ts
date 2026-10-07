@@ -6,7 +6,7 @@ export interface ShipmentData {
   fullName: string;
   documentType?: 'DNI' | 'CE' | 'RUC' | 'Pasaporte' | string;
   documentNumber?: string;
-  deliveryType?: 'agencia' | 'domicilio';
+  deliveryType?: 'agencia' | 'domicilio' | 'delivery';
   courier?: string; // e.g. "Shalom", "Olva Courier", "Marvisur", "Motorizado"
   department?: string;
   province?: string;

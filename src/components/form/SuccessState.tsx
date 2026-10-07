@@ -99,10 +99,20 @@ export const SuccessState: React.FC<SuccessStateProps> = ({
 
           {shipment.destinationSede && (
             <div className="flex justify-between">
-              <span className="text-slate-500">Agencia:</span>
-              <span className="font-medium text-slate-800 text-right max-w-[240px]">
-                {shipment.courier?.toLocaleUpperCase() || 'SHALOM'}, {shipment.destinationSede}
+              <span className="text-slate-500">
+                {shipment.deliveryType === 'agencia' ? 'Agencia:' : 'Dirección:'}
               </span>
+              <span className="font-medium text-slate-800 text-right max-w-[240px]">
+                {shipment.deliveryType === 'agencia' && `${shipment.courier?.toLocaleUpperCase() || 'SHALOM'}, `}
+                {shipment.destinationSede}
+              </span>
+            </div>
+          )}
+
+          {shipment.district && (
+            <div className="flex justify-between">
+              <span className="text-slate-500">Distrito:</span>
+              <span className="font-medium text-slate-800">{shipment.district}</span>
             </div>
           )}
 

@@ -87,13 +87,32 @@ export interface FutureScheduleOption {
   isTomorrow: boolean;
 }
 
+function isWeekend(date: Date): boolean {
+  return date.getDay() === 0 || date.getDay() === 6;
+}
+
+function nextWeekday(date: Date): Date {
+  const nextDate = new Date(date);
+  while (isWeekend(nextDate)) {
+    nextDate.setDate(nextDate.getDate() + 1);
+  }
+  return nextDate;
+}
+
+function isCutoffPassed(cutoffTime: string | undefined, now: Date): boolean {
+  return Boolean(cutoffTime) && !isBeforeCutoff(cutoffTime, now);
+}
+
 /**
  * Generates future schedule date options:
  * - 1st option: Tomorrow (+1 day)
  * - Following options: every 2 days afterwards (+3 days, +5 days, +7 days)
  * ONLY future dates are included.
  */
-export function getFutureScheduleOptions(now: Date = new Date()): FutureScheduleOption[] {
+export function getFutureScheduleOptions(
+  now: Date = new Date(),
+  cutoffTime?: string
+): FutureScheduleOption[] {
   const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'];
 
@@ -105,10 +124,21 @@ export function getFutureScheduleOptions(now: Date = new Date()): FutureSchedule
     { offset: 7, subtitle: 'En 1 semana', isTomorrow: false },
   ];
 
-  return offsets.map(({ offset, subtitle, badge, isTomorrow }) => {
-    const d = new Date(now);
-    d.setDate(d.getDate() + offset);
+  const cutoffPassed = isCutoffPassed(cutoffTime, now);
+  const firstDate = new Date(now);
+  firstDate.setDate(firstDate.getDate() + 1);
+  if (cutoffPassed) {
+    firstDate.setTime(nextWeekday(firstDate).getTime());
+  }
+
+  return offsets.map(({ offset, subtitle, badge, isTomorrow }, index) => {
+    const d = new Date(firstDate);
+    d.setDate(d.getDate() + (cutoffPassed ? index * 2 : offset - 1));
+    if (cutoffPassed) {
+      d.setTime(nextWeekday(d).getTime());
+    }
     d.setHours(12, 0, 0, 0); // normalize time
+    const daysFromToday = Math.ceil((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
     const dayName = daysOfWeek[d.getDay()];
     const dayNum = String(d.getDate()).padStart(2, '0');
@@ -118,9 +148,13 @@ export function getFutureScheduleOptions(now: Date = new Date()): FutureSchedule
 
     return {
       value,
-      dayName: isTomorrow ? `Mañana (${dayName})` : dayName,
+      dayName: isTomorrow && !cutoffPassed ? `Mañana (${dayName})` : dayName,
       formattedDate: `${dayNum} ${monthName}`,
-      subtitle,
+      subtitle: cutoffPassed
+        ? index === 0
+          ? 'Próximo día hábil'
+          : `En ${daysFromToday} ${daysFromToday === 1 ? 'día' : 'días'}`
+        : subtitle,
       badge,
       dateObj: d,
       isTomorrow,
@@ -137,5 +171,20 @@ export function getTomorrowIsoString(now: Date = new Date()): string {
   const year = tomorrow.getFullYear();
   const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
   const day = String(tomorrow.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export function getMinimumDispatchIsoString(
+  cutoffTime?: string,
+  now: Date = new Date()
+): string {
+  const minimumDate = new Date(now);
+  minimumDate.setDate(minimumDate.getDate() + 1);
+  if (isCutoffPassed(cutoffTime, now)) {
+    minimumDate.setTime(nextWeekday(minimumDate).getTime());
+  }
+  const year = minimumDate.getFullYear();
+  const month = String(minimumDate.getMonth() + 1).padStart(2, '0');
+  const day = String(minimumDate.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
 }

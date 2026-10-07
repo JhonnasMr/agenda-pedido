@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Calendar, CheckCircle2, Sparkles, Clock } from 'lucide-react';
-import { getFutureScheduleOptions, getTomorrowIsoString } from '../../utils/date';
+import { getFutureScheduleOptions, getMinimumDispatchIsoString } from '../../utils/date';
 
 export interface DateSchedulerProps {
   value?: string;
   onChange: (dateValue: string) => void;
   error?: string;
   disabled?: boolean;
+  cutoffTime?: string;
 }
 
 export const DateScheduler: React.FC<DateSchedulerProps> = ({
@@ -14,10 +15,11 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
   onChange,
   error,
   disabled = false,
+  cutoffTime,
 }) => {
-  const options = getFutureScheduleOptions();
+  const options = getFutureScheduleOptions(new Date(), cutoffTime);
   const [showCustomPicker, setShowCustomPicker] = useState(false);
-  const minFutureDate = getTomorrowIsoString();
+  const minFutureDate = getMinimumDispatchIsoString(cutoffTime);
 
   const handleSelectOption = (optValue: string) => {
     setShowCustomPicker(false);
@@ -123,7 +125,7 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
               htmlFor="custom-future-date"
               className="block text-xs font-semibold text-slate-700"
             >
-              Selecciona una fecha futura (a partir de mañana)
+              Selecciona una fecha futura
             </label>
             <input
               id="custom-future-date"

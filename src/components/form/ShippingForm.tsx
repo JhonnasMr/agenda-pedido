@@ -16,6 +16,7 @@ import { Input } from '../ui/Input';
 import { Alert } from '../ui/Alert';
 import { agencias as agenciasShalom } from '../../data/agencias';
 import { agencias as agenciasOlva } from '../../data/agenciasOlva';
+import { districts as agenciasDelivery } from '../../data/district';
 
 export interface ShippingFormProps {
   merchant: MerchantConfig;
@@ -33,7 +34,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   submitError,
 }) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const futureOptions = getFutureScheduleOptions();
+  const futureOptions = getFutureScheduleOptions(new Date(), merchant.cutoffTime);
   const defaultFutureDate = futureOptions[0]?.value || '';
 
   // Couriers list from merchant or defaults
@@ -47,7 +48,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     fullName: initialValues?.fullName || '',
     documentType: initialValues?.documentType || 'DNI',
     documentNumber: initialValues?.documentNumber || '',
-    deliveryType: (initialValues?.deliveryType as any) || 'agencia',
+    deliveryType: initialValues?.deliveryType || 'agencia',
     courier: initialValues?.courier || merchant.defaultCourier || couriers[0],
     destinationSede: initialValues?.destinationSede || '',
     department: initialValues?.department || '',
@@ -63,7 +64,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     handleSubmit,
     setValue,
     watch,
-    formState: { errors },
+    formState: { errors, submitCount },
   } = useForm<BaseShipmentFormValues>({
     resolver: zodResolver(baseShipmentSchema),
     defaultValues,
@@ -71,10 +72,31 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   });
 
   const currentPhone = watch('phone');
+  const selectedDeliveryType = watch('deliveryType');
   const selectedCourier = watch('courier');
   const destinationQuery = watch('destinationSede') || '';
+  const districtQuery = watch('district') || '';
+  const documentNumber = watch('documentNumber') || '';
+  const fullNameValue = watch('fullName') || '';
+
+  const isPhoneValid = merchant.phoneCountryCode === '+51' || !merchant.phoneCountryCode
+    ? isValidPeruvianPhone(currentPhone)
+    : isValidPhoneNumber(currentPhone, merchant.phoneCountryCode);
+
+  const hasPhone = Boolean(currentPhone && isPhoneValid);
+  const hasDeliveryType = Boolean(selectedDeliveryType);
+  const hasDestinationSelection = selectedDeliveryType === 'delivery'
+    ? districtQuery.trim().length > 0
+    : destinationQuery.trim().length > 0;
+  const hasPersonalData = documentNumber.trim().length > 0 && fullNameValue.trim().length > 0;
+  const showDeliveryTypeStep = hasPhone;
+  const showShippingDetailsStep = showDeliveryTypeStep && hasDeliveryType;
+  const showDateAndNotesStep = showShippingDetailsStep && hasDestinationSelection && hasPersonalData;
   const [isAgencyListOpen, setIsAgencyListOpen] = useState(false);
   const [activeAgencyIndex, setActiveAgencyIndex] = useState(-1);
+  const [isDistrictListOpen, setIsDistrictListOpen] = useState(false);
+  const [activeDistrictIndex, setActiveDistrictIndex] = useState(-1);
+  const lastErrorSubmitCount = useRef(0);
 
   const matchingAgencies = useMemo(() => {
     const normalizedQuery = destinationQuery
@@ -100,10 +122,21 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
       /*.slice(0, 8)*/;
   }, [destinationQuery, selectedCourier]);
 
-  // Check whether the phone is currently valid
-  const isPhoneValid = merchant.phoneCountryCode === '+51' || !merchant.phoneCountryCode
-    ? isValidPeruvianPhone(currentPhone)
-    : isValidPhoneNumber(currentPhone, merchant.phoneCountryCode);
+  const matchingDistricts = useMemo(() => {
+    const normalizedQuery = districtQuery
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLocaleLowerCase()
+      .trim();
+
+    return agenciasDelivery.filter(({ name, place }) =>
+      `${name} ${place}`
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLocaleLowerCase()
+        .includes(normalizedQuery)
+    );
+  }, [districtQuery]);
 
   // Progressive disclosure state
   const [isPhoneUnlocked, setIsPhoneUnlocked] = useState<boolean>(() => {
@@ -119,16 +152,18 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
 
   // Smooth scroll to first error if submit fails
   useEffect(() => {
+    if (submitCount === 0 || submitCount === lastErrorSubmitCount.current) return;
+    lastErrorSubmitCount.current = submitCount;
+
     const errorKeys = Object.keys(errors);
     if (errorKeys.length > 0) {
       const firstKey = errorKeys[0];
       const el = document.getElementById(firstKey) || document.getElementById(`field-${firstKey}`);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.focus?.();
       }
     }
-  }, [errors]);
+  }, [errors, submitCount]);
 
   const onFormSubmit = (data: BaseShipmentFormValues) => {
     const rawMobile = extractPeruvianMobileDigits(data.phone);
@@ -154,6 +189,17 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     onSubmit(shipment);
   };
 
+  const handleFormFocusCapture = (event: React.FocusEvent<HTMLFormElement>) => {
+    const focusedField = event.target;
+    if (!(focusedField instanceof HTMLElement)) return;
+
+    window.setTimeout(() => {
+      if (focusedField.isConnected) {
+        focusedField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 150);
+  };
+
   return (
     <div className="space-y-6">
       {/* Merchant Header */}
@@ -170,40 +216,18 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
       )}
 
       {/* Step Tracker */}
-      <div className="flex items-center justify-between pb-1 border-b border-slate-100 text-xs font-semibold">
-        <div className="flex items-center gap-1.5 text-slate-800">
-          <span
-            className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold ${
-              isPhoneUnlocked
-                ? 'bg-emerald-500 text-white'
-                : 'bg-merchant-primary text-white'
-            }`}
-          >
-            {isPhoneUnlocked ? '✓' : '1'}
-          </span>
-          <span>1. Tu WhatsApp</span>
-        </div>
-
-        <div className="flex items-center gap-1.5 text-slate-400">
-          <span
-            className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold ${
-              isPhoneUnlocked
-                ? 'bg-merchant-primary text-white'
-                : 'bg-slate-200 text-slate-500'
-            }`}
-          >
-            2
-          </span>
-          <span className={isPhoneUnlocked ? 'text-slate-800 font-semibold' : ''}>
-            2. Destino & Fecha
-          </span>
-        </div>
+      <div className="hidden" aria-hidden="true">
+        <span className={hasPhone ? 'text-slate-800' : 'text-slate-400'}>Tu WhatsApp</span>
+        <span className={showDeliveryTypeStep ? 'text-slate-800' : 'text-slate-400'}>Tipo de envío</span>
+        <span className={showShippingDetailsStep ? 'text-slate-800' : 'text-slate-400'}>Destino y datos</span>
+        <span className={showDateAndNotesStep ? 'text-slate-800' : 'text-slate-400'}>Fecha y nota</span>
       </div>
 
       {/* The Form */}
       <form
         ref={formRef}
         onSubmit={handleSubmit(onFormSubmit)}
+        onFocusCapture={handleFormFocusCapture}
         noValidate
         className="space-y-5 text-left"
       >
@@ -261,8 +285,46 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               <span>Selecciona tipo de envio</span>
             </div>
 
-            {/* 1. Empresa de Transporte */}
-            <div className="w-full text-left space-y-1.5">
+            <div className="grid grid-cols-3 gap-2">
+              {([
+                { value: 'agencia', label: 'Agencia' },
+                { value: 'domicilio', label: 'A domicilio' },
+                { value: 'delivery', label: 'Delivery' },
+              ] as const).map(({ value, label }) => (
+                <button
+                  key={value}
+                  type="button"
+                  disabled={isSubmitting}
+                  aria-pressed={selectedDeliveryType === value}
+                  onClick={() => {
+                    if (selectedDeliveryType === value) return;
+                    setValue('deliveryType', value, { shouldValidate: true });
+                    setValue('district', '', { shouldValidate: true });
+                    setValue('destinationSede', '', { shouldValidate: true });
+                    setIsAgencyListOpen(false);
+                    setIsDistrictListOpen(false);
+                    if (value === 'delivery') {
+                      setValue('courier', 'Delivery (Solo Lima-Metropolitana)', { shouldValidate: true });
+                    } else if (selectedCourier?.toLocaleLowerCase().includes('delivery')) {
+                      setValue('courier', merchant.defaultCourier || couriers[0], { shouldValidate: true });
+                    }
+                  }}
+                  className={`rounded-xl border px-2 py-3 text-xs font-bold transition-colors ${
+                    selectedDeliveryType === value
+                      ? 'border-merchant-primary bg-merchant-primary text-white shadow-sm'
+                      : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {selectedDeliveryType && (
+              <div className="space-y-4 pt-1 animate-fadeIn">
+                {/* 1. Empresa de Transporte */}
+                {selectedDeliveryType !== 'delivery' && (
+                <div className="w-full text-left space-y-1.5">
               <label
                 htmlFor="courier"
                 className="block text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1.5"
@@ -274,7 +336,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
 
               {/* Courier Quick Selector Chips */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {couriers.map((c) => {
+                {couriers.filter((courier) => !courier.toLocaleLowerCase().includes('delivery')).map((c) => {
                   const isSelected = selectedCourier === c;
                   return (
                     <button
@@ -309,17 +371,129 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                 </p>
               )}
             </div>
+            )}
 
-            {/* 2. Ciudad de Destino */}
+            {selectedDeliveryType === 'delivery' && (
+              <Controller
+                name="district"
+                control={control}
+                render={({ field }) => (
+                  <div className="relative">
+                    <Input
+                      {...field}
+                      id="district"
+                      label="Distrito de Lima"
+                      placeholder="Escribe para buscar tu distrito"
+                      isRequired
+                      leftIcon={<MapPin className="w-4 h-4" />}
+                      error={errors.district?.message}
+                      helpText="Selecciona uno de los distritos disponibles."
+                      disabled={isSubmitting}
+                      role="combobox"
+                      aria-autocomplete="list"
+                      aria-expanded={isDistrictListOpen}
+                      aria-controls="district-options"
+                      aria-activedescendant={
+                        activeDistrictIndex >= 0 && matchingDistricts[activeDistrictIndex]
+                          ? `district-option-${activeDistrictIndex}`
+                          : undefined
+                      }
+                      onFocus={() => setIsDistrictListOpen(true)}
+                      onBlur={() => {
+                        field.onBlur();
+                        window.setTimeout(() => setIsDistrictListOpen(false), 100);
+                      }}
+                      onChange={(event) => {
+                        field.onChange(event);
+                        setValue('department', '');
+                        setValue('province', '');
+                        setActiveDistrictIndex(-1);
+                        setIsDistrictListOpen(true);
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === 'ArrowDown' && matchingDistricts.length > 0) {
+                          event.preventDefault();
+                          setIsDistrictListOpen(true);
+                          setActiveDistrictIndex((current) =>
+                            current < matchingDistricts.length - 1 ? current + 1 : 0
+                          );
+                        } else if (event.key === 'ArrowUp' && matchingDistricts.length > 0) {
+                          event.preventDefault();
+                          setIsDistrictListOpen(true);
+                          setActiveDistrictIndex((current) =>
+                            current > 0 ? current - 1 : matchingDistricts.length - 1
+                          );
+                        } else if (
+                          event.key === 'Enter' &&
+                          isDistrictListOpen &&
+                          matchingDistricts[activeDistrictIndex]
+                        ) {
+                          event.preventDefault();
+                          const district = matchingDistricts[activeDistrictIndex];
+                          field.onChange(district.name);
+                          setValue('department', district.place, { shouldValidate: true });
+                          setValue('province', district.place, { shouldValidate: true });
+                          setIsDistrictListOpen(false);
+                        } else if (event.key === 'Escape') {
+                          setIsDistrictListOpen(false);
+                        }
+                      }}
+                    />
+                    {isDistrictListOpen && (
+                      <ul
+                        id="district-options"
+                        role="listbox"
+                        className="absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg"
+                      >
+                        {matchingDistricts.length > 0 ? (
+                          matchingDistricts.map((district, index) => (
+                            <li
+                              id={`district-option-${index}`}
+                              key={district.id}
+                              role="option"
+                              aria-selected={activeDistrictIndex === index}
+                            >
+                              <button
+                                type="button"
+                                className={`w-full px-3.5 py-2 text-left transition-colors ${
+                                  activeDistrictIndex === index ? 'bg-slate-100' : 'hover:bg-slate-50'
+                                }`}
+                                onMouseDown={(event) => event.preventDefault()}
+                                onClick={() => {
+                                  field.onChange(district.name);
+                                  setValue('department', district.place, { shouldValidate: true });
+                                  setValue('province', district.place, { shouldValidate: true });
+                                  setIsDistrictListOpen(false);
+                                  setActiveDistrictIndex(-1);
+                                }}
+                              >
+                                <span className="block text-sm font-semibold text-slate-800">
+                                  {district.name}
+                                </span>
+                                <span className="block text-xs text-slate-500">{district.place}</span>
+                              </button>
+                            </li>
+                          ))
+                        ) : (
+                          <li className="px-3.5 py-2 text-sm text-slate-500" role="status">
+                            No se encontraron distritos.
+                          </li>
+                        )}
+                      </ul>
+                    )}
+                  </div>
+                )}
+              />
+            )}
+
             <Controller
               name="destinationSede"
               control={control}
-              render={({ field }) => (
+              render={({ field }) => selectedDeliveryType === 'agencia' ? (
                 <div className="relative">
                   <Input
                     {...field}
                     id="destinationSede"
-                    type="text"
                     label="Sede de Destino"
                     placeholder="Escribe el nombre o ubicación de la sede"
                     isRequired
@@ -413,6 +587,19 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                     </ul>
                   )}
                 </div>
+              ) : (
+                <Input
+                  {...field}
+                  id="destinationSede"
+                  label={selectedDeliveryType === 'delivery' ? 'Dirección de entrega' : 'Dirección de destino'}
+                  placeholder="Escribe la calle, número y departamento"
+                  isRequired
+                  leftIcon={<MapPin className="w-4 h-4" />}
+                  error={errors.destinationSede?.message}
+                  helpText={selectedDeliveryType === 'delivery' ? 'Indica la dirección exacta en el distrito seleccionado.' : undefined}
+                  disabled={isSubmitting}
+                  onChange={(event) => field.onChange(event)}
+                />
               )}
             />
 
@@ -443,42 +630,47 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               />
             </div>
 
-            {/* 5. Agendar Fecha (Día siguiente y dejando 2 días) */}
-            <div className="pt-2">
-              <Controller
-                name="preferredDate"
-                control={control}
-                render={({ field }) => (
-                  <DateScheduler
-                    value={field.value}
-                    onChange={(val) => {
-                      field.onChange(val);
-                      setValue('preferredDate', val, { shouldValidate: true });
-                    }}
-                    error={errors.preferredDate?.message}
-                    disabled={isSubmitting}
+            {showDateAndNotesStep && (
+              <div className="space-y-4 pt-1 animate-fadeIn">
+                {/* 5. Agendar Fecha (Día siguiente y dejando 2 días) */}
+                <div className="pt-2">
+                  <Controller
+                    name="preferredDate"
+                    control={control}
+                    render={({ field }) => (
+                      <DateScheduler
+                        value={field.value}
+                        cutoffTime={merchant.cutoffTime}
+                        onChange={(val) => {
+                          field.onChange(val);
+                          setValue('preferredDate', val, { shouldValidate: true });
+                        }}
+                        error={errors.preferredDate?.message}
+                        disabled={isSubmitting}
+                      />
+                    )}
                   />
-                )}
-              />
-            </div>
+                </div>
 
-            {/* Notas opcionales */}
-            <div className="w-full text-left pt-1">
-              <label
-                htmlFor="notes"
-                className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1"
-              >
-                Indicaciones u Observaciones (Opcional)
-              </label>
-              <textarea
-                id="notes"
-                rows={2}
-                placeholder="Ej: Color de prenda, referencia de ubicación, etc."
-                disabled={isSubmitting}
-                {...register('notes')}
-                className="block w-full p-3 rounded-xl border border-slate-200 text-sm text-slate-900 bg-white placeholder:text-slate-400 focus:outline-none focus:border-merchant-primary focus:ring-4 focus:ring-merchant-primary/10"
-              />
-            </div>
+                {/* Notas opcionales */}
+                <div className="w-full text-left pt-1">
+                  <label
+                    htmlFor="notes"
+                    className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1"
+                  >
+                    Indicaciones u Observaciones (Opcional)
+                  </label>
+                  <textarea
+                    id="notes"
+                    rows={2}
+                    placeholder="Ej: Color de prenda, referencia de ubicación, etc."
+                    disabled={isSubmitting}
+                    {...register('notes')}
+                    className="block w-full p-3 rounded-xl border border-slate-200 text-sm text-slate-900 bg-white placeholder:text-slate-400 focus:outline-none focus:border-merchant-primary focus:ring-4 focus:ring-merchant-primary/10"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* Form Action CTA */}
             <FormActions
@@ -488,6 +680,8 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
             />
           </div>
         )}
+      </div>
+    )}
       </form>
     </div>
   );
