@@ -1,0 +1,2793 @@
+export interface Agencia {
+  name : string;
+  place : string;
+  reference : string;
+}
+
+export const agencias: Agencia[] = [
+  {
+    "name": "BAMBAMARCA",
+    "place": "CAJAMARCA / HUALGAYOC / BAMBAMARCA",
+    "reference": "AV. TUPAC AMARU 1105, REFERENCIA: AL COSTADO DEL PARADERO AL CUMBE"
+  },
+  {
+    "name": "AV PARRA 379",
+    "place": "AREQUIPA / AREQUIPA / AV PARRA 379",
+    "reference": "AV. PARRA 379 - Arequipa"
+  },
+  {
+    "name": "CERRO DE PASCO",
+    "place": "PASCO / PASCO / CERRO DE PASCO",
+    "reference": "JR. HUARICAPCHA S/N A.H. TUPAC AMARU CHAUPIMARCA, REFERENCIA: FRENTE AL NUEVO TERMINAL"
+  },
+  {
+    "name": "CAJAMARCA CO",
+    "place": "CAJAMARCA / CAJAMARCA / CAJAMARCA CO",
+    "reference": "Av. Independencia N° 787 Barrio Santa Elena"
+  },
+  {
+    "name": "MOYOBAMBA  CO",
+    "place": "SAN MARTIN / MOYOBAMBA / MOYOBAMBA  CO",
+    "reference": "JR. 20 de abril  2138 -  REFERENCIA : Altura de la  pampa del  hambre"
+  },
+  {
+    "name": "ABANCAY",
+    "place": "APURIMAC / ABANCAY / ABANCAY",
+    "reference": "AV. PANAMERICANA S/N - ABANCAY - APURÍMAC, REF. A 100 METROS DE LA COMISARÍA DE BELLAVISTA, AL COSTADO DE MADERERA VEGA"
+  },
+  {
+    "name": "AV ENRIQUE MEIGGS",
+    "place": "ANCASH / SANTA / AV ENRIQUE MEIGGS",
+    "reference": "Av. Enrique Meiggs N° 2457."
+  },
+  {
+    "name": "CUSCO PARQUE INDUSTRIAL",
+    "place": "CUSCO / CUSCO / CUSCO PARQUE INDUSTRIAL",
+    "reference": "AV. LAS AMERICAS MZ. E LT. 20, 2DA ETAPA, URB. PARQUE INDUSTRIAL, WANCHAQ - CUSCO, REF. AL FRENTE DE TALLERES PFURO, AL FRENTE DE MEDERERA URPI, PARALELA A LA AV VIA EXPRESA."
+  },
+  {
+    "name": "SALAVERRY HUACHO CO",
+    "place": "LIMA / HUAURA / SALAVERRY HUACHO CO",
+    "reference": "PROLONGACIÓN salaverry  n° 764  huacho -  referencia : cruce con la av la paz  "
+  },
+  {
+    "name": "ILO CO PAMPA INALAMBRICA",
+    "place": "MOQUEGUA / ILO / ILO CO PAMPA INALAMBRICA",
+    "reference": "URB. CIUDAD DEL PESCADOR, MZ. J LT. 18-19, REFERENCIA: A DOS CUADRAS DEL PODER JUDICIAL"
+  },
+  {
+    "name": "AYACUCHO CO",
+    "place": "AYACUCHO / HUAMANGA / AYACUCHO CO",
+    "reference": "AA.HH  COMPLEJO ARTESANAL T1 LT1 - ayacucho  -  rEFERENCIA :  a una cuadra de la puerta 2 del terminal terrestre libertadores de AMÉRICA"
+  },
+  {
+    "name": "CAÑETE SAN VICENTE",
+    "place": "LIMA / CAÑETE / CAÑETE SAN VICENTE",
+    "reference": "AA.HH. VÍCTOR ANDRÉS BELAUNDE MZ. B LT. 12, SAN VICENTE DE CAÑETE - CAÑETE - LIMA"
+  },
+  {
+    "name": "PROLONG LUIS MASSARO",
+    "place": "ICA / CHINCHA / PROLONG LUIS MASSARO",
+    "reference": "PROLONGACION LUIS MASSARO  N°247 -  CHINCHA ALTA"
+  },
+  {
+    "name": "AV MARISCAL CASTILLA CO PARQUE INDUSTRIAL",
+    "place": "JUNIN / HUANCAYO / AV MARISCAL CASTILLA CO PARQUE INDUSTRIAL",
+    "reference": "AV MARISCAL CASTILLA 2769  RefERENCIA : Frente al colegio Andres bello"
+  },
+  {
+    "name": "AV VICTOR R. HAYA CO",
+    "place": "LAMBAYEQUE / CHICLAYO / AV VICTOR R. HAYA CO",
+    "reference": "av. VÍCTOR RAUL HAYA DE LA TORRE 2470 La Victoria - Chiclayo  REFERENCIA : ENTRE LA VIA EVITAMIENTO Y PANAMERICANA"
+  },
+  {
+    "name": "JR MAYRO",
+    "place": "HUANUCO / HUANUCO / JR MAYRO",
+    "reference": "JR. MAYRO N° 344, REF. A UNA CDRA. DEL PARQUE SAN PEDRO"
+  },
+  {
+    "name": "JR. MAMA OCLLO",
+    "place": "PUNO / SAN ROMAN / JR. MAMA OCLLO",
+    "reference": "Jr. Mama Ocllo 915 - B ( Cruce con Jr Azángaro )"
+  },
+  {
+    "name": "AV COSTANERA",
+    "place": "PUNO / PUNO / AV COSTANERA",
+    "reference": "AV. COSTANERA N° 211 CON JR. LOS INCAS - PUNO"
+  },
+  {
+    "name": "SICUANI CO OVALO SAN ANDRES",
+    "place": "CUSCO / CANCHIS / SICUANI CO OVALO SAN ANDRES",
+    "reference": "PROLONG. AV. AREQUIPA 1010  S/N, REF: AL COSTADO DEL GRIFO GUADALUPE EN EL ÓVALO SAN ANDRÉS"
+  },
+  {
+    "name": "TACNA CO AV. JORGE BASADRE",
+    "place": "TACNA / TACNA / TACNA CO AV. JORGE BASADRE",
+    "reference": "Av. Jorge Basadre Grohmann Oeste n° 366 - tACNA"
+  },
+  {
+    "name": "TALARA  CO ASOC CALIFORNIA",
+    "place": "PIURA / TALARA / TALARA  CO ASOC CALIFORNIA",
+    "reference": "ASOCIACIÓN CALIFORNIA C - 03 FRENTE A CARRETERA NEGRITOS, TALARA - PARIÑAS, REFERENCIA: AL COSTADO DEL RESTAURANTE MI TORETE"
+  },
+  {
+    "name": "CALLE LIVERPOOL",
+    "place": "LA LIBERTAD / TRUJILLO / CALLE LIVERPOOL",
+    "reference": "Calle LiverpoOl N° 329 / Urb. Santa Isabel - Trujillo.  referencia : a una cuadra antes de la Iglesia de Mansiche"
+  },
+  {
+    "name": "TUMBES - AV ARICA",
+    "place": "TUMBES / TUMBES / TUMBES - AV ARICA",
+    "reference": "Av. Arica N° 227 - Tumbes."
+  },
+  {
+    "name": "SAN ANTONIO",
+    "place": "MOQUEGUA / MARISCAL NIETO / SAN ANTONIO",
+    "reference": "Av. Santa Fortunata Mz. N5 Lt. 10 Asoc. Villa Moquegua San Antonio. referencia : A una cuadra de la Casa de la Mujer"
+  },
+  {
+    "name": "JR. RAYMONDI",
+    "place": "LIMA / LIMA / JR. RAYMONDI",
+    "reference": "JR. ANTONIO RAYMONDI NRO. 113"
+  },
+  {
+    "name": "LAS CONCHITAS",
+    "place": "LIMA / LIMA / LAS CONCHITAS",
+    "reference": "AV. PACHACUTEC 6779, MZ. N, LT. 20, VILLA MARIA DEL TRIUNFO - REFERENCIA: A UNA CDRA. DEL GRIFO REPSOL LAS CONCHITAS"
+  },
+  {
+    "name": "BAGUA GRANDE",
+    "place": "AMAZONAS / UTCUBAMBA / BAGUA GRANDE",
+    "reference": "AV. CHACHAPOYAS 1094 SECTOR GONCHILLO, REF. A 2 CUADRAS DE LA CLÍNICA SEÑOR DE LOS MILAGROS"
+  },
+  {
+    "name": "PEDRO RUIZ",
+    "place": "AMAZONAS / BONGARA / PEDRO RUIZ",
+    "reference": "AV. SACSAHUAMAN N° 513 - PEDRO RUIZ, REF. A MEDIA CUADRA DE LA UGEL"
+  },
+  {
+    "name": "CHOTA",
+    "place": "CAJAMARCA / CHOTA / CHOTA",
+    "reference": "AV. FRAY JOSÉ ARANA N 805 - REFERENCIA : frente al terminal angel divino"
+  },
+  {
+    "name": "IQUITOS JR PABLO ROSSEL",
+    "place": "LORETO / MAYNAS / IQUITOS JR PABLO ROSSEL",
+    "reference": "JR PABLO ROSSEL 590 CON NANAY, REF. FRENTE AL CETPRO AMERICAN COMPUTER"
+  },
+  {
+    "name": "CALLERIA JR JOSE GALVEZ",
+    "place": "UCAYALI / CORONEL PORTILLO / CALLERIA JR JOSE GALVEZ",
+    "reference": "Jr. Jose Galvez 147 calleria - CORONEL PORTILLO - Ucayali.  RefERENCIA :  a media cuadra de la Av. Centenario"
+  },
+  {
+    "name": "TINGO MARIA CO BUENOS AIRES",
+    "place": "HUANUCO / LEONCIO PRADO / TINGO MARIA CO BUENOS AIRES",
+    "reference": "CALLE ROSARIO CENTRAL, REFERENCIA: SEGUNDA ENTRADA DE BUENOS AIRES, EN LA MISMA ESQUINA"
+  },
+  {
+    "name": "AV ABRAHAM VALDELOMAR CO",
+    "place": "ICA / PISCO / AV ABRAHAM VALDELOMAR CO",
+    "reference": "AV. ABRAHAM VALDELOMAR NRO. PUERTA 965 PISCO - PISCO - ICA, REF. A UNA CDRA. POR LA POSTA SAN MARTIN"
+  },
+  {
+    "name": "HUAYCAN ENTRADA",
+    "place": "LIMA / LIMA / HUAYCAN ENTRADA",
+    "reference": "AV. ANDRÉS AVELINO CÁCERES MZ G LT. 14, 1ER PISO PROG DE VIV. PHILADELFIA DE ATE IV ETAPA, ATE VITARTE - LIMA - LIMA, REF. A UNA CDRA. DE LA CTRA. CENTRAL, PARADERO EL LAVADERO"
+  },
+  {
+    "name": "CALLAO FAUCETT",
+    "place": "CALLAO / CALLAO / CALLAO FAUCETT",
+    "reference": "AV. ELMER FAUCETT N° 492"
+  },
+  {
+    "name": "LA CURVA DE MANCHAY",
+    "place": "LIMA / LIMA / LA CURVA DE MANCHAY",
+    "reference": "AV. PROLONGACIÓN DE LA AV. LA MOLINA MZ. E LOTE 21. AH PAUL POBLET LIND, PACHACAMAC - LIMA, REF. A MEDIA CDRA. DE MI BANCO"
+  },
+  {
+    "name": "AV  LA FONTANA",
+    "place": "LIMA / LIMA / AV  LA FONTANA",
+    "reference": "Av la fontana 440 - La Molina (CC La Rotonda II local 1018)"
+  },
+  {
+    "name": "AV. CESAR VALLEJO",
+    "place": "LIMA / LIMA / AV. CESAR VALLEJO",
+    "reference": "AV. CESAR VALLEJO, MZ. F LT. 1 - SECT. 2, REFERENCIA: FRENTE A ESSALUD, AL COSTADO DEL MERCADO VILLA SUR"
+  },
+  {
+    "name": "SECHURA",
+    "place": "PIURA / SECHURA / SECHURA",
+    "reference": "MZ. B LT. 23 A. H. LOS JARDINES SUR ESTE, SECHURA - SECHURA - PIURA, REF. AL COSTADO DE LA EMPRESA FUNDICION CORONADO SRL"
+  },
+  {
+    "name": "LA UNION",
+    "place": "PIURA / PIURA / LA UNION",
+    "reference": "AV. LIMA N° 590  REFERENCIA : frente a tiendas chancafe"
+  },
+  {
+    "name": "PARAD.  LOS LICENCIADOS",
+    "place": "CALLAO / CALLAO / PARAD.  LOS LICENCIADOS",
+    "reference": "CALLE 19, Mz. J Lt. 26 ZN - URB. Coop. De La Marina, REFERENCIA: AL COSTADO DE LUBRICENTRO PABLITO ROMERO"
+  },
+  {
+    "name": "REP. DE PANAMA",
+    "place": "LIMA / LIMA / REP. DE PANAMA",
+    "reference": "AV REPÚBLICA DE PANAMÁ N° 5115, REFERENCIA: costado del grifo Repsol."
+  },
+  {
+    "name": "HUAMACHUCO",
+    "place": "LA LIBERTAD / SANCHEZ CARRION / HUAMACHUCO",
+    "reference": "JR. SIMON BOLIVAR 763, HUAMACHUCO SANCHEZ CARRION - LA LIBERTAD, REF. ENTRE JR. INDEPENDECIA Y JR. ALFONSO UGARTE"
+  },
+  {
+    "name": "AV VENEZUELA",
+    "place": "LIMA / LIMA / AV VENEZUELA",
+    "reference": "AV. VENEZUELA 1670 - BREÑA, REFERENCIA: AL COSTADO DEL POLICLÍNICO DE BREÑA"
+  },
+  {
+    "name": "HUARAL",
+    "place": "LIMA / HUARAL / HUARAL",
+    "reference": "HABILITACIÓN URBANA FUNDO ESQUIVEL P-21, MZ. C, LT. 5, 6, 8 y 9 DE LA URB. RESID. EL OLIVAR, CON INT. EN AV. CHANCAY, REF. A 1 M. DEL ESTADIO UNIÓN HUARAL, A 3 CDRAS. DE LOS 3 ARCOS INGRESO A HUARAL"
+  },
+  {
+    "name": "HUARAZ CO",
+    "place": "ANCASH / HUARAZ / HUARAZ CO",
+    "reference": "AV. 27 DE NOVIEMBRE CDRA. 20 S/N - VILLON BAJO, REFERENCIA: AL COSTADO DEL GRIFO PRIMAX"
+  },
+  {
+    "name": "CUTERVO",
+    "place": "CAJAMARCA / CUTERVO / CUTERVO",
+    "reference": "av. SALOMÓN VILCHEZ murga  S/N. CDRA 9  REFERENCIA : FRENTE A LA CLÍNICA CUTERVO"
+  },
+  {
+    "name": "AV CIRCUNVALACION NAZCA",
+    "place": "ICA / NAZCA / AV CIRCUNVALACION NAZCA",
+    "reference": "EN LA ESQUINA DE LA AV. CIRCUNVALACIÓN CON CALLE S/N, HOY CALLE LAS MERCEDES S/N NASCA - REFERENCIA: AL LADO DE LA IEP JEAN PIAGET"
+  },
+  {
+    "name": "SAN JUAN DE MARCONA",
+    "place": "ICA / NAZCA / SAN JUAN DE MARCONA",
+    "reference": "A. H. SAN MARTÍN DE PORRES E-28 SAN JUAN DE MARCONA - NAZCA - ICA, REF. ENTRE EL HOTEL SAN MARTIN Y EL MINIMARKET LANA"
+  },
+  {
+    "name": "HUAYLLAY",
+    "place": "PASCO / PASCO / HUAYLLAY",
+    "reference": "calle Lima S/N Barrio Arenales  Huayllay  Pasco   - REFERENCIA: AL COSTADO DEL COLEGIO CESAR VALLEJO"
+  },
+  {
+    "name": "EL ALTO",
+    "place": "PIURA / TALARA / EL ALTO",
+    "reference": "AV. BOLOGNESI O-37 CENTRO EL ALTO, REFERENCIA: A ESPALDAS DE LA MUNICIPALIDAD DE EL ALTO"
+  },
+  {
+    "name": "AGUAS VERDES",
+    "place": "TUMBES / ZARUMILLA / AGUAS VERDES",
+    "reference": "AV TUMBES S/N LOTE 09 MZ 17 , A.H TOMAS ARIZOLA OLAYA , SECTOR II - REFERENCIA : A UNA CUADRA DEL PARQUE TOMAS ARIZOLA."
+  },
+  {
+    "name": "LOS ORGANOS",
+    "place": "PIURA / TALARA / LOS ORGANOS",
+    "reference": "Av. Panamericana Norte P-29 - URB. Cercado zona URBANA,  Referencia al frente de grifo de troncos o grifo San Pedro"
+  },
+  {
+    "name": "ZORRITOS",
+    "place": "TUMBES / CONTRALMIRANTE VILLA / ZORRITOS",
+    "reference": "AV. 28 DE JULIO N° 205 MZ. 14 LT. 04 LOS PINOS TUMBES, CONTRALMIRAANTE VILLAR - ZORRITOS - TUMBES"
+  },
+  {
+    "name": "AMBO",
+    "place": "HUANUCO / AMBO / AMBO",
+    "reference": "AV. LAS AMERICAS 501, REF. AL FRENTE DEL COLEGIO JUAN JOSÉ CRESPO Y CASTILLO"
+  },
+  {
+    "name": "FERREÑAFE",
+    "place": "LAMBAYEQUE / FERRENAFE / FERREÑAFE",
+    "reference": "AV. ANDRÉS A. CÁCERES N°550A, REFERENCIA: AL COSTADO DEL GRIFO PRIMAX"
+  },
+  {
+    "name": "CIUDAD MUNICIPAL",
+    "place": "AREQUIPA / AREQUIPA / CIUDAD MUNICIPAL",
+    "reference": "MZ. A, SUB LT. 2 A, ASENTAMIENTO POBLACIONAL ASOCIACIÓN CENTRO INDUSTRIAL LAS CANTERAS, CERRO COLORADO - AREQUIPA, REF. AL COSTADO DEL GRIFO PRIMAX"
+  },
+  {
+    "name": "PARAMONGA",
+    "place": "LIMA / BARRANCA / PARAMONGA",
+    "reference": "AV. CENTRAL N° 305 MZ. N1 LT. 17, rEF. URB. MIGUEL GRAU"
+  },
+  {
+    "name": "CRUZ DE MOTUPE",
+    "place": "LIMA / LIMA / CRUZ DE MOTUPE",
+    "reference": "AV. FERNANDO WIESSE MZ. Q LOTE 1 AA.HH. CRUZ DE MOTUPE"
+  },
+  {
+    "name": "CD. TALLERES-HUACHIPA",
+    "place": "LIMA / LIMA / CD. TALLERES-HUACHIPA",
+    "reference": "v"
+  },
+  {
+    "name": "AV PUMACAHUA",
+    "place": "AREQUIPA / AREQUIPA / AV PUMACAHUA",
+    "reference": "URB. SAN FELIPE AV PUMACAHUA LT 14, CERRO COLORADO AREQUIPA, ref. A DOS CDRAS. ANTES DE LLEGAR AL METRO CENCOSUD / EX NOTARIA CONCHA REVILLA."
+  },
+  {
+    "name": "HIGUERETA",
+    "place": "LIMA / LIMA / HIGUERETA",
+    "reference": "Calle Barlovento N° 134 REFERENCIA: A 3 CDRAS DE POLVOS ROSADOS, CERCA AL ÓVALO HIGUERETA, surco"
+  },
+  {
+    "name": "MÁNCORA",
+    "place": "PIURA / TALARA / MÁNCORA",
+    "reference": "AV. GRAU NRO. 432 MÁNCORA - TALARA - PIURA, REF. FRENTE AL PARADERO DE AUTOS DE LOS ÓRGANOS EN TODA LA PANAMERICANA NORTE."
+  },
+  {
+    "name": "MALA",
+    "place": "LIMA / CAÑETE / MALA",
+    "reference": "Av. Marchand # 250, distrito de Mala .    referencia:  a unas casas frente a la distribuidora primax gas"
+  },
+  {
+    "name": "MIRAFLORES CHICLAYO",
+    "place": "LAMBAYEQUE / CHICLAYO / MIRAFLORES CHICLAYO",
+    "reference": "AV. PANAMERICANA 975 PP JJ LUIS ALBERTO SANCHEZ, CHICLAYO - CHICLAYO - LAMBAYEQUE, REF. A MEDIA CDRA. DEL OVALO SEÑOR DE SIPAN / AL FRENTE DE DERCO CENTER"
+  },
+  {
+    "name": "SJL- LAS FLORES",
+    "place": "LIMA / LIMA / SJL- LAS FLORES",
+    "reference": "AV. CANTO GRANDE N°. 2570 - URB. GANIMEDES, REFERENCIA: A 3 CDRAS. DE PLAZA VEA"
+  },
+  {
+    "name": "MOTUPE",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / MOTUPE",
+    "reference": "AV. EL MAESTRO N° 447 - MOTUPE - LAMBAYEQUE- LAMBAYEQUE, REF. EN LA CARRETERA FERNANDO BELAUNDE TERRY (PANAMERICANA NORTE) / AL FRENTE DEL GRIFO AVA"
+  },
+  {
+    "name": "CHANCAY",
+    "place": "LIMA / HUARAL / CHANCAY",
+    "reference": "PROLONGACIÓN SAN MARTÍN N°403 CHANCAY - REFERENCIA: A UNA CDRA. DE LA AV. PANAMERICANA NORTE"
+  },
+  {
+    "name": "SATIPO",
+    "place": "JUNIN / SATIPO / SATIPO",
+    "reference": "JR. FRANCISCO IRAZOLA 1077 - JUNÍN , REF. FÁBRICA LA SATIPEÑA"
+  },
+  {
+    "name": "SAN RAMÓN",
+    "place": "JUNIN / CHANCHAMAYO / SAN RAMÓN",
+    "reference": "JR. UCAYALI 102 - SAN RAMÓN, REFERENCIA: FRENTE A LA CAJA HUANCAYO Y EL PARQUE EL AVIÓN"
+  },
+  {
+    "name": "PICHANAKI",
+    "place": "JUNIN / CHANCHAMAYO / PICHANAKI",
+    "reference": "AV. VENUS LT. 20 CIUDAD SATÉLITE - REF. ( A 1 CUADRA Y MEDIA DEL PARQUE DE SATÉLITE)"
+  },
+  {
+    "name": "TARMA",
+    "place": "JUNIN / TARMA / TARMA",
+    "reference": "JR. AMAZONAS NRO. 1164 TARMA - JUNÍN, REF. ENTRE JR. AMAZONAS CON AV. VIENRICH"
+  },
+  {
+    "name": "CHOSICA",
+    "place": "LIMA / LIMA / CHOSICA",
+    "reference": "EL SOL 124 (PARQUE ECHENIQUE) LURIGANCHO - CHOSICA"
+  },
+  {
+    "name": "CHORRILLOS LOS FAISANES",
+    "place": "LIMA / LIMA / CHORRILLOS LOS FAISANES",
+    "reference": "AV. LOS FAISANES 420, REFERENCIA: AL COSTADO DE LA TIENDA JOHN HOLDEN"
+  },
+  {
+    "name": "PRO",
+    "place": "LIMA / LIMA / PRO",
+    "reference": "AV. LOS PRÓCERES MZ. PP2 LT.21, URB. PUERTAS DE PRO - LOS OLIVOS"
+  },
+  {
+    "name": "RIMAC AV. AMANCAES",
+    "place": "LIMA / LIMA / RIMAC AV. AMANCAES",
+    "reference": "Av. Amancaes Nro. 644 urb. Ciudad y campo - Rimac"
+  },
+  {
+    "name": "OVALO DE LA FAMILIA",
+    "place": "ANCASH / SANTA / OVALO DE LA FAMILIA",
+    "reference": "Urbanización José Carlos Mariategui (ex UNICRETO) mz R 3 lt 3 Ref. A una cuadra del óvalo la familia"
+  },
+  {
+    "name": "AV. JAVIER PRADO",
+    "place": "LIMA / LIMA / AV. JAVIER PRADO",
+    "reference": "AV. JAVIER PRADO ESTE N? 1810 - EST. 05 MZ. A - 1 LT. 04"
+  },
+  {
+    "name": "AV. SAN FELIPE",
+    "place": "LIMA / LIMA / AV. SAN FELIPE",
+    "reference": "AV. SAN FELIPE 1195 - JESÚS MARÍA"
+  },
+  {
+    "name": "CALLE TACNA",
+    "place": "LAMBAYEQUE / CHICLAYO / CALLE TACNA",
+    "reference": "CALLE. TACNA N° 1095 -CHICLAYO- CHICLAYO - LAMBAYEQUE, REF. INTERSECCIÓN CON AV. JOSE QUIÑONES / A ESPALDAS DEL SUPERMERCADO MAKRO CHICLAYO"
+  },
+  {
+    "name": "PESQUERO",
+    "place": "LIMA / LIMA / PESQUERO",
+    "reference": "AV. PACHACUTEC N° 3548, REFERENCIA: FRENTE A REAL PLAZA, A 1 CDRA. DE MAYORSA"
+  },
+  {
+    "name": "MAGDALENA DEL MAR",
+    "place": "LIMA / LIMA / MAGDALENA DEL MAR",
+    "reference": "JR. AYACUCHO N° 756, REFERENCIA: A UNA CDRA. DEL MERCADO MODELO DE MAGDALESY A 3 CDRAS. DE LA IGLESIA CÚPULA DE SUCRE"
+  },
+  {
+    "name": "CALLE TAHUANTINSUYO",
+    "place": "LAMBAYEQUE / CHICLAYO / CALLE TAHUANTINSUYO",
+    "reference": "CALLE TAHUANTINSUYO 995 - URB. SAN LORENZO - JOSE LEONARDO ORTIZ - CHICLAYO - LAMBAYEQUE, REF. ENTRE LA CDRA. 2 DE AV. AMÉRICA Y LA CALLE TAHUANTINSUYO/A MEDIA CDRA. DE LA IGLESIA LOS MORMONES"
+  },
+  {
+    "name": "CASMA",
+    "place": "ANCASH / CASMA / CASMA",
+    "reference": "AV. MIGUEL GRAU MZ. D 4 LT. 1 CASMA - ANCASH, REF. FRENTE AL JARDÍN DE INFANCIA"
+  },
+  {
+    "name": "AV. JOSE PARDO",
+    "place": "LIMA / LIMA / AV. JOSE PARDO",
+    "reference": "AV. JOSE PARDO N?533"
+  },
+  {
+    "name": "AV. PRIMAVERA 120",
+    "place": "LIMA / LIMA / AV. PRIMAVERA 120",
+    "reference": "Av. Primavera Nº 120 Tda. A-21 – Urb. Tambo de Monterrico"
+  },
+  {
+    "name": "SMP-AV. PROCERES",
+    "place": "LIMA / LIMA / SMP-AV. PROCERES",
+    "reference": "AV. PRÓCERES N° 588 URB. COVICEM, REF. A 2 CDRAS. DE TOMÁS VALLE"
+  },
+  {
+    "name": "TUMAN",
+    "place": "LAMBAYEQUE / CHICLAYO / TUMAN",
+    "reference": "AV. CHOTA N° 288 SECTOR ACAPULCO, TUMAN - CHICLAYO - LAMBAYEQUE, REF. AL COSTADO DEL RESTAURANT MANOS CHOTANAS"
+  },
+  {
+    "name": "ZAPALLAL",
+    "place": "LIMA / LIMA / ZAPALLAL",
+    "reference": "AV. ANCÓN 678, REF. A LA ESPALDA DEL PRECIO UNO DE FUNDICION"
+  },
+  {
+    "name": "AV. LUIS EGUIGUREN",
+    "place": "PIURA / PIURA / AV. LUIS EGUIGUREN",
+    "reference": "AV. MÁLAGA MZ. A LT.20 INT. 105 PIURA, REF. A MEDIA CUADRA DE HONDA DEL PERU S.A. EN EL CRUCE DE AV. LUIS EGUIGUREN CON SULLANA NORTE "
+  },
+  {
+    "name": "PUENTE SANTA ANITA",
+    "place": "LIMA / LIMA / PUENTE SANTA ANITA",
+    "reference": "Av. Nicolás Ayllón N° 3080  - Ate vitarte"
+  },
+  {
+    "name": "SAN JERONIMO",
+    "place": "CUSCO / CUSCO / SAN JERONIMO",
+    "reference": "CALLE CIRO ALEGRÍA 226 - 224, REF. UNA CUADRA ANTES DEL PARADERO PENAL EN EL CARRIL DE BAJADA"
+  },
+  {
+    "name": "CAJA DISTRIBUCION LIMA",
+    "place": "LIMA / LIMA / CAJA DISTRIBUCION LIMA",
+    "reference": ""
+  },
+  {
+    "name": "AV HERMANOS ANGULO",
+    "place": "LA LIBERTAD / TRUJILLO / AV HERMANOS ANGULO",
+    "reference": "AV. HERMANOS ANGULO 628, TRUJILLO, REF. A ESPALDAS DE LA MUNICIPALIDAD EL PORVENIR"
+  },
+  {
+    "name": "AV ANTONIO LORENA",
+    "place": "CUSCO / CUSCO / AV ANTONIO LORENA",
+    "reference": "Prolongación Av. Antonio Lorena # 140 - Santiago, Cusco, Referencia: al frente del cementerio Almudena"
+  },
+  {
+    "name": "CHILCA HUANCAYO",
+    "place": "JUNIN / HUANCAYO / CHILCA HUANCAYO",
+    "reference": "JR. 28 DE JULIO N° 935, REF. ESQUINA 28 DE JULIO Y SANTOS CHOCANO"
+  },
+  {
+    "name": "AV. LIMA - VMT",
+    "place": "LIMA / LIMA / AV. LIMA - VMT",
+    "reference": "AV. LIMA 2208 JOSÉ GÁLVEZ- VILLA MARÍA  DEL TRIUNFO, REFERENCIA: A DOS CDRAS. DE LA CURVA JOSÉ GÁLVEZ"
+  },
+  {
+    "name": "LOS SAUCES",
+    "place": "LIMA / LIMA / LOS SAUCES",
+    "reference": "AV. SANTA ROSA N°773 MANZANA “A” LOTE 6 URB LOS SAUCES - ATE - REFERENCIA: CRUCE CON LA AV SEPARADORA INDUSTRIAL"
+  },
+  {
+    "name": "AV TACNA",
+    "place": "PIURA / PIURA / AV TACNA",
+    "reference": "AV. TACNA 503 CASTILLA - PIURA, REFERENCIA: FRENTE A UGEL DE CASTILLA"
+  },
+  {
+    "name": "MALVINAS - JR. RICARDO TRENEMAN",
+    "place": "LIMA / LIMA / MALVINAS - JR. RICARDO TRENEMAN",
+    "reference": "JR. RICARDO TRENEMAN N° 920, REFERENCIA: DENTRO DEL LOCAL FARENET"
+  },
+  {
+    "name": "PARQUE INDUSTRIAL CO PIURA FUTURA",
+    "place": "PIURA / PIURA / PARQUE INDUSTRIAL CO PIURA FUTURA",
+    "reference": "URB. PARQUE INDUSTRIAL PIURA FUTURA MZ. G, LT. 1A. 26 DE OCTUBRE - PIURA, REFERENCIA: AL FRENTE DEL GRIFO PETRO PERÚ"
+  },
+  {
+    "name": "ANTA IZCUCHACA",
+    "place": "CUSCO / ANTA / ANTA IZCUCHACA",
+    "reference": "PARQUE DEL CARMEN LT. 1 MZ. B 2, ANTA - ANTA - CUSCO, REF. PARADERO CARMEN, PISTA PRINCIPAL IZCUCHACA"
+  },
+  {
+    "name": "CALLE BERLIN",
+    "place": "LIMA / LIMA / CALLE BERLIN",
+    "reference": "Calle Berlín 219  - Miraflores"
+  },
+  {
+    "name": "JUANJUÍ FERNANDO BELAUNDE TERRY CO",
+    "place": "SAN MARTIN / MARISCAL CACERES / JUANJUÍ FERNANDO BELAUNDE TERRY CO",
+    "reference": "CARRETERA FERNANDO TERRY KM. 1 S/N REFERENCIA: AL COSTADO DE PARADERO DE AUTOS HUALLAGA EXPRESS"
+  },
+  {
+    "name": "AV. CANADA",
+    "place": "LIMA / LIMA / AV. CANADA",
+    "reference": "AV. CANADÁ 1603, REFERENCIA: ENTRE AV. CANADÁ CON AV. AVIACIÓN"
+  },
+  {
+    "name": "YURIMAGUAS",
+    "place": "LORETO / ALTO AMAZONAS / YURIMAGUAS",
+    "reference": "CALLE JORGE CHÁVEZ N° 300, REFERENCIA: ESQUINA CON PROGRESO, AL COSTADO DE ENAPU"
+  },
+  {
+    "name": "AREA SHALOM EMPRESAS",
+    "place": "LIMA / LIMA / AREA SHALOM EMPRESAS",
+    "reference": "direccion"
+  },
+  {
+    "name": "CHINCHERO",
+    "place": "CUSCO / URUBAMBA / CHINCHERO",
+    "reference": "AV. MATEO PUMACAHUA S/N, CHINCHERO - URUBAMBA - CUSCO, ref AL COSTADO DE LA CAJA CUSCO / EN LA MISMA CARRETERA A URUBAMBA"
+  },
+  {
+    "name": "QUILLABAMBA",
+    "place": "CUSCO / LA CONVENCION / QUILLABAMBA",
+    "reference": "JR. PUNO LT. 10 Y 11 MZ. G URB. SANTA ANA, CUSCO - LA CONVENCION - SANTA ANA, REF. A MEDIA CDRA.l DEL ESTADIO MUNICIPAL DE QUILLABAMBA / CRUCE CON PROLONGACION Jr. MARTIN PIO CONCHA"
+  },
+  {
+    "name": "AVIACION 2819",
+    "place": "LIMA / LIMA / AVIACION 2819",
+    "reference": "AV. AVIACIÓN 2819, URB. SAN BORJA SUR, REFERENCIA: AL FRENTE DE BEMBOS"
+  },
+  {
+    "name": "LA OROYA",
+    "place": "JUNIN / YAULI / LA OROYA",
+    "reference": "AV. ARÉVALO S/N (CARRETERA CENTRAL) - ANEXO EL TAMBO - SANTA ROSA DE SACCO"
+  },
+  {
+    "name": "PLAZA NORTE S. EXPRESS",
+    "place": "LIMA / LIMA / PLAZA NORTE S. EXPRESS",
+    "reference": "Av. GERARDO UNGER NRO. 6917 INT. LB 19"
+  },
+  {
+    "name": "TACALA",
+    "place": "PIURA / PIURA / TACALA",
+    "reference": "CARR. PANAMERICANA A-2 AH. ALMIRANTE MIGUEL GRAU I ETAPA, CASTILLA - PIURA - PIURA, REF. AL COSTADO DE CERÁMICAS SAN LORENZO"
+  },
+  {
+    "name": "MARIA AUXILIADORA",
+    "place": "LIMA / LIMA / MARIA AUXILIADORA",
+    "reference": "AV. LOS HÉROES 1140 - SJM, REFERENCIA: UNA CDRA. ANTES DEL HOSPITAL MARÍA AUXILIADORA"
+  },
+  {
+    "name": "AV HUANDOY CON MARAÑON",
+    "place": "LIMA / LIMA / AV HUANDOY CON MARAÑON",
+    "reference": "AV. PRÓCERES, MZ. 3, LT. 23 A.H. LAURA CALLER - LOS OLIVOS, REFERENCIA: CRUCE ENTRE AV. HUANDOY Y MARAÑÓN"
+  },
+  {
+    "name": "PUERTO YURIMAGUAS",
+    "place": "LORETO / ALTO AMAZONAS / PUERTO YURIMAGUAS",
+    "reference": "Shalom"
+  },
+  {
+    "name": "PLAZA NORTE ENTREGAS",
+    "place": "LIMA / LIMA / PLAZA NORTE ENTREGAS",
+    "reference": "Av. GERARDO UNGER NRO. 6917 INT. LB 19"
+  },
+  {
+    "name": "BARRIO STA ANA CO",
+    "place": "HUANCAVELICA / HUANCAVELICA / BARRIO STA ANA CO",
+    "reference": "AV. UNIVERSITARIA 1003 - HUANCAVELICA, REF. A 1 CDRA. DE LA ESCUELA SANTA ANA Y A 3 CDRAS. DEL PUENTE DEL EJÉRCITO (BARRIO SANTA ANA)"
+  },
+  {
+    "name": "AV PACHACUTEC",
+    "place": "CUSCO / CUSCO / AV PACHACUTEC",
+    "reference": "AV. PACHACUTEC 429 - WANCHAQ, REF. A 100 MTRS. DE LA PISCINA WANCHAQ"
+  },
+  {
+    "name": "VILLA SAN FRANCISCO",
+    "place": "TACNA / TACNA / VILLA SAN FRANCISCO",
+    "reference": "ASOC. VILLA SAN FRANCISCO MZ. 94 LT. 22, REFERENCIA: CERCA A CAJA CUSCO"
+  },
+  {
+    "name": "AV. PRIMAVERA 1314",
+    "place": "LIMA / LIMA / AV. PRIMAVERA 1314",
+    "reference": "AV. PRIMAVERA N° 1314, URB. C.C. MONTERRICO - SURCO, REFERENCIA: CRUCE JR. EL POLO"
+  },
+  {
+    "name": "AVIACION 2999",
+    "place": "LIMA / LIMA / AVIACION 2999",
+    "reference": "AV. AVIACIÓN 2999, REFERENCIA: A 1 CDRA. DE LA ESTACIÓN DEL TREN SAN BORJA SUR"
+  },
+  {
+    "name": "RIV. NAVARRETE",
+    "place": "LIMA / LIMA / RIV. NAVARRETE",
+    "reference": "AV. RIVERA NAVARRETE 465, REFERENCIA: CRUCE DE JAVIER PRADO CON RIVERA NAVARRETE"
+  },
+  {
+    "name": "CORPAC",
+    "place": "LIMA / LIMA / CORPAC",
+    "reference": "CALLE 21 785, REFERENCIA: AL COSTADO DEL MINISTERIO DEL INTERIOR"
+  },
+  {
+    "name": "AV. ARENALES",
+    "place": "LIMA / LIMA / AV. ARENALES",
+    "reference": "AV. ARENALES 391, REFERENCIA: A 2 CDRAS. DE AV. 28 DE JULIO A LA ESPALDA DE LA UTP"
+  },
+  {
+    "name": "AV. ARAMBURU",
+    "place": "LIMA / LIMA / AV. ARAMBURU",
+    "reference": "AV. ARAMBURÚ 808, REFERENCIA: A 2 CDRAS. DE LA AV. PANAMÁ"
+  },
+  {
+    "name": "VILLA RICA",
+    "place": "PASCO / OXAPAMPA / VILLA RICA",
+    "reference": "AV. LEOPOLDO KRAUSSE N° 442 VILLA RICA - OXAPAMPA - PASCO, REF. ENTRE EL JR. POZUZO Y JR. COOPERATIVA, AL COSTADO DE LA NOTARÍA GUERRA Y A 20 METROS DE LA PLAZA PRINCIPAL"
+  },
+  {
+    "name": "MOLLENDO CO",
+    "place": "AREQUIPA / ISLAY / MOLLENDO CO",
+    "reference": "MARISCAL CASTILLA 472 –A, AREQUIPA - ISLAY - MOLLENDO, REF. AL COSTADO DE CEI “MI CARRUSEL”"
+  },
+  {
+    "name": "CALLE LAS BEGONIAS",
+    "place": "LIMA / LIMA / CALLE LAS BEGONIAS",
+    "reference": "CALLE LAS BEGONIAS 774 - SAN ISIDRO"
+  },
+  {
+    "name": "TUCUME",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / TUCUME",
+    "reference": "CALLE FEDERICO VILLARREAL NRO. 1157, REF. FRENTE AL MOLINO SANTAMARÍA"
+  },
+  {
+    "name": "AV  VIGIL",
+    "place": "TACNA / TACNA / AV  VIGIL",
+    "reference": "AV. VIGIL 1636, REFERENCIA: A UNA CDRA. DE LA PLAZA GRAU"
+  },
+  {
+    "name": "CAMANA",
+    "place": "AREQUIPA / CAMANA / CAMANA",
+    "reference": "CALLE AGUSTÍN GAMARRA N° 451, CERCADO CAMANÁ, REFERENCIA: AL FRENTE DEL DELIVEY CASERITOS"
+  },
+  {
+    "name": "CALLE YARABAMBA",
+    "place": "AREQUIPA / CAYLLOMA / CALLE YARABAMBA",
+    "reference": "CALLE YARABAMBA, MZ. Y LT 7. VILLA EL PEDREGAL, MAJES - CAYLLOMA - AREQUIPA, REF. A MEDIA CDRA. DE LA NOTARIA TERÁN BEJAR"
+  },
+  {
+    "name": "SAN AGUSTIN DE CAJAS",
+    "place": "JUNIN / HUANCAYO / SAN AGUSTIN DE CAJAS",
+    "reference": "CARRETERA CENTRAL KM 7.5 S/N SAN AGUSTIN – HUANCAYO – JUNÍN, REF. FRENTE A LA ENVASADORA SOLGAS"
+  },
+  {
+    "name": "AV  TUPAC AMARU KM. 19",
+    "place": "LIMA / LIMA / AV  TUPAC AMARU KM. 19",
+    "reference": "JR. LOS SAUCES MZ. E LOTE 9 DEL AA. HH. VILLA MANUEL ESCORZA, REF. ENTRE PROLONGACION AV. PRIMAVERA Y JR. LOS SAUCES ALTURA DE AV. TUPAC AMARU KM. 19"
+  },
+  {
+    "name": "ALTO TRUJILLO",
+    "place": "LA LIBERTAD / TRUJILLO / ALTO TRUJILLO",
+    "reference": "AV. PROLONGACIÓN 12 DE NOVIEMBRE, MZ. Q, LT. 25, REFERENCIA: A MEDIA CDRA. DE LA COMISARÍA ALTO TRUJILLO"
+  },
+  {
+    "name": "SULLANA CO ZONA INDUSTRIAL",
+    "place": "PIURA / SULLANA / SULLANA CO ZONA INDUSTRIAL",
+    "reference": "CTRA. SULLANA Nº S/N MZ. K, LT. 06 - ZONA INDUSTRIAL MUNICIPAL, REFERENCIA: AL COSTADO DEL HOTEL COCO SUITE"
+  },
+  {
+    "name": "AV. CARLOS IZAGUIRRE CUADRA 23",
+    "place": "LIMA / LIMA / AV. CARLOS IZAGUIRRE CUADRA 23",
+    "reference": "AV. CARLOS IZAGUIRRE SUB LT. 8, MZ. C - ASOC. DE VIV. LOS NISPEROS, REFERENCIA: ENTRE AV. 12 DE OCTUBRE Y AV. SANTA ROSA"
+  },
+  {
+    "name": "ILO PUERTO",
+    "place": "MOQUEGUA / ILO / ILO PUERTO",
+    "reference": "JR. CALLAO PROLONGACIÓN MZ. N, LT. 19 - A, REFERENCIA: A MEDIA CDRA. DE LA COOPERATIVA CUAJONE"
+  },
+  {
+    "name": "AV LARCO",
+    "place": "LA LIBERTAD / TRUJILLO / AV LARCO",
+    "reference": "AV. LARCO 865, TRUJILLO - TRUJILLO - LA LIBERTAD, REF.  MZ X LT 28 CUI SAN ANDRES V ETAPA TERCER SECTOR"
+  },
+  {
+    "name": "PUCALLPA CO FEDERICO BASADRE",
+    "place": "UCAYALI / CORONEL PORTILLO / PUCALLPA CO FEDERICO BASADRE",
+    "reference": "CARRETERA FEDERICO BASADRE KM 6.800 YARINACOCHA - CORONEL PORTILLO - UCAYALI, REF. Entrada del Asentamiento Humano Alan Sisley/Al costado de la empresa JVJ Service Oriente SAC"
+  },
+  {
+    "name": "YARINACOCHA CENTRO",
+    "place": "UCAYALI / CORONEL PORTILLO / YARINACOCHA CENTRO",
+    "reference": "JR. TUPAC AMARU, MZ. 50, LT. 07, REFERENCIA: A ESPALDA DE MAESTRANZA DE YARINACOCHA"
+  },
+  {
+    "name": "CELENDIN",
+    "place": "CAJAMARCA / CELENDIN / CELENDIN",
+    "reference": "JR. PEDRO ORTIZ MONTOYA 148, REFERENCIA: ESQUINA CON AV. AMAZONAS"
+  },
+  {
+    "name": "TARAPOTO LA BANDA DE SHILCAYO",
+    "place": "SAN MARTIN / SAN MARTIN / TARAPOTO LA BANDA DE SHILCAYO",
+    "reference": "JR. PERÚ N°186, REFERENCIA: A 2 CDRS. DE LA PLAZA DE LA BANDA DE SHILCAYO"
+  },
+  {
+    "name": "TARAPOTO JR. SARGENTO LOREZ",
+    "place": "SAN MARTIN / SAN MARTIN / TARAPOTO JR. SARGENTO LOREZ",
+    "reference": "JR. SARGENTO LOREZ N° 264, MORALES - SAN MARTIN, REF. A UNA CDRA. Y MEDIA DE LA PLAZA DE MORALES, FRENTE A VULCANO GAS"
+  },
+  {
+    "name": "JR LEONCIO PRADO",
+    "place": "SAN MARTIN / SAN MARTIN / JR LEONCIO PRADO",
+    "reference": "JR. LEONCIO PRADO N° 1175, REFERENCIA: A UNA CUADRA DEL INSTITUTO MARÍA PARADO DE BELLIDO"
+  },
+  {
+    "name": "LAS DELICIAS DE VILLA",
+    "place": "LIMA / LIMA / LAS DELICIAS DE VILLA",
+    "reference": "AV. 12 DE OCTUBRE MZ. A - 03, LT. 02, URB. ARIA - LAS DELICIAS DE VILLA, REF. A DOS CUADRAS DE LA AV. DEFENSORES DEL MORRO (EX AV. HUAYLAS)"
+  },
+  {
+    "name": "CARHUAZ",
+    "place": "ANCASH / CARHUAZ / CARHUAZ",
+    "reference": "CARRETERA CENTRAL 00S/N CENT CARHUAZ - CARHUAZ - ÁNCASH, ref. MEDIA CUADRA ANTES DE LLEGAR AL ESTADIO MUNICIPAL CAPITAN CARLOS MEJIA"
+  },
+  {
+    "name": "TINGO MARÍA - LEONCIO PRADO",
+    "place": "HUANUCO / LEONCIO PRADO / TINGO MARÍA - LEONCIO PRADO",
+    "reference": "AV. TITO JAIME 914, RUPA RUPA-  LEONCIO PRADO - HUANUCO, REF. A DOS CDRAS. DE LA PLAZA DE ARMAS LEONCIO PARDO"
+  },
+  {
+    "name": "CHACHAPOYAS JR GRAU",
+    "place": "AMAZONAS / CHACHAPOYAS / CHACHAPOYAS JR GRAU",
+    "reference": "JR. GRAU 270, REF. JUNTO A LA AGENCIA DE VIAJES MONTEVERDE"
+  },
+  {
+    "name": "PICOTA",
+    "place": "SAN MARTIN / PICOTA / PICOTA",
+    "reference": "AV. FERNANDO BELAUNDE TERRY LOTE 2B PICOTA - PICOTA - SAN MARTIN. REF, A UNA CDRA. DE LA COMISARIA DE PICOTA SALIDA A BELLAVISTA"
+  },
+  {
+    "name": "YUNGAY",
+    "place": "ANCASH / YUNGAY / YUNGAY",
+    "reference": "JR. INDUSTRIAL, LTE. 14 - YUNGAY, REF. AL COSTADO DEL TERMINAL TERRESTRE Y LA TAPICERIA FREDY"
+  },
+  {
+    "name": "PUERTO IQUITOS",
+    "place": "LORETO / MAYNAS / PUERTO IQUITOS",
+    "reference": "......."
+  },
+  {
+    "name": "HUACHIPA CO",
+    "place": "LIMA / LIMA / HUACHIPA CO",
+    "reference": "HUACHIPA ESTE - MANZANA A18 LOTE 1, 2, 3 CALLE B, CALLE 08, CALLE A, REF. AL COSTADO DE INDUSTRIAS ELÉCTRICAS KBA"
+  },
+  {
+    "name": "ILAVE",
+    "place": "PUNO / EL COLLAO / ILAVE",
+    "reference": "JR. BOLOGNESI NRO. 866 BARRIO CRUZANI, EL COLLAO - PUNO, REF. A UNA CUADRA DEL COLISEO Y DEL CEMENTERIO DE ILAVE"
+  },
+  {
+    "name": "SANTA ROSA",
+    "place": "LIMA / LIMA / SANTA ROSA",
+    "reference": "MZ. L 23 URB. COOVITIOMAR,  - SANTA ROSA - LIMA, REF. CRUCE DE INGRESO A SANTA ROSA Y/O AL COSTADO DE IMAGEN DE SANTA ROSA"
+  },
+  {
+    "name": "SAN MARCOS",
+    "place": "CAJAMARCA / SAN MARCOS / SAN MARCOS",
+    "reference": "JR. ADOLFO AMORIN BUENO N° 140 SAN MARCOS – CAJAMARCA, REF. AL  FRENTE DE LA PLAZA AGROPECUARIA"
+  },
+  {
+    "name": "BELLAVISTA CALLAO",
+    "place": "CALLAO / CALLAO / BELLAVISTA CALLAO",
+    "reference": "AV. ELMER FAUCETT 1641 - URB. JARDINES VIRÚ MZ. B LT 46, BELLAVISTA - CALLAO, REF. A 2 CUADRAS DEL CRUCE DE AV. FAUCETT CON AV. VENEZUELA"
+  },
+  {
+    "name": "JESUS MARIA",
+    "place": "LIMA / LIMA / JESUS MARIA",
+    "reference": "AV. MARISCAL LUZURIAGA 584-586 JESÚS MARÍA - LIMA, REF. A CUADRA Y MEDIA DEL PARQUE SAN JOSÉ, PARALELO A LA AV. MELLO FRANCO"
+  },
+  {
+    "name": "TUMBES PUYANGO",
+    "place": "TUMBES / TUMBES / TUMBES PUYANGO",
+    "reference": "URB. ANDRÉS ARAUJO MORÁN MZ. 28-A LOTE 03 CALLE JACINTO SEMINARIO, REF. AL COSTADO DEL MERCADO PUYANGO"
+  },
+  {
+    "name": "SANTA CLARA",
+    "place": "LIMA / LIMA / SANTA CLARA",
+    "reference": "Av. Pedro Ruíz Gallo Mz. H Lt. 3. Asoc. Viv. Villa San Luis, Santa Clara - Ate Vitarte - LimaRef: Entre el Real Plaza y la UTP Santa Clara"
+  },
+  {
+    "name": "ÓVALO MARIÁTEGUI",
+    "place": "LIMA / LIMA / ÓVALO MARIÁTEGUI",
+    "reference": "AV. PASTOR SEVILLA SECT. 6 - GP 7 - MZ. A - LOTE 05  - V.E.S., REF. A 2 CUADRAS DEL ÓVALO MARIÁTEGUI CON 3 DE OCTUBRE"
+  },
+  {
+    "name": "01 DE MAYO",
+    "place": "LIMA / LIMA / 01 DE MAYO",
+    "reference": "AV. 01DE MAYO 1 SECT GP 23 - A MZ N LOTE 13 - V.E.S., REF. AV. PASTOR SEVILLA CON AV. 1 DE MAYO A 2 CUADRAS DEL HOSPITAL DE LA SOLIDARIDAD POR LA RUTA C"
+  },
+  {
+    "name": "AV. CANEVARO",
+    "place": "LIMA / LIMA / AV. CANEVARO",
+    "reference": "AV. CANEVARO 336 - A, REF. A 2 CUADRAS DE LA AV. VARGAS MACHUGA  Y A UNA CUADRA DE LA FISCALÍA PROVINCIAL PENAL DE S.J.M."
+  },
+  {
+    "name": "AV. VILLA MARIA",
+    "place": "LIMA / LIMA / AV. VILLA MARIA",
+    "reference": "AV VILLA MARIA  MZ. G12 LT. 9 - B PS 1 SECT. VILLA MARIA DEL TRIUNFO, REF. AV. VILLA MARIA  A 2 CUADRAS DE LA MUNICIPALIDAD DE VMT Y AL COSTADO DE ESSALUD"
+  },
+  {
+    "name": "AV MIGUEL GRAU  PAMPLONA ALTA",
+    "place": "LIMA / LIMA / AV MIGUEL GRAU  PAMPLONA ALTA",
+    "reference": "AV. ALMIRANTE MIGUEL GRAU MZ. Y3 LT. 29,PAMPLONA ALTA - SAN JUAN DE MIRAFLORES - LIMA, REF. A MEDIA CDRA. DEL MERCADO OLLANTAY PAMPLONAALTA"
+  },
+  {
+    "name": "SURCO MATEO PUMACAHUA",
+    "place": "LIMA / LIMA / SURCO MATEO PUMACAHUA",
+    "reference": "AV. SAN JUAN MZ A LOTE 01 MATEO PUMACAHUA - SURCO, REF. A 2 CUADRAS DE LA AV. TUPAC AMARU ENTRE EL LÍMITE DE CHORRILLOS Y SURCO"
+  },
+  {
+    "name": "AV. TUPAC AMARU KM. 23.5",
+    "place": "LIMA / LIMA / AV. TUPAC AMARU KM. 23.5",
+    "reference": "AV. TÚPAC AMARU KM. 23.5 - CARABAYLLO, REF. FRENTE A LA IGLESIA DE MORMONES - A UNA CDRA. DEL ÚLTIMO PARADERO DEL RÁPIDO"
+  },
+  {
+    "name": "GERMÁN AGUIRRE",
+    "place": "LIMA / LIMA / GERMÁN AGUIRRE",
+    "reference": "AV. GERMAN AGUIRRE UGARTE 649 URB. SAN GERMAN - SAN MARTIN DE PORRES, REF. A LA ALTURA DE LA CUADRA 6 DE LA AV. GERMAN AGUIRRE Y A 3 CUADRAS DE AV. TOMAS VALLE"
+  },
+  {
+    "name": "CONGATA",
+    "place": "AREQUIPA / AREQUIPA / CONGATA",
+    "reference": "URB. EL CARMEN M. E. LT. 1 CONGATA DEL DISTRITO UCHUMAYO  - AREQUIPA, REF. A DOS CDRAS. DE LA COMISARIA CONGATA"
+  },
+  {
+    "name": "HUAURA",
+    "place": "LIMA / HUAURA / HUAURA",
+    "reference": "AV. LAS MALVINAS MZ. C LOTE 16 URB. EL ROSARIO SUR HUAURA, REF. A ESPALDAS DE LA PLAZA DE ARMAS, A 1 CDRA. DE LA CALLE LOS ALAMOS"
+  },
+  {
+    "name": "AGUAYTÍA",
+    "place": "UCAYALI / PADRE ABAD / AGUAYTÍA",
+    "reference": "U. VECINAL BARRIO UNIDO MZ. 1 LT. 2, PADRE ABAD - UCAYALI, REF. AL COSTADO DEL TERMINAL TERRESTRE DE AGUAYTIA"
+  },
+  {
+    "name": "LAS MERCEDES",
+    "place": "PUNO / SAN ROMAN / LAS MERCEDES",
+    "reference": "JR. PORVENIR N° 228 URB. LAS MERCEDES, SAN ROMAN - PUNO, REF. A UNA CDRA. DE LA AV. CIRCUNVALACION OESTE - A UNA CDRA. DEL TERMINAL LAS MERCEDES"
+  },
+  {
+    "name": "TUMBES CO - PANAMERICANA NORTE KM 2360",
+    "place": "TUMBES / TUMBES / TUMBES CO - PANAMERICANA NORTE KM 2360",
+    "reference": "AV. PANAMERICANA NORTE S/N VILLA PRIMAVERA - TUMBES. REF. PASANDO SENATI FRENTE A AGRIPAC"
+  },
+  {
+    "name": "TERMINAL LOS ANDES",
+    "place": "JUNIN / HUANCAYO / TERMINAL LOS ANDES",
+    "reference": "AV. FERROCARRIL S/N - HUANCAYO - COUNTER N° 14, REF. TERMINAL TERRESTRE LOS ANDES, FRENTE AL OPEN PLAZA"
+  },
+  {
+    "name": "ICA SANTIAGO",
+    "place": "ICA / ICA / ICA SANTIAGO",
+    "reference": "CENTRO POBLADO SANTIAGO MZ. E, LT. 01 SECTOR II SANTIAGO - ICA - ICA, REF. FRENTE A LA COMISARIA DE SANTIAGO"
+  },
+  {
+    "name": "CANTO GRANDE",
+    "place": "LIMA / LIMA / CANTO GRANDE",
+    "reference": "CALLE SAN MARTIN CON AV. COMERCIAL NORTE 189 - SAN JUAN DE LURIGANCHO, REF. A 1/2 CUADRA DE LA AV 6 DE CANTO GRANDE - AL COSTADO DEL PLAY PARK (PARQUE BOLOGNESI)"
+  },
+  {
+    "name": "AUCAYACU",
+    "place": "HUANUCO / LEONCIO PRADO / AUCAYACU",
+    "reference": "JR. CHICLAYO 247 0C-02 CENT AUCAYU, LEONCIO PRADO, HUÁNUCO, REF. ATRÁS DEL ESTADIO MUNICIPAL"
+  },
+  {
+    "name": "ATAHUALPA",
+    "place": "LA LIBERTAD / TRUJILLO / ATAHUALPA",
+    "reference": "CALLE ATAHUALPA 481 – TRUJILLO – LA LIBERTAD, REF. A 1/2 CDRA DE LA AV LOS INCAS"
+  },
+  {
+    "name": "CIUDAD DE DIOS",
+    "place": "LA LIBERTAD / PACASMAYO / CIUDAD DE DIOS",
+    "reference": "MZ. A LT. 01 CPM CIUDAD DE DIOS - SEC. LOS ÁNGELES – GUADALUPE – LA LIBERTAD, REF. AL COSTADO DEL MOLINO SAMÁN Y A DOS CUADRAS DEL CRUCE A CAJAMARCA"
+  },
+  {
+    "name": "LOS FRESNOS",
+    "place": "LIMA / LIMA / LOS FRESNOS",
+    "reference": "AV. LOS FRESNOS 1305 TIENDA 2 - URB. PORTADA DEL SOL I ETAPA - LA MOLINA - LIMA, REF. A 3 CDRAS. DEL ÓVALO DE LOS CÓNDORES"
+  },
+  {
+    "name": "AV FERNANDO BELAUNDE",
+    "place": "SAN MARTIN / TOCACHE / AV FERNANDO BELAUNDE",
+    "reference": "AV. FERNANDO BELAUNDE C-09 MZ H6 (21), LT. 04, CERCADO DE TOCACHE, REF. FRENTE AL MERCADILLO DE TOCACHE"
+  },
+  {
+    "name": "AV. PRINCIPAL",
+    "place": "LIMA / LIMA / AV. PRINCIPAL",
+    "reference": "LT. 12 MZ. G, AV. PRINCIPAL 995 (EX AV. UNO) URB. LOS SAUCES 2DA ETAPA, SURQUILLO, REF. CRUCE CON A. MANUEL VILLARÁN"
+  },
+  {
+    "name": "AV. ALFREDO BENAVIDES",
+    "place": "LIMA / LIMA / AV. ALFREDO BENAVIDES",
+    "reference": "AV. ALFREDO BENAVIDES 1851 - MIRAFLORES, REF. AL COSTADO DEL BEMBOS AURORA BENAVIDES"
+  },
+  {
+    "name": "AV. COMANDANTE ESPINAR",
+    "place": "LIMA / LIMA / AV. COMANDANTE ESPINAR",
+    "reference": "AV. COMANDANTE ESPINAR 330-MIRAFLORES, REF. ENTRE EL CRUCE DE CALLE ENRIQUE PALACIOS Y LA AV. COMANDANTE ESPINAR"
+  },
+  {
+    "name": "CALLE MIGUEL DASSO",
+    "place": "LIMA / LIMA / CALLE MIGUEL DASSO",
+    "reference": "CALLE MIGUEL DASSO 126 - SAN ISIDRO, REF. EN EL CRUCE DE CALLE LEONIDAS YEROVI Y CALLE MIGUEL DASSO"
+  },
+  {
+    "name": "AV. TOMÁS MARSANO",
+    "place": "LIMA / LIMA / AV. TOMÁS MARSANO",
+    "reference": "AV. TOMÁS MARSANO 3767 - SANTIAGO DE SURCO, REF. A MEDIA CUADRA DE LA ESTACIÓN DE TREN AYACUCHO"
+  },
+  {
+    "name": "JESUS NAZARENO",
+    "place": "AYACUCHO / HUAMANGA / JESUS NAZARENO",
+    "reference": "JR. JOSÉ MARÍA EGUREN 451 - JESUS NAZARENO - HUAMANGA - AYACUCHO, REF. CRUCE CON JR. MARIANO MELGAR"
+  },
+  {
+    "name": "HUACHO AV  INDACOCHEA",
+    "place": "LIMA / HUAURA / HUACHO AV  INDACOCHEA",
+    "reference": "AV. MERCEDES INDACOCHEA 1276 HUACHO - HUAURA - LIMA, REF. INTERSECCIÓN CON PEDRO RUIZ GALLO, A 2 CDRAS. DE LA UNIVERSIDAD NACIONAL JOSÉ FAUSTINO SÁNCHEZ CARRIÓN"
+  },
+  {
+    "name": "CUSCO CALCA",
+    "place": "CUSCO / CALCA / CUSCO CALCA",
+    "reference": "AV. VILCANOTA MZ. A LT 4 CALCA - CUSCO, REF. FRENTE AL GRIFO PETRO PERÚ O EL ÓVALO PUMA - ENTRADA DE CALCA"
+  },
+  {
+    "name": "AV  QUILCA",
+    "place": "CALLAO / CALLAO / AV  QUILCA",
+    "reference": "UNIDAD INMOBILIARIA N° 1, AV. QUILCA MZ. G SUB LT. 11C, URB. AEROPUERTO – SEGUNDO SECTOR - CALLAO, REF. CRUCE CON CALLE 1, FRENTE A LA IGLESIA DE TESTIGOS DE JEHOVÁ"
+  },
+  {
+    "name": "LIMA AV TINGO MARÍA",
+    "place": "LIMA / LIMA / LIMA AV TINGO MARÍA",
+    "reference": "AV. TINGO MARÍA N°1252-A - CERCADO DE LIMA - LIMA, REF. A MEDIA CDRA. DEL CRUCE CON JR. GRAL. ORBEGOSO"
+  },
+  {
+    "name": "MEGAPLAZA CHORRILLOS",
+    "place": "LIMA / LIMA / MEGAPLAZA CHORRILLOS",
+    "reference": "AV. ALAMEDA SUR 5, CHORRILLOS 15067, REF. CRUCE DE AV. ALAMEDA SUR CONAV. ALAMEDA SAN MARCOS"
+  },
+  {
+    "name": "RIMAC GUARDIA REPUBLICANA CDRA. 9",
+    "place": "LIMA / LIMA / RIMAC GUARDIA REPUBLICANA CDRA. 9",
+    "reference": "SECCIÓN INMOBILIARIA N°2 – PRIMER PISO LT. 11 DE LA MZ. 2, URB. VILLACAMPA RIMAC, REF. A UNA CDRA. DEL CRUCE CON AV. FELIPE ARANCIBIA"
+  },
+  {
+    "name": "CHINCHA PUEBLO NUEVO",
+    "place": "ICA / CHINCHA / CHINCHA PUEBLO NUEVO",
+    "reference": "AA. HH. LOS ALAMOS, CALLE LOS LAURELES MZ. 17 LT. 11- A, REF. A 2 CDRAS. DE LA POSTA LOS ÁLAMOS"
+  },
+  {
+    "name": "CAMPOY",
+    "place": "LIMA / LIMA / CAMPOY",
+    "reference": "AV. MALECÓN CHECA MZ. B LT. 7, URB. CAMPOY, SAN JUAN DE LURIGANCHO, REF. A 1 CDRA. DEL CRUCE DE AV. MALECÓN CHECA CON AV. SAN MARTÍN"
+  },
+  {
+    "name": "AV. HUAROCHIRÍ",
+    "place": "LIMA / LIMA / AV. HUAROCHIRÍ",
+    "reference": "AV. HUAROCHIRÍ MZ. E1 LT. 03 - URB. LOS CEDROS SANTA ANITA, REF. CRUCE DE AV. HUAROCHIRÍ CON AV. SANTA ANA"
+  },
+  {
+    "name": "MAZAMARI",
+    "place": "JUNIN / SATIPO / MAZAMARI",
+    "reference": "JR. JORGE CHAVEZ NRO 144 LT. 8A JUNÍN - SATIPO– MAZAMARI, REF. CERCA A LA VÍA PRINCIPAL, AL COSTADO DEL HOSPEDAJE LUJÁN 1ER PISO"
+  },
+  {
+    "name": "AYAVIRI",
+    "place": "PUNO / MELGAR / AYAVIRI",
+    "reference": "JR. SANTA ROSA PROLONGACIÓN S/N MAGISTERIAL - PUNO - MELGAR - AYAVIRI, REF. A 50 METROS DEL ÓVALO, SALIDA A JULIACA"
+  },
+  {
+    "name": "AV. DOMINICOS CDRA 14",
+    "place": "LIMA / LIMA / AV. DOMINICOS CDRA 14",
+    "reference": "AV. LOS DOMINICOS 1460 - URB. LOS CIPRESES MZ. Z LT. 4 - SAN MARTÍN DE PORRES, REF. A UNA CDRA. DEL CRUCE CON AV. SANTA ROSA AL LADO DEL MERCADO LOS CIPRESES"
+  },
+  {
+    "name": "ALMACENES BSF",
+    "place": "LIMA / LIMA / ALMACENES BSF",
+    "reference": "CAR. AUTOPISTA PANAMERICANA SUR N° 2001 (KM. 38) INTERIOR H02A - PUNTA HERMOSA"
+  },
+  {
+    "name": "AV. ANGAMOS",
+    "place": "LIMA / LIMA / AV. ANGAMOS",
+    "reference": "AV. ANGAMOS ESTE 2521 (EX AV. PRIMAVERA) - CONJUNTO HABITACIONAL LIMATAMBO -  SAN BORJA. REF. CERCA AL CRUCE DE AV. ANGAMOS ESTE CON AV. PRINCIPAL"
+  },
+  {
+    "name": "IQUITOS CO JR. BOLOGNESI",
+    "place": "LORETO / MAYNAS / IQUITOS CO JR. BOLOGNESI",
+    "reference": "JR. FRANCISCO BOLOGNESI #941 CON JR. BERMÚDEZ, IQUITOS - MAYNAS - LORETO, REF. FRENTE A LA UNIVERSIDAD NACIONAL DE LA AMAZONIA PERUANA"
+  },
+  {
+    "name": "PANGOA",
+    "place": "JUNIN / SATIPO / PANGOA",
+    "reference": "AV. MARGINAL S/N NÚMERO VILLA CHAVINI PANGOA - SATIPO - JUNÍN, REF. AL COSTADO DE LA TIENDA HONDA INVERSIONES ARAUCO SAN MARTÍN DE PANGOA"
+  },
+  {
+    "name": "LUYA",
+    "place": "AMAZONAS / LUYA / LUYA",
+    "reference": "JR. RAMÓN CASTILLA 1247 LUYA - AMAZONAS, REF. ENTRE EL COLEGIO SECUNDARIO RAMÓN CASTILLA Y EL JR. JOSÉ GÁLVEZ, A MEDIA CDRA. DEL AGENTE DE VENTA DE PASAJES DE CIVA, MÓVIL Y TRANSPORTE CHICLAYO"
+  },
+  {
+    "name": "SANTA MARÍA DE HUACHIPA",
+    "place": "LIMA / LIMA / SANTA MARÍA DE HUACHIPA",
+    "reference": "AV. CIRCUNVALACIÓN MZ. A LT. 1 - D C - P SANTA MARÍA DE HUACHIPA - LURIGANCHO - CHOSICA, REF. ENTRE LA AV. CIRCUNVALACIÓN Y LA AV. HUACHIPA"
+  },
+  {
+    "name": "AMARILIS CO",
+    "place": "HUANUCO / HUANUCO / AMARILIS CO",
+    "reference": "JR. LOS PINOS LOTE 3 -D2 URB LOS PINOS - AMARILIS - HUÁNUCO, REF. A LA ESPALDA DE TOYOTA HUÁNUCO"
+  },
+  {
+    "name": "LA VILLA  CRUCE PISCO",
+    "place": "ICA / PISCO / LA VILLA  CRUCE PISCO",
+    "reference": "C. P. OBLACION VILLA LOS ANGELES MZ.A LT 13 B LA VILLA PISCO-PISCO-ICA, REF. A 100 METROS CON DIRECCIÓN AL SUR DEDL CRUCE PANAMERICANA ANTIGUA C/N AV. FERMÍN TANGÜIS"
+  },
+  {
+    "name": "AV. LOS PESCADORES CO",
+    "place": "ANCASH / SANTA / AV. LOS PESCADORES CO",
+    "reference": "PAR. PARCELA N° 16757 - E SECTOR LA PERLA TRES CABEZAS - ANCASH, REF. FRENTE AL ESTADIO CENTENARIO"
+  },
+  {
+    "name": "AV EL SOL",
+    "place": "LIMA / LIMA / AV EL SOL",
+    "reference": "AV. EL SOL MZ. S LT. 2 ZONA 03 - ASOC. PARQUE INDUSTRIAL EL ASESOR, SECTOR 010 ZONA 03 - ATE, REF. A UNA CUADRA Y MEDIA DE LA CARRETERA CENTRAL"
+  },
+  {
+    "name": "PIMENTEL",
+    "place": "LAMBAYEQUE / CHICLAYO / PIMENTEL",
+    "reference": "CALLE MIGUEL GRAU MZ B LOTE 3 - PIMENTEL - CHICLAYO - LAMBAYEQUE, REF. AL COSTADO DE LA COMISARIA DE PIMENTEL"
+  },
+  {
+    "name": "EL CRUCE LA JOYA",
+    "place": "AREQUIPA / AREQUIPA / EL CRUCE LA JOYA",
+    "reference": "LATERAL 12 C LT. 32, EL CRUCE LA JOYA - AREQUIPA, REF. AL COSTADO DEL GRIFO PRIMAX DE LA JOYA"
+  },
+  {
+    "name": "aperopuerto TRUJILLO",
+    "place": "LA LIBERTAD / TRUJILLO / aperopuerto TRUJILLO",
+    "reference": "Aeropuerto Internacional Capitán FAP Carlos Martinez de Pinillos"
+  },
+  {
+    "name": "AEROPUERTO PUERTO MALDONADO",
+    "place": "MADRE DE DIOS / TAMBOPATA / AEROPUERTO PUERTO MALDONADO",
+    "reference": "Aeropuerto Internacional Padre Aldamiz"
+  },
+  {
+    "name": "MORROPE",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / MORROPE",
+    "reference": "CALLE TAHUANTINSUYO N° 821, MORROPE - LAMBAYEQUE, REF. FRENTE AL PARQUE INFANTIL DE MORROPE"
+  },
+  {
+    "name": "SAN CLEMENTE",
+    "place": "ICA / PISCO / SAN CLEMENTE",
+    "reference": "AV. LOS LIBERTADORES GRUPO NÚMERO 1 MZ,91 LOTE 7ª SAN CLEMENTE - PISCO - ICA, REF. LIBERTADORES SEXTA CUADRA,FRENTE DEL GRIFO SANTA ROSA"
+  },
+  {
+    "name": "AV PARTICIPACION PARCELA",
+    "place": "LORETO / MAYNAS / AV PARTICIPACION PARCELA",
+    "reference": "AV. PARTICIPACIÓN PARCELA 9-A SAN JUAN BAUTISTA - MAYNAS - LORETO, REF. FRENTE AL LAVADERO OSITO Y A MEDIA CDRA. DEL PARQUE 1 DE ENERO"
+  },
+  {
+    "name": "OVALO LA PERLA",
+    "place": "CALLAO / CALLAO / OVALO LA PERLA",
+    "reference": "AV. LA MARINA 530, URB. BENJAMIN DOIGG LOSSIO, LA PERLA, CALLAO, REF. A 3 CUADRAS DEL ÓVALO DE LA PERLA"
+  },
+  {
+    "name": "REAL PLAZA SALAVERRY",
+    "place": "LIMA / LIMA / REAL PLAZA SALAVERRY",
+    "reference": "CENTRO COMERCIAL REAL PLAZA SALAVERRY, AV. GRAL. SALAVERRY 2370, JESÚS MARÍA 15076, REF. FRENTE A LA ESCUELA DE POSTGRADO UTP"
+  },
+  {
+    "name": "JR. TAHUANTINSUYO",
+    "place": "SAN MARTIN / SAN MARTIN / JR. TAHUANTINSUYO",
+    "reference": "JR. TAHUANTINSUYO N° 158 - TARAPOTO - SAN MARTÍN, REF. AL COSTADO DEL GRIFO SAN MARTÍN"
+  },
+  {
+    "name": "ZAMACOLA",
+    "place": "AREQUIPA / AREQUIPA / ZAMACOLA",
+    "reference": "CALLE YAVARÍ 507 B - ZAMACOLA - CERRO COLORADO – AREQUIPA, REF. A UNA CUADRA DE LA POSTA DE ZAMACOLA (MARCISA CAMPOS)"
+  },
+  {
+    "name": "AV CHARCANI",
+    "place": "AREQUIPA / AREQUIPA / AV CHARCANI",
+    "reference": "AV. CHARCANI 401 ASOC. JOSE OLAYA, REF. FRENTE AL COLEGIO MENDEL"
+  },
+  {
+    "name": "AV LOS INCAS",
+    "place": "AREQUIPA / AREQUIPA / AV LOS INCAS",
+    "reference": "AV. LOS INCAS N° 604 SEMIRURAL PACHACUTEC – CERRO COLORADO - AREQUIPA, REF. ESQUINA CON CALLE SAN MARTIN SEMIRURAL PACHACUTEC"
+  },
+  {
+    "name": "AZANGARO",
+    "place": "PUNO / AZANGARO / AZANGARO",
+    "reference": "AV. PRÓCERES S/N, AZÁNGARO - PUNO, REF. A DOS CDRAS. DEL PARQUE DE LA MADRE / A ORILLAS DE LA MISMA AV. PROCERES"
+  },
+  {
+    "name": "JR. RAMÓN CASTILLA",
+    "place": "SAN MARTIN / SAN MARTIN / JR. RAMÓN CASTILLA",
+    "reference": "JR. RAMON CASTILLA N°1362 TARAPOTO - SAN MARTIN, REF. A MEDIA CDRA. DE MANNUCCI MOTOR S.A."
+  },
+  {
+    "name": "COMBAPATA",
+    "place": "CUSCO / CANCHIS / COMBAPATA",
+    "reference": "AV. SEÑOR DE HUANCA S/N - COMBAPATA - CANCHIS - CUSCO, REF. AL COSTADO DEL GRIFO SEÑOR DE QOYLLURITI - A ORILLAS DE LA MISMA CARRETERA A SICUANI"
+  },
+  {
+    "name": "VIRU CENTRO",
+    "place": "LA LIBERTAD / VIRU / VIRU CENTRO",
+    "reference": "CALLE PUNO N° 125 - MZ. 32 LT. 7A - VIRÚ - LA LIBERTAD, REF. A MEDIA CDRA. DEL CRUCE DE LA AV. VIRU CON LA CALLE JORGE CHAVEZ / A MEDIA CDRA. DE LA PLAZUELA MARIA PARADO DE BELLIDO"
+  },
+  {
+    "name": "AV. LAMPA",
+    "place": "PUNO / SAN ROMAN / AV. LAMPA",
+    "reference": "AV. LAMPA MZ. B2 LT. 3 URB. SANTA ADRIANA, JULIACA - SAN ROMÁN - PUNO, REF. A MEDIA CDRA. DE LA POSTA DE SALUD DE LA URB. SANTA ADRIANA"
+  },
+  {
+    "name": "AV. GULLMAN",
+    "place": "PIURA / PIURA / AV. GULLMAN",
+    "reference": "A.A.H.H. CONSUELO DE VELASCO 1 ETAPA SECTOR B MZ LT.18  26 DE OCTUBRE – PIURA, REF. CRUCE AV. CIRCUNVALACIÓN CON AV. GULLMAN AL COSTADO DE LA FERRETERIA LOS REYES"
+  },
+  {
+    "name": "ILO PACOCHA",
+    "place": "MOQUEGUA / ILO / ILO PACOCHA",
+    "reference": "AGRUPACIÓN DE FAMILIAS PUEBLO NUEVO M.Z E2 LT. COM2A SECT. II – ILO - MOQUEGUA, REF. AL COSTADO DEL BANCO BCP"
+  },
+  {
+    "name": "VIA EXPRESA SUR",
+    "place": "CUSCO / CUSCO / VIA EXPRESA SUR",
+    "reference": "URB. TUPAC AMARU B-1-2 SAN SEBASTIAN – CUSCO, REF. TERMINANDO LA VIA EXPRESA ZONA SUR"
+  },
+  {
+    "name": "EL INGENIO",
+    "place": "ICA / NAZCA / EL INGENIO",
+    "reference": "AV. PRINCIPAL TULIN 204, EL INGENIO - NAZCA - ICA, REF. FREMTE  A A LA PLAZA DE TULIN"
+  },
+  {
+    "name": "SAYAN",
+    "place": "LIMA / HUAURA / SAYAN",
+    "reference": "CALLE NARANJO N° 211.SAYAN - HUAURA - LIMA, REF. A MEDIA CDRA. DE LA PLAZA DE ARMAS Y DE LA MUNICIPALIDAD "
+  },
+  {
+    "name": "URCOS",
+    "place": "CUSCO / QUISPICANCHI / URCOS",
+    "reference": "MAYUPATA S/N PAUCARBAMBA, URCOS - QUISPICANCHI - CUSCO REFERENCIA: AL FRENDE DEL ESTADIO MUNICIPAL DE URCOS / AL FRENTE DEL TERMINAL TERRESTRE DE URCOS"
+  },
+  {
+    "name": "PISAC",
+    "place": "CUSCO / CALCA / PISAC",
+    "reference": "AV VILCANOTA S/N, PISAC - CALCA - CUSCO, REF. A MEDIA CDRA. DEL PUENTE DE PISAC / CARRETERA A TARAY"
+  },
+  {
+    "name": "REPARTO SAN LUIS",
+    "place": "LIMA / LIMA / REPARTO SAN LUIS",
+    "reference": "SAN LUIS"
+  },
+  {
+    "name": "CALLE SANTA CRUZ - AMERICA SUR",
+    "place": "LA LIBERTAD / TRUJILLO / CALLE SANTA CRUZ - AMERICA SUR",
+    "reference": "CALLE SANTA CRUZ N° 389 CHICAGO - TRUJILLO - LA LIBERTAD, REF. A MEDIA CDRA. DE LA AV. AMERICA SUR/A MEDIA CUADRA DEL ESTADIO CHAN CHAN."
+  },
+  {
+    "name": "PACASMAYO CENTRO",
+    "place": "LA LIBERTAD / PACASMAYO / PACASMAYO CENTRO",
+    "reference": "AV. GONZALO UGAZ SALCEDO S/N - PACASMAYO - LA LIBERTAD, REF. AL COSTADO DEL ESTADIO MUNICIPAL DE PACASMAYO / A MEDIA CDRA. DEL SUPERMERCADO TOTTUS"
+  },
+  {
+    "name": "AV. LA MOLINA CDRA. 35",
+    "place": "LIMA / LIMA / AV. LA MOLINA CDRA. 35",
+    "reference": "AV. LA MOLINA (EXAV. LA UNIVERSIDAD) #3551 TDA -7 MZ. H SUBLOTE 1C, URB. EL SOL DE LA MOLINA I ETAPA LA MOLINA - LIMA, REF. A MEDIA CDRA. DEL CRUCE CON AV. EL SOL"
+  },
+  {
+    "name": "AV. ARIAS ARAGUEZ",
+    "place": "TACNA / TACNA / AV. ARIAS ARAGUEZ",
+    "reference": "CALLE ARIAS ARAGUEZ N° 836  TACNA, REF. A UNA CDRA. ANTES DE LLEGAR AL COLISEO PERÚ"
+  },
+  {
+    "name": "AV. MODESTO BORDA",
+    "place": "PUNO / SAN ROMAN / AV. MODESTO BORDA",
+    "reference": "AV. MODESTO BORDA MZ. A LT. 04 URB. ARRABAL DON JULIO, JULIACA - SAN ROMAN - PUNO, REF. DOS CDRAS. ANTES DEL GRIFO BLANCO / A DOS CDRAS. DEL SALON DE EVENTOS PARAISO AZUL"
+  },
+  {
+    "name": "EL PROGRESO KM 22",
+    "place": "LIMA / LIMA / EL PROGRESO KM 22",
+    "reference": "AV. TUPAC AMARU 3493 – P.J. EL PROGRESO (PARTE BAJA) MZ. K LT. 11B ZONA II, CARABAYLLO - LIMA, REF. A UNA CDRA. DEL CRUCE CON LA AV. MANUEL PRADO"
+  },
+  {
+    "name": "TICA TICA",
+    "place": "CUSCO / CUSCO / TICA TICA",
+    "reference": "ARCO TICATICA PUSTIPATA, LT. N° A - 11 - 2, CUSCO, REF. EN LA AV. PRINCIPAL A 3 CDRAS. DEL MERCADO TICA TICA"
+  },
+  {
+    "name": "AV. MUNICIPAL",
+    "place": "TACNA / TACNA / AV. MUNICIPAL",
+    "reference": "ASOCIACIÓN LAS VILCAS  MZ. E LT. 16, GREGORIO ALBARRACÍN LANCHIPA - TACNA REF. FRENTE AL MERCADO HÉROES DEL CENEPA"
+  },
+  {
+    "name": "AAHH SANTA ROSA PIURA",
+    "place": "PIURA / PIURA / AAHH SANTA ROSA PIURA",
+    "reference": "URB. SANTA ROSA MZ. D LT. 7, SECT. 7, 26 DE OCTUBRE - PIURA. REF. AV. RAUL MATA LA CRUZ CON CIRCUNVALACIÓN AL FRENTE DE REPUESTOS FRANK|"
+  },
+  {
+    "name": "SAN PEDRO DE LLOC",
+    "place": "LA LIBERTAD / PACASMAYO / SAN PEDRO DE LLOC",
+    "reference": "AV. VÍA DE EVITAMIENTO N° 407, SAN PEDRO DE LLOC - PACASMAYO - LA LIBERTAD, REF. A MEDIA CDRA. DE LA CALLE LIBERTAD/ A MEDIA CDRA. DEL PARADERO DE LA VIA DE EVITAMIENTO"
+  },
+  {
+    "name": "AV  FLORA TRISTAN",
+    "place": "LIMA / LIMA / AV  FLORA TRISTAN",
+    "reference": "AV. FLORA TRISTÁN N° 885, URB. SANTA PATRICIA III ETAPA, LA MOLINA - LIMA, REF.  A MEDIA CDRA. DE MOLISALUD"
+  },
+  {
+    "name": "AV HUAROCHIRI ENVIOS",
+    "place": "LIMA / LIMA / AV HUAROCHIRI ENVIOS",
+    "reference": "AV. HUAROCHIRI MZ. D8 LT. 13, URB. LOS CEDROS, SANTA ANITA - LIMA, REF. A MEDIA CDRA. DEL CRUCE CON AV. SANTA ROSA"
+  },
+  {
+    "name": "SALCEDO",
+    "place": "PUNO / PUNO / SALCEDO",
+    "reference": "URB. AZIRUNI TEPRO I ETAPA MZ. 18 LT. 52 JR LOS ROSALES – SALCEDO PUNO, REF. A UNA CDRA. DE LA AV. ESTUDIANTE / A DOS CDRAS. DE SENATI PUNO"
+  },
+  {
+    "name": "JAYANCA",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / JAYANCA",
+    "reference": "CALLE DIEGO FERRE N°1321 - JAYANCA - LAMBAYEQUE, REF. AL FRENTE DEL CENTRO DE SALUD DE JAYANCA / A MEDIA CDRA. DEL GRIFO ASIA"
+  },
+  {
+    "name": "QUEBRADA LAS LECHUZAS CO",
+    "place": "MOQUEGUA / MARISCAL NIETO / QUEBRADA LAS LECHUZAS CO",
+    "reference": "SECTOR QUEBRADA LAS LECHUZAS MOQUEGUA CALLE N°1 MZ H LT. 04, MOQUEGUA - MARISCAL NIETO - MOQUEGUA, REF. QUEBRADA DE LECHUZAS"
+  },
+  {
+    "name": "CAJA TRANSPORTE MEXICO",
+    "place": "LIMA / LIMA / CAJA TRANSPORTE MEXICO",
+    "reference": "cargando"
+  },
+  {
+    "name": "AV. LAS MAGNOLIAS",
+    "place": "LA LIBERTAD / TRUJILLO / AV. LAS MAGNOLIAS",
+    "reference": "AV. LAS MAGNOLIAS MZ. 25 LT. 2A NUEVO PORVENIR, EL PORVENIR - TRUJILLO - LA LIBERTAD, REF. A UNA CDRA. DEL PODER JUDICIAL CISAJ SEDE EL PORVENIR"
+  },
+  {
+    "name": "OVALO HUANCHACO CO",
+    "place": "LA LIBERTAD / TRUJILLO / OVALO HUANCHACO CO",
+    "reference": "CARRETERA VIA DE EVITAMIENTO 576.2 HUANCHAQUITO ALTO - TRUJILLO - LA LIBERTAD, REF. A 1 CDRA. DE OVALO HUANCHACO / AL COSTADO DE CONDOMINIO LAS BRISAS"
+  },
+  {
+    "name": "AV CENTRAL SJL",
+    "place": "LIMA / LIMA / AV CENTRAL SJL",
+    "reference": "AV. CENTRAL MZ R9 LOTE 3 PROGRAMA CIUDAD MRCAL. CACERES, SECTOR II, BARRIO 3, GRUPO RESIDENCIAL R - SAN JUAN DE LURIGANCHO, REF. EN MEDIO DEL CRUCE CON LAS AV. EL MURO Y AMPLIACION ESTE"
+  },
+  {
+    "name": "JR  FREDY ALIAGA CO",
+    "place": "SAN MARTIN / TOCACHE / JR  FREDY ALIAGA CO",
+    "reference": "JR. FREDY ALIAGA N°3046 -TOCACHE - TOCACHE - SAN MARTIN, REF. AL COSTADO DEL RECREO CAMPESTRE ESTRAGOS"
+  },
+  {
+    "name": "AUTOPISTA LA JOYA",
+    "place": "AREQUIPA / AREQUIPA / AUTOPISTA LA JOYA",
+    "reference": "ASOC. URBANIZADORA PERUARBO SECTOR PERU ZONA I MZ. B4 LT. 4 - AUTOPISTA LA JOYA - AREQUIPA, REF. AUTOPISTA AREQUIPA - LA JOYA, A DOS CDRAS. DEL SAUNA CANDAMO"
+  },
+  {
+    "name": "YURA",
+    "place": "AREQUIPA / AREQUIPA / YURA",
+    "reference": "MZ. O LT. 4 ZNA 2 CIUDAD DE DIOS - YURA - AREQUIPA, REF. CARRETERA YURA"
+  },
+  {
+    "name": "UCHIZA",
+    "place": "SAN MARTIN / TOCACHE / UCHIZA",
+    "reference": "AV. LEONCIO PRADO N°524 - UCHIZA - TOCACHE - SAN MARTIN, REF. A MEDIA CDRA. DE LA PLAZA CENTRAL / FRENTE A COOPACT"
+  },
+  {
+    "name": "JR. CAHUIDE",
+    "place": "LA LIBERTAD / TRUJILLO / JR. CAHUIDE",
+    "reference": "JR. CAHUIDE N° 342 AA.HH LA MERCED - EL PORVENIR - TRUJILLO - LA LIBERTAD, REF. A UNA CDRA. DEL ARCO DEL PORVENIR / A UNA CDRA. DE LA PARROQUIA EL BUEN PASTOR"
+  },
+  {
+    "name": "ASOC. NUEVO HORIZONTE - AV. 54",
+    "place": "AREQUIPA / AREQUIPA / ASOC. NUEVO HORIZONTE - AV. 54",
+    "reference": "NUEVO HORIZONTE MZ.H LOTE 12 - CERRO COLORADO - AREQUIPA, REF. CON AV.54 A CUATRO CDRAS. DE INKAFARMA"
+  },
+  {
+    "name": "OVALO PUENTE PIEDRA ",
+    "place": "LIMA / LIMA / OVALO PUENTE PIEDRA ",
+    "reference": "AV. MIGUEL GRAUÂ MZ. A LT. 07 Y 08 URB. SAN MARTIN DE PORRES, CERCADO PUENTE PIEDRA - LIMA, REF. ESPALDAS DE TOTTUS DE PUENTE PIEDRA"
+  },
+  {
+    "name": "AV HUANDOY CON AV CENTRAL",
+    "place": "LIMA / LIMA / AV HUANDOY CON AV CENTRAL",
+    "reference": "AV. HUANDOY MZA. 72 LTE. 54 P.J. P.M.V. “CONFRATERNIDAD” - AAHH. ENRIQUE MILLA OCHOA LOS OLIVOS - LIMA, REF. A UNA CDRA. DEL CRUCE CON AV. CENTRAL"
+  },
+  {
+    "name": "AV TOMAS MARSANO - LA BOLICHERA",
+    "place": "LIMA / LIMA / AV TOMAS MARSANO - LA BOLICHERA",
+    "reference": "AV. SANTIAGO DE SURCO Nº 4348, URBANIZACIÓN LA VIRREYNA, SANTIAGO DE SURCO - LIMA, REF. AL LADO DE INTECI SEDE SURCO"
+  },
+  {
+    "name": "JR CASANOVA CON PETIT THOUARS",
+    "place": "LIMA / LIMA / JR CASANOVA CON PETIT THOUARS",
+    "reference": "JR. DOMINGO CASANOVA N°318 LINCE - LIMA, REF. CRUCE CON PETIT THOUARS"
+  },
+  {
+    "name": "CHALA",
+    "place": "AREQUIPA / CARAVELI / CHALA",
+    "reference": "AV. EMANCIPACION NRO. S/N MZ. 78 LT. 10. REF. A MEDIA CDRA. DEL PARQUE DEL NIÑO CHALINO"
+  },
+  {
+    "name": "AV BERTELLO CALLAO",
+    "place": "CALLAO / CALLAO / AV BERTELLO CALLAO",
+    "reference": "AV. ALEJANDRO BERTELLO BOLLATI MZ. B LT. 20 Y 21 – URB. PROGRESIVA BAHÍA BLANCA – CALLAO - CALLAO - CALLAO, REF. FRENTE AL MERCADO COSTA AZUL"
+  },
+  {
+    "name": "NUEVO IMPERIAL CO",
+    "place": "LIMA / CAÑETE / NUEVO IMPERIAL CO",
+    "reference": "FUNDO SANTA ADELA, MZ. A, LOTES 8 Y 9 – CARRETERA CAÑETE A YAUYOS NUEVO IMPERIAL - CAÑETE - LIMA, REF. AL COSTADO DEL RESTAURANT LA RUTA BRAVA"
+  },
+  {
+    "name": "AV  SAN JUAN PAMPLONA ALTA",
+    "place": "LIMA / LIMA / AV  SAN JUAN PAMPLONA ALTA",
+    "reference": "AV. SAN JUAN MZ. 24 LT. 1, SECT. NUEVO HORIZONTE, PP. JJ PAMPLONA ALTA - SAN JUAN DE MIRAFLORES, REF. A 3 CDRAS. DEL CRUCE CON AV. SALVADOR ALLENDE"
+  },
+  {
+    "name": "SAN MIGUEL CAJAMARCA",
+    "place": "CAJAMARCA / SAN MIGUEL / SAN MIGUEL CAJAMARCA",
+    "reference": "JR. BOLOGNESI N° 717 – SAN MIGUEL – CAJAMARCA - CAJAMARCA, REF. AL COSTADO DEL COLISEO Y EL PARADERO DE LLAPA Y COCHÁN."
+  },
+  {
+    "name": "SAN PABLO  CAJAMARCA",
+    "place": "CAJAMARCA / SAN PABLO / SAN PABLO  CAJAMARCA",
+    "reference": "JR. TNT. LORENZO IGLESIA N° 910 - SAN PABLO – CAJAMARCA - CAJAMARCA, REF. A MEDIA CDRA. DEL HOSPITAL SAN PABLO"
+  },
+  {
+    "name": "ALTO PUNO",
+    "place": "PUNO / PUNO / ALTO PUNO",
+    "reference": "URB. SAN PEDRO-ALTO PUNO, AV LA CULTURA N° 160, PUNO - PUNO - PUNO, REF. A TRES CDRAS. DE LA AV. QUE VA A JULIACA / A DOS CDRAS. DEL GRIFO BRONCO"
+  },
+  {
+    "name": "TALARA ALTA 9 DE OCTUBRE",
+    "place": "PIURA / TALARA / TALARA ALTA 9 DE OCTUBRE",
+    "reference": "MZ. N-10 AA.HH 9 DE OCTUBRE TALARA ALTA, PARIÑAS - TALARA - PIURA, REF. A 1 CDRA. ANTES DE AMECFA"
+  },
+  {
+    "name": "AV SAENZ PEÑA",
+    "place": "CALLAO / CALLAO / AV SAENZ PEÑA",
+    "reference": "AV. SAENZ PEÑA N° 414 - 416 - CALLAO - CALLAO, REF. CRUCE CON AV. MARCO POLO"
+  },
+  {
+    "name": "AV LAS AMERICAS",
+    "place": "LAMBAYEQUE / CHICLAYO / AV LAS AMERICAS",
+    "reference": "AV. LAS AMÉRICAS LT. 42 MZ. D, URB. MONTERRICO - I ETAPA, CHICLAYO - CHICLAYO - LAMBAYEQUE, REF. A MEDIA CDRA. ENTRE LA AV. COLECTORA Y AV. LAS AMERICAS Y A MEDIA CDRA. DEL GRIFO SR. DE SIPÁN"
+  },
+  {
+    "name": "CALLE LOS ANGELES",
+    "place": "ICA / CHINCHA / CALLE LOS ANGELES",
+    "reference": "CALLE LOS ÁNGELES N° CASA 217 01 - A SIN BARRIIO CERCADO, CHINCHA ALTA - CHINCHA - ICA, REF. A 2 CDRAS. DE LA PLAZA DE ARMAS DE CHNCHA PASANDO ELECTRODUNAS"
+  },
+  {
+    "name": "AV  INDEPENDENCIA",
+    "place": "PUNO / SAN ROMAN / AV  INDEPENDENCIA",
+    "reference": "AV. INDEPENDENCIA NRO. 1538 MZ. A1 LT. 04 URB. HORACIO ZEBALLOS GAMEZ, JULIACA - SAN ROMÁN - PUNO, AL FRENTE DEL GRIFO SAN CARLOS / CRUCE CON JR 21 DE ENEROREF."
+  },
+  {
+    "name": "TALARA BAJA PARQUE 22",
+    "place": "PIURA / TALARA / TALARA BAJA PARQUE 22",
+    "reference": "PARQUE 22 – 03 LATERAL. TALARA BAJA, PARIÑAS - TALARA - PIURA. REF. FRENTE A MINSA"
+  },
+  {
+    "name": "SICUANI AV MANUEL CALLO",
+    "place": "CUSCO / CANCHIS / SICUANI AV MANUEL CALLO",
+    "reference": "JR. INAMBARI NRO. 208, SICUANI - CANCHIS - CUSCO, REF. AL FRENTE DEL BCP Y DE CAJA PIURA"
+  },
+  {
+    "name": "ICA SUBTANJALLA CO",
+    "place": "ICA / ICA / ICA SUBTANJALLA CO",
+    "reference": "C.P - SECTOR MACACONA /PREDIO PARCELA 214 LOTE 2, SUBTANJALLA - ICA - ICA, REF. PANAMERICANA SUR FRENTE A LA ENTRADA DEL ARRABAL"
+  },
+  {
+    "name": "CALLERIA AV SAENZ PEÑA",
+    "place": "UCAYALI / CORONEL PORTILLO / CALLERIA AV SAENZ PEÑA",
+    "reference": "AV. SAENZ PEÑA 229, CALLERIA - CORONEL PORTILLO - UCAYALI, REF. A DOS CUADRAS DEL OVALO DE FEDERICO BASADRE Y SAENZ PEÑA"
+  },
+  {
+    "name": "AV RAUL MATA LA CRUZ- DOS GRIFOS",
+    "place": "PIURA / PIURA / AV RAUL MATA LA CRUZ- DOS GRIFOS",
+    "reference": "AV. RAÚL MATA LA CRUZ LT. 11 MZ. C URB. LOS JARDINES - CORPIURA, - PIURA - PIURA - PIURA, REF. A UNA CDRA. DE LOS 2 GRIFOS EN TODA LA AV. RAÚL MATA LA CRUZ"
+  },
+  {
+    "name": "SORITOR",
+    "place": "SAN MARTIN / MOYOBAMBA / SORITOR",
+    "reference": "JR. MIGUEL GRAU CDRA 7 N°741 MZ.05 LTE.16B, SORITOR - MOYOBAMBA - SAN MARTÍN, REF. A MEDIA CDRA. DE LA IGLESIA ASAMBLEAS DE DIOS"
+  },
+  {
+    "name": "LAMBAYEQUE CENTRO",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / LAMBAYEQUE CENTRO",
+    "reference": "AV. FEDERICO VILLARREAL N° 491, LAMBAYEQUE - LAMBAYEQUE - LAMBAYEQUE, REF. A MEDIA CDRA. DE LA INTERSECCION DE LA AV. FEDERICO VILLARREAL CON CALLE EMILIANO NIÑO"
+  },
+  {
+    "name": "JR AGUSTIN GAMARRA",
+    "place": "PUNO / SAN ROMAN / JR AGUSTIN GAMARRA",
+    "reference": "JR. AGUSTIN GAMARRA MZ. R1 LT. 09 URB. HUANCANE, JULIACA - SAN ROMÁN - PUNO, REF. A UNA CDRA. DE LA AV. HUANCANE / CRUCE CON JR. ALBERTO CUENTAS ZABALA"
+  },
+  {
+    "name": "NUEVA ESPERANZA VMT",
+    "place": "LIMA / LIMA / NUEVA ESPERANZA VMT",
+    "reference": "AV. 26 DE NOVIEMBRE, 1728B - 1728C MZ. 90 SUB LOTE. 19B PUEBLO JOVEN NUEVA ESPERANZA, VILLA MARIA DEL TRIUNFO - LIMA, REF. A 3 CDRAS. DEL MERCADO VIRGEN DE LOURDES"
+  },
+  {
+    "name": "AV TUPAC AMARU CDRA. 57",
+    "place": "LIMA / LIMA / AV TUPAC AMARU CDRA. 57",
+    "reference": "AV. TUPAC AMARU 5725-5727 - URB. HUAQUILLAY I ETAPA, COMAS - LIMA - LIMA, REF. A MEDIA CDRA. DEL BANCO DE LA NACIÓN"
+  },
+  {
+    "name": "CASA GRANDE",
+    "place": "LA LIBERTAD / ASCOPE / CASA GRANDE",
+    "reference": "CALLE LUIS SÁNCHEZ N° 152 SECTOR PARTE ALTA. CASA GRANDE - ASCOPE - LA LIBERTAD, REF. CRUCE CON AV. ESTADIO"
+  },
+  {
+    "name": "OVALO PAPAL",
+    "place": "LA LIBERTAD / TRUJILLO / OVALO PAPAL",
+    "reference": "URB. VISTA HERMOSA MZ. F LT. 11 PISO °1 TRUJILLO - TRUJILLO - LA LIBERTAD, REF. A ESPALDAS DEL METRO DEL OVALO PAPAL"
+  },
+  {
+    "name": "CIUDAD UNIVERSITARIA",
+    "place": "JUNIN / HUANCAYO / CIUDAD UNIVERSITARIA",
+    "reference": "Jr Tarma Nro. 37 - 24, EL TAMBO - HUANCAYO - JUNÍN REF. AL COSTADO DE LA FACULTaD DE INGENIERÍA  METALÚRGICA UNCP"
+  },
+  {
+    "name": "AV BUENOS AIRES",
+    "place": "LIMA / LIMA / AV BUENOS AIRES",
+    "reference": "AV. BUENOS AIRES MZ. D, SUB-LOTE 188E1 ASOCIACIÓN DE POBLADORESMICAELA BASTIDAS, PUENTE PIEDRA - LIMA - LIMA, REF. A 2 CDRAS. DE LA DEMUNA DE PUENTE PIEDRA"
+  },
+  {
+    "name": "MI PERU",
+    "place": "CALLAO / CALLAO / MI PERU",
+    "reference": "V. VICTOR RAUL HAYA DE LA TORRE MZ. A LT. 02 ASENTAMIENTO HUMANO CONFRATERNIDAD - III SECTOR - MI PERU – CALLAO - CALLAO, REF. CRUCE CON AV. AREQUIPA"
+  },
+  {
+    "name": "EL TRIUNFO",
+    "place": "MADRE DE DIOS / TAMBOPATA / EL TRIUNFO",
+    "reference": "AV. INTEROCEANICA KM. 1 , LAS PIEDRAS - TAMBOPATA - MADRE DE DIOS, REF. AL COSTADO DEL GRIFO VIRGEN NATIVIDAD"
+  },
+  {
+    "name": "AV EJERCITO",
+    "place": "TACNA / TACNA / AV EJERCITO",
+    "reference": "AV. LITORAL NRO. 306 – PARA CHICO (ANTERIOR AV. EJÉRCITO PROLONGACIÓN 306 TACNA), TACNA - TACNA - TACNA, REF. DENTRO DEL ESTABLECIMIENTO DEL GRIFO PRIMAX"
+  },
+  {
+    "name": "CHEN CHEN",
+    "place": "MOQUEGUA / MARISCAL NIETO / CHEN CHEN",
+    "reference": "MZ. C LT. 24 – ASOCIACIÓN CÉSAR VIZCARRA – CENTRO POBLADO CHEN CHEN , MOQUEGUA –MARISCAL NIETO – MOQUEGUA, REF. AL COSTADO DEL OVALO CHEN CHEN"
+  },
+  {
+    "name": "POCOLLAY",
+    "place": "TACNA / TACNA / POCOLLAY",
+    "reference": "PUEBLO TRADICIONAL POCOLLAY MZ. T LOTE 01 , POCOLLAY - TACNA - TACNA, REF. A UNA CDRA. DEL CENTRO DE SALUD POCOLLAY"
+  },
+  {
+    "name": "JUANJUI  CENTRO",
+    "place": "SAN MARTIN / MARISCAL CACERES / JUANJUI  CENTRO",
+    "reference": "JR. SARGENTO LOREZ N° 568, JUANJUI - MARISCAL CÁCERES - SAN MARTIN, REF. A UNA CDRA. DE DEL JR. HUALLAGA CDRA. 11 Y A UNA CDRA. DE IMPORTACIONES PATRICIA"
+  },
+  {
+    "name": "CHONGOYAPE",
+    "place": "LAMBAYEQUE / CHICLAYO / CHONGOYAPE",
+    "reference": "AV. ATAHUALPA N° 1200 - CHONGOYAPE - CHICLAYO - LAMBAYEQUE, REF. INTERSECCION CON CALLE IQUITOS / A 2 CDRAS. DE LA INTERSECCION CON LA AV. CHICLAYO"
+  },
+  {
+    "name": "MATARANI",
+    "place": "AREQUIPA / ISLAY / MATARANI",
+    "reference": "ASENTAMIENTO HUMANO. PUERTO NUEVO MZ. I LT. 18 AV. BELLO HORIZONTE, ISLAY - ISLAY - AREQUIPA, REF. FRENTE AL PARQUE ECOLÓGICO"
+  },
+  {
+    "name": "POMALCA",
+    "place": "LAMBAYEQUE / CHICLAYO / POMALCA",
+    "reference": "CALLE 25 MZ. I LT. 6 SECT. 6 SAN JUAN, POMALCA - CHICLAYO - LAMBAYEQUE, REF. A UNA CDRA. Y MEDIA DE LA INTERSECCIÓN CON AV. SAN MARTIN/ AL FRENTE DE LA IGLESIA MORMON"
+  },
+  {
+    "name": "HUANCARO ",
+    "place": "CUSCO / CUSCO / HUANCARO ",
+    "reference": "URB. VILLA UNION F-1-B HUANCARO, SANTIAGO - CUSCO - CUSCO, REF. FRENTE A LA IGLESIA DE LOS MORMONES/ A UNA CDRA. DEL MERCADO HUANCARO"
+  },
+  {
+    "name": "URB UNIVERSAL",
+    "place": "LIMA / LIMA / URB UNIVERSAL",
+    "reference": "JR. CESAR VALLEJO 302 MZ. B1 LT. 02 URB UNIVERSAL, SANTA ANITA- LIMA-LIMA, REF. A 1 CDRA. DEL CRUCE CON AV. TUPAC AMARU"
+  },
+  {
+    "name": "COCACHACRA",
+    "place": "AREQUIPA / ISLAY / COCACHACRA",
+    "reference": "CENTRO POBLADO COCACHACRA MZ. N5 SUB-LOTE 5B CALLE DEAN VALDIVIA, COCACHACRA - ISLAY - AREQUIPA, REF. DEL PARQUE SAN FRANCISCO UNA CDRA. HACIA ABAJO"
+  },
+  {
+    "name": "AV HEROES DEL PACIFICO CO",
+    "place": "PUNO / SAN ROMAN / AV HEROES DEL PACIFICO CO",
+    "reference": "AV. HÉROES DE LA GUERRA DEL PACIFICO KM 3.5, JULIACA - SAN ROMÁN - PUNO, REF. AL FRENTE DEL GRIFO LEON SERVICE"
+  },
+  {
+    "name": "LARCOMAR",
+    "place": "LIMA / LIMA / LARCOMAR",
+    "reference": "MALECÓN DE LA RESERVA 610, MIRAFLORES 15074, MIRAFLORES - LIMA - LIMA, REF. SÓTANO NIVEL A"
+  },
+  {
+    "name": "VISTA ALEGRE CO",
+    "place": "ICA / NAZCA / VISTA ALEGRE CO",
+    "reference": "CARRETERA PANAMERICANA SUR N\\u00b0 906, VISTA ALEGRE - NAZCA -\\u00a0ICA, REF. FRENTE AL AEROPUERTO DE VISTA ALEGRE"
+  },
+  {
+    "name": "ANT PANAM SUR CDRA 11",
+    "place": "LIMA / CAÑETE / ANT PANAM SUR CDRA 11",
+    "reference": "ANTIGUA PANAMERICANA SUR CDRA. 11 MZ. 46, LT. 08. CHILCA - CAÑETE - LIMA, REF. A MEDIA CDRA. DEL HOTEL EL PACÍFICO"
+  },
+  {
+    "name": "Prueba sistemas",
+    "place": "LIMA / LIMA / Prueba sistemas",
+    "reference": "av pruebas."
+  },
+  {
+    "name": "VIÑANIS",
+    "place": "TACNA / TACNA / VIÑANIS",
+    "reference": "PROMUVI VIÑANI, AMP. I ETAPA, MZ. 574, LT. 09 – CORONEL GREGORIO ALBARRACÍN LANCHIPA – TACNA - TACNA, REF. A MEDIA CDRA. DEL ÓVALO LOS MOLLES"
+  },
+  {
+    "name": "MALL LAMBRAMANI",
+    "place": "AREQUIPA / AREQUIPA / MALL LAMBRAMANI",
+    "reference": "AV. LAMBRAMANI 325, AREQUIPA - AREQUIPA- AREQUIPA, REF. DENTRO DEL MALL LAMBRAMANI (SOTANO PISO -4)"
+  },
+  {
+    "name": "AV  4 DE NOVIEMBRE CO",
+    "place": "PUNO / PUNO / AV  4 DE NOVIEMBRE CO",
+    "reference": "AV. 4 DE NOVIEMBRE N° 474-B Y 486-B BARRIO SANTA ROSA, PUNO - PUNO – PUNO, REF. A UNA CDRA. DE SUNAFIL"
+  },
+  {
+    "name": "OCONGATE",
+    "place": "CUSCO / QUISPICANCHI / OCONGATE",
+    "reference": "SECT. MAYO UCJO S/N, OCONGATE - QUISPICANCHI - CUSCO, REF. A LA ESPALDA DEL TERMINAL DE BUSES DE OCONGATE / A ORILLAS DE LA CARRETA A MAZUKO"
+  },
+  {
+    "name": "HUACHIPA CO 2",
+    "place": "LIMA / LIMA / HUACHIPA CO 2",
+    "reference": "HUACHIPA ESTE - MANZANA A18 LOTE 1, 2, 3 CALLE B, CALLE 08, CALLE A, REF. AL COSTADO DE INDUSTRIAS ELÉCTRICAS KBA"
+  },
+  {
+    "name": "SEGUNDA DE PRO",
+    "place": "LIMA / LIMA / SEGUNDA DE PRO",
+    "reference": "AV. ALFREDO MENDIOLA 8161 URB. PRO, LOS OLIVOS - LIMA - LIMA, REF. A UNA CDRA. DEL COLEGIO JOSÉ MARÍA ARGUEDAS"
+  },
+  {
+    "name": "PICHARI",
+    "place": "CUSCO / LA CONVENCION / PICHARI",
+    "reference": "ASOC. GRAL. JUAN VELASCO A. MZ. B LT. 2 , PICHARI - LA CONVENCION – CUSCO, REF. AL COSTADO DE TECHO PROPIO"
+  },
+  {
+    "name": "AV UNIVERSITARIA CON IZAGUIRRE",
+    "place": "LIMA / LIMA / AV UNIVERSITARIA CON IZAGUIRRE",
+    "reference": "AV. UNIVERSITARIA MZ. D LT. 01 ASOCIACIÓN DE VIVIENDA SAN JUAN DE DIOS, SAN MARTÍN DE PORRES - LIMA - LIMA, REF. A 1 CDRA. DEL CRUCE CON AV. CARLOS IZAGUIRRE"
+  },
+  {
+    "name": "SMP AV PACASMAYO",
+    "place": "LIMA / LIMA / SMP AV PACASMAYO",
+    "reference": "AV. PACASMAYO MZ. A LT. 03 – URB. SANTA FE DE NARANJAL, SAN MARTÍN DE PORRES - LIMA - LIMA, REF. A 3 CDRAS. DEL CRUCE CON AV. EL SOL DE NARANJAL"
+  },
+  {
+    "name": "AV. 12 DE NOVIEMBRE",
+    "place": "LA LIBERTAD / TRUJILLO / AV. 12 DE NOVIEMBRE",
+    "reference": "AV. 12 DE NOVIEMBRE M. W LOTE 19 MZ. 3A, EL PORVENIR - TRUJILLO - LA LIBERTAD, REF. AL FRENTE DEL COMPLETO DEPORTIVO JOSÉ CAIPO"
+  },
+  {
+    "name": "EL RETAMAL",
+    "place": "LIMA / LIMA / EL RETAMAL",
+    "reference": "AV. VICTOR MALASQUEZ MZ. B LT. 16 – ASOCIACIÓN DE VIVIENDA “EL SOL DE SAN FERNANDO” ZONA 5 – QUEBRADA DE MANCHAY, REF. A 2 CDRAS. DEL CRUCE CON AV. UNIÓN"
+  },
+  {
+    "name": "LA TABLADA ZONA NUEVA",
+    "place": "LIMA / LIMA / LA TABLADA ZONA NUEVA",
+    "reference": "AV. PACHACÚTEC N° 4465, MZ. 36, LT. 18 ZONA NUEVA ESPERANZA - P.J. CÉSAR VALLEJO - VILLA MARÍA DEL TRIUNFO - LIMA - LIMA, REF. AL FRENTE DEL CRUCE CON AV. 01 DE MAYO"
+  },
+  {
+    "name": "BARRIO YANANACO",
+    "place": "HUANCAVELICA / HUANCAVELICA / BARRIO YANANACO",
+    "reference": "AV. ANDRÉS A. CÁCERES N° 198, HUANCAVELICA – HUANCAVELICA – HUANCAVELICA, REF. A MEDIA CDRA. DE LA PLAZOLETA \"TUPAC AMARU\" Y EN LA ESQUINA CON CALLE OROPEZA (BARRIO YANANACO)"
+  },
+  {
+    "name": "AV  LAS TORRES",
+    "place": "LIMA / LIMA / AV  LAS TORRES",
+    "reference": "AV. LAS TORRES SUB. LT. 18A - 1D, FUNDO HUACHIPA, PARCELA MEDIA, LURIGANCHO - LIMA - LIMA, REF. AL FRENTE DEL CRUCE CON AV. MEDIA LUNA"
+  },
+  {
+    "name": "AEROPUERTO AYACUCHO",
+    "place": "AYACUCHO / HUAMANGA / AEROPUERTO AYACUCHO",
+    "reference": "Aeropuerto Internacional Alfredo Mendívil Duarte de Ayacucho"
+  },
+  {
+    "name": "SAPALLANGA",
+    "place": "JUNIN / HUANCAYO / SAPALLANGA",
+    "reference": "CA. CORONEL CISNEROS 598, REF. ESQUINA CON AV. MARISCAL CACERES"
+  },
+  {
+    "name": "AV REVOLUCIÓN",
+    "place": "LIMA / LIMA / AV REVOLUCIÓN",
+    "reference": "AV. REVOLUCIÓN MZ. J LT. 19, SECTOR TERCERO, GRUPO RESIDENCIAL 9, PUEBLO JOVEN VILLA EL SALVADOR, VILLA EL SALVADOR - LIMA - LIMA, REF. CERCA AL CRUCE CON AV. JOSE CARLOS MARIATEGUI"
+  },
+  {
+    "name": "LOS VIRREYES - ATE (POR DEFINIR)",
+    "place": "LIMA / LIMA / LOS VIRREYES - ATE (POR DEFINIR)",
+    "reference": "AV. LOS VIRREYES MZ. A LT. 21 URB. TILDA SEC. 010 ZN. 03, REF. A 2 CDRAS. DEL INNOVA SCHOOLS DE ATE VITARTE"
+  },
+  {
+    "name": "AV. FERROCARRIL - SANTA ANITA (POR DEFINIR)",
+    "place": "LIMA / LIMA / AV. FERROCARRIL - SANTA ANITA (POR DEFINIR)",
+    "reference": "AV. EL FERROCARRIL 530 COOPERATIVA. LOS CHANCAS DE ANDAHUAYLAS MZ. F1 LT. 06, REF. CRUCE CON AV. RUISEÑORES"
+  },
+  {
+    "name": "PRUEBAAPOSUCURSAL",
+    "place": "LIMA / LIMA / PRUEBAAPOSUCURSAL",
+    "reference": "Calle rio Marañon 189"
+  },
+  {
+    "name": "MANUEL AREVALO (POR DEFINIR)",
+    "place": "LA LIBERTAD / TRUJILLO / MANUEL AREVALO (POR DEFINIR)",
+    "reference": "MZ. B21 LT. 05 URB MANUEL AREVALO III ETAPA B, REF. CRUCE CON AV. CAHUIDE A UNA CDRA. DEL COMPLEJO DEPORTIVO PAZ Y AMISTAD"
+  },
+  {
+    "name": "pruebaTEST",
+    "place": "LIMA / LIMA / pruebaTEST",
+    "reference": "terminal de prueba bambamarca prueba de caracteres especiales en web de shalom U{HOWshvfisjvposrvjosv **"
+  },
+  {
+    "name": "AV MEXICO CO",
+    "place": "LIMA / LIMA / AV MEXICO CO",
+    "reference": "AV. MEXICO 1125, LA VICTORIA - LIMA"
+  },
+  {
+    "name": "ICA SAN JOAQUIN",
+    "place": "ICA / ICA / ICA SAN JOAQUIN",
+    "reference": "Pasaje Grau N° 101 San Joaquin - ICA  REFERENCIA : A 1 cdra de Petro Peru"
+  },
+  {
+    "name": "ANDAHUAYLAS",
+    "place": "APURIMAC / ANDAHUAYLAS / ANDAHUAYLAS",
+    "reference": "AV. MALINAS 1355 POCHCCOTA, ANDAHUAYLAS - ANDAHUAYLAS -  APURÍMAC, REF. AL COSTADO DE LA EX CANCHA EL CENTENARIO O ALTURA DE LA UNIVERSIDAD UNSAAC"
+  },
+  {
+    "name": "CONCEPCION",
+    "place": "JUNIN / CONCEPCION / CONCEPCION",
+    "reference": "CARRETERA CENTRAL LT. 7 - MZ. E5, CONCEPCIÓN - CONCEPCIÓN - JUNÍN, REF. ESQUINA CON TUPAC AMARU"
+  },
+  {
+    "name": "ESPINAR",
+    "place": "CUSCO / ESPINAR / ESPINAR",
+    "reference": "CALLE SAN JOSE N° 703 BARRIO PROGRESO, YAURI (ESPINAR) - ESPINAR - CUSCO, REF.  A MEDIA CDRA. DEL GRIFO SAN JOSE / A MEDIA CDRA. DE LA AV. TINTAYA"
+  },
+  {
+    "name": "SMP AV BERTELLO",
+    "place": "LIMA / LIMA / SMP AV BERTELLO",
+    "reference": "AV. ALEJANDRO BERTELLO BOLLATI MZ. H LT. 2-A - ASOC. DE VIV. SAN REMO II ETAPA, SAN MARTÍN DE PORRES - LIMA - LIMA, REF. A MEDIA CDRA. DEL CRUCE CON AV. CANTA CALLAO"
+  },
+  {
+    "name": "ASOC LAS FLORES -  AV 54",
+    "place": "AREQUIPA / AREQUIPA / ASOC LAS FLORES -  AV 54",
+    "reference": "ASOC. VIVIENDA INTERES SOCIAL ALDO MORO MZ. C LT. 21, CERRO COLORADO - AREQUIPA - AREQUIPA, REF. AL LADO DEL SISTEMA ELÉCTRICO EL PROFE"
+  },
+  {
+    "name": "HUANTA",
+    "place": "AYACUCHO / HUANTA / HUANTA",
+    "reference": "JR. GERVASIO SANTILLANA N°976 - HUANTA - AYACUCHO. REF, CRUCE CON JR. REVOLUCIÓN"
+  },
+  {
+    "name": "PLAZA LA TOMILLA",
+    "place": "AREQUIPA / AREQUIPA / PLAZA LA TOMILLA",
+    "reference": "AV. RAMÓN CASTILLA N° 1000 - B  LA TOMIllA  CAYMA  -  REFERENCIA: EN LA MISMA PLAZA TOMIlla"
+  },
+  {
+    "name": "MARIANO MELGAR",
+    "place": "AREQUIPA / AREQUIPA / MARIANO MELGAR",
+    "reference": "CALLE ANCASH N° 202 - MARIANO MELGAR, REF. A LA ALTURA DEL COLISEO DEL NIÑO"
+  },
+  {
+    "name": "AV SOCABAYA - LOS TORITOS",
+    "place": "AREQUIPA / AREQUIPA / AV SOCABAYA - LOS TORITOS",
+    "reference": "AV. SOCABAYA 301 - URB. SAN MARTÍN DE SOCABAYA, REF. AL FRENTE DEL PARQUE VICTOR BARRIGA"
+  },
+  {
+    "name": "MIRAFLORES AREQUIPA",
+    "place": "AREQUIPA / AREQUIPA / MIRAFLORES AREQUIPA",
+    "reference": "URB. RESIDENCIAL FELIPE SANTIAGO SALAVERRY - CALLE TENIENTE RODRÍGUEZ MZ. H LT. 11, MIRAFLORES - AREQUIPA - AREQUIPA, REF. A MEDIA CDRA. DE LA COMPAÑIA DE BOMBERO DE MIRAFLORES"
+  },
+  {
+    "name": "URB MANUEL PRADO",
+    "place": "AREQUIPA / AREQUIPA / URB MANUEL PRADO",
+    "reference": "CALLE BELÉN N°100 - A URB. MANUEL PRADO - PAUCARPATA  REFERENCIA: A ESPALDAS DEL CC. MALL AVENTURA PORONGOCHE"
+  },
+  {
+    "name": "TAMBOPATA AV UCAYALI  CO",
+    "place": "MADRE DE DIOS / TAMBOPATA / TAMBOPATA AV UCAYALI  CO",
+    "reference": "AV. UCAYALI N° 473 - TAMBOPATA - TAMBOPATA - MADRE DE DIOS, REF. AL COSTADO DE MOTOS SSENDA. AL FRENTE DEL COLEGIO SANTA FE"
+  },
+  {
+    "name": "CERCADO MOLLENDO",
+    "place": "AREQUIPA / ISLAY / CERCADO MOLLENDO",
+    "reference": "CALLE DEAN VALDIVIA 388 CERCADO, REFERENCIA: ESQUINA CON BLONDEL"
+  },
+  {
+    "name": "CARAZ",
+    "place": "ANCASH / HUAYLAS / CARAZ",
+    "reference": "AV. 9 DE OCTUBRE N° 259 - HUAYLAS, REFERENCIA: AL COSTADO DE LA EMPRESA MÓVIL TOURS"
+  },
+  {
+    "name": "VELASCO ASTETE",
+    "place": "CUSCO / CUSCO / VELASCO ASTETE",
+    "reference": "VELASCO ASTETE D3 - WANCHAQ, REFERENCIA: A 2 CDRAS. DEL AEREOPUERTO"
+  },
+  {
+    "name": "PERENE",
+    "place": "JUNIN / CHANCHAMAYO / PERENE",
+    "reference": "AV. MARGINAL S/N AA.VV SAN JACINTO - PERENE - CHANCHAMAYO - JUNIN, REF. ANTES DEL ULTIMO ROMPEMUELLE DE SAN JACINTO"
+  },
+  {
+    "name": "DESAGUADERO",
+    "place": "PUNO / CHUCUITO / DESAGUADERO",
+    "reference": "AV. PANAMERICANA N° 1158 - 1160, DESAGUADERO - CHUCUITO - PUNO, REF. AL COSTADO DEL GRIFO BARTOLOMÉ"
+  },
+  {
+    "name": "CALLE LIMA",
+    "place": "MOQUEGUA / MARISCAL NIETO / CALLE LIMA",
+    "reference": "CALLE LIMA 190 - MARISCAL NIETO - MOQUEGUA, REF. A DOS CUADRAS DEL PARQUE LOS HÉROES/ALAMEDA"
+  },
+  {
+    "name": "CAJABAMBA",
+    "place": "CAJAMARCA / CAJABAMBA / CAJABAMBA",
+    "reference": "JR. LARA N° 100 ,CAJABAMBA - CAJABAMBA - CAJAMARCA, REF. A UNA CDRA. DEL COMPLEJO DEPORTIVO “SANTA ANA”"
+  },
+  {
+    "name": "AV  ESPERANZA",
+    "place": "LIMA / LIMA / AV  ESPERANZA",
+    "reference": "AV. ESPERANZA MZ. K LT. 06 LAS AMERICAS - ATE VITARTE - LIMA, REF. PASANDO MERCADO RAUCANA"
+  },
+  {
+    "name": "AV. HUANCANE CDRA. 9",
+    "place": "PUNO / SAN ROMAN / AV. HUANCANE CDRA. 9",
+    "reference": "JR. SILLUSTANI N° 202, SAN ROMAN - JULIACA, REF. A 3 CDRAS. DEL HOSPITAL CARLOS MONGE MEDRANO"
+  },
+  {
+    "name": "PARDO MIGUEL NARANJOS",
+    "place": "SAN MARTIN / RIOJA / PARDO MIGUEL NARANJOS",
+    "reference": "JR. MIGUEL GRAU 101 MZ. 34 LT. 6, PARDO MIGUEL - RIOJA - SAN MARTIN, REF. AV. MARGINAL CDRA 5"
+  },
+  {
+    "name": "HUANCABAMBA",
+    "place": "PIURA / HUANCABAMBA / HUANCABAMBA",
+    "reference": "AV. RAMON CASTILLA 0351 HUANCABAMBA - PIURA, REF. A 1 CUADRA DE LA CAPILLA RAMON CASTILLA"
+  },
+  {
+    "name": "TACNA CIUDAD NUEVA",
+    "place": "TACNA / TACNA / TACNA CIUDAD NUEVA",
+    "reference": "CIUDAD NUEVA MZ 46 LT 12 COMITÉ 10 CIUDAD NUEVA - TACNA, REF. A UNA CDRA. DE LA PLAZA JOSÉ OLAYA DE CIUDAD NUEVA"
+  },
+  {
+    "name": "AV LIMA",
+    "place": "AREQUIPA / AREQUIPA / AV LIMA",
+    "reference": "AV. LIMA N° 406 – ALTO SELVA ALEGRE - AREQUIPA, REF. ESQUINA CON AV. OBRERA CUADRA 20"
+  },
+  {
+    "name": "PACHACUTEC PDRO CHINITAS",
+    "place": "CALLAO / CALLAO / PACHACUTEC PDRO CHINITAS",
+    "reference": "AV. 225 MZ. H SUB LT. T. 11 - ASOC  PROY. ESP. CIUDAD PACHACUTEC, REF. A 1 CDRA. DEL CRUCE CON AV. LOS PROYECTISTAS, VENTANILLA - LIMA - LIMA"
+  },
+  {
+    "name": "AV AUGUSTO SALAZAR BONDY",
+    "place": "AREQUIPA / AREQUIPA / AV AUGUSTO SALAZAR BONDY",
+    "reference": "AUGUSTO SALAZAR BONDY MZ J LT 4 ALTO SELVA ALEGRE - AREQUIPA, REF.  A MEDIA CDRA. DE LA IGLESIA GUADALUPE"
+  },
+  {
+    "name": "CACHIMAYO - SAN SEBASTIAN",
+    "place": "CUSCO / CUSCO / CACHIMAYO - SAN SEBASTIAN",
+    "reference": "URB. CACHIMAYO A-37 AV. LA CULTURA – SAN SEBASTIAN – CUSCO, REF. ENTRE PARADERO ENACO Y PARQUE CACHIMAYO, A 2 CUADRA DE LA UNIVERSIDAD ANDINA."
+  },
+  {
+    "name": "URB. BANCOPATA AV. INDUSTRIAL",
+    "place": "CUSCO / CUSCO / URB. BANCOPATA AV. INDUSTRIAL",
+    "reference": "AV. INDUSTRIAL URB. BANCOPATA J-20, SANTIAGO - CUSCO, REF. A 2 CDRAS. DEL OVALO PACHACUTEC, FRENTE A LA EMPRESA COCA COLA"
+  },
+  {
+    "name": "LA CRUZ  TUMBES",
+    "place": "TUMBES / TUMBES / LA CRUZ  TUMBES",
+    "reference": "JR. PIURA 105 CALETA LA CRUZ, LA CRUZ - TUMBES, REF. FRENTE A CTR. PANAMERICANA NORTE Y AL FRENTE DE MOTOREPUESTOS Y MULTISERVICIOS LUJAN"
+  },
+  {
+    "name": "JACOBO HUNTER",
+    "place": "AREQUIPA / AREQUIPA / JACOBO HUNTER",
+    "reference": "CALLE ARGENTINA # 405 - A, JACOBO HUNTER - AREQUIPA, REF. FRENTE AL CAJERO DE CAJA AREQUIPA Y ESQUINA CON EL BANCO CAJA AREQUIPA"
+  },
+  {
+    "name": "PARCONA",
+    "place": "ICA / ICA / PARCONA",
+    "reference": "CP. DE PARCONA -CERCADO (PRIMERA ETAPA) MZ. B LOTE 16 PARCONA - ICA, REF. AV. 18 DE FEBRERO Y CRUCE DE AV. NATIVIDAD PACO"
+  },
+  {
+    "name": "AV JESUS",
+    "place": "AREQUIPA / AREQUIPA / AV JESUS",
+    "reference": "AV. JESÚS N° 1100 PAUCARPATA – AREQUIPA, REF. CON ESQUINA ARTURO VILLEGAS N° 101."
+  },
+  {
+    "name": "AV. HORACIO ZEVALLOS",
+    "place": "AREQUIPA / AREQUIPA / AV. HORACIO ZEVALLOS",
+    "reference": "ASENTAMIENTO URBANO MUNICIPAL HORACIO ZEBALLOS GAMEZ SECTOR E MZ. 1 LT. 18 SOCABAYA - AREQUIPA, REF. AL COSTADO DEL COLEGIO JOULE Y/O 2 CDRAS. DEL PENAL DE SOCABAYA"
+  },
+  {
+    "name": "TAMBOPATA AV CIRCUNVALACION",
+    "place": "MADRE DE DIOS / TAMBOPATA / TAMBOPATA AV CIRCUNVALACION",
+    "reference": "AV. CIRCUNVALACION MZ. C LT. 01, TAMBOPATA - TAMBOPATA - MADRE DE DIOS, REF. A DOS CDRAS. DE LA CARRETERA INTEROCEANICA SUR / CRUCE CON JR. LAS MERCEDES CABELLO"
+  },
+  {
+    "name": "APLAO",
+    "place": "AREQUIPA / CASTILLA / APLAO",
+    "reference": "UBICA EN LA MANZANA X1, LOTE 07, DE LA CALLE 8 DE SETIEMBRE, APLAO - CASTILLA - AREQUIPA, REF. A UNA CDRA. DE MINISTERIAL PÚBLICO FISCALÍA"
+  },
+  {
+    "name": "CUSCO CO VIA EVITAMIENTO",
+    "place": "CUSCO / CUSCO / CUSCO CO VIA EVITAMIENTO",
+    "reference": "AV. EVITAMIENTO S/N UPS CHACAHUAYCO, SAN SEBASTIAN - CUSCO - CUSCO, REF. VÍA EVITAMIENTO EN EL PARADERO HORACIO"
+  },
+  {
+    "name": "AV COLONIZADORES  CO",
+    "place": "AREQUIPA / CAYLLOMA / AV COLONIZADORES  CO",
+    "reference": "AV. LOTE COLONIZADORES. 4 PARCELA 180, MAJES - CAYLLOMA - AREQUIPA, REF. A MEDIA CDRA. DEL GRIFO EL EJE"
+  },
+  {
+    "name": "AEROPUERTO AREQUIPA",
+    "place": "AREQUIPA / AREQUIPA / AEROPUERTO AREQUIPA",
+    "reference": "Aeropuerto Internacional Alfredo Rodríguez"
+  },
+  {
+    "name": "AEROPUERTO CAJAMARCA",
+    "place": "CAJAMARCA / CAJAMARCA / AEROPUERTO CAJAMARCA",
+    "reference": "aeropuerto MAYOR GENERAL FAP ARMANDO REVOREDO IGLESIAS"
+  },
+  {
+    "name": "AEROPUERTO CALLAO",
+    "place": "CALLAO / CALLAO / AEROPUERTO CALLAO",
+    "reference": "AEROPUERTO INTERNACIONAL JORGE CHAVEZ"
+  },
+  {
+    "name": "AEROPUERTOCHICLAYO",
+    "place": "LAMBAYEQUE / CHICLAYO / AEROPUERTOCHICLAYO",
+    "reference": "Aeropuerto Internacional Capitán FAP José Abelardo Quiñones Gonzáles"
+  },
+  {
+    "name": "AEROPUERTO CUSCO",
+    "place": "CUSCO / CUSCO / AEROPUERTO CUSCO",
+    "reference": "AEROPUERTO INTERNACIONAL ALEJANDRO VELASCO ASTETE"
+  },
+  {
+    "name": "AEROPUERTO IQUITOS",
+    "place": "LORETO / MAYNAS / AEROPUERTO IQUITOS",
+    "reference": "Aeropuerto Coronel Francisco secada Vignetta"
+  },
+  {
+    "name": "AEROPUERTO JULIACA",
+    "place": "PUNO / SAN ROMAN / AEROPUERTO JULIACA",
+    "reference": "Aeropuerto Internacional Inca Manco Capac"
+  },
+  {
+    "name": "AEROPUERTO PIURA",
+    "place": "PIURA / PIURA / AEROPUERTO PIURA",
+    "reference": "Aeropuerto Internacional Guillermo Concha Ibérico"
+  },
+  {
+    "name": "AEROPUERTO PUCALLPA",
+    "place": "UCAYALI / CORONEL PORTILLO / AEROPUERTO PUCALLPA",
+    "reference": "Aeropuerto David Abensur Rengifo"
+  },
+  {
+    "name": "AEROPUERTO TACNA",
+    "place": "TACNA / TACNA / AEROPUERTO TACNA",
+    "reference": "Aeropuerto Internacional Coronel Carlos Ciriani Santa Rosa"
+  },
+  {
+    "name": "AEROPUERTO TARAPOTO",
+    "place": "SAN MARTIN / SAN MARTIN / AEROPUERTO TARAPOTO",
+    "reference": "Aeropuerto Guillermo del Castillo Paredes"
+  },
+  {
+    "name": "AEROPUERTO TUMBES",
+    "place": "TUMBES / TUMBES / AEROPUERTO TUMBES",
+    "reference": "Aeropuerto Internacional Pedro Canga Rodríguez"
+  },
+  {
+    "name": "ANCON",
+    "place": "LIMA / LIMA / ANCON",
+    "reference": "CARRETERA SERPENTÍN DE PASAMAYO MZ. G LT. 3 SUBLT. B - ASOC. DE PROP. CASA HUERTA IND. PECUARIAS SAN PEDRO ZONA 4, ANCÓN - LIMA-LIMA, REF. A 1 CDRA. DEL OVALO DE ANCÓN"
+  },
+  {
+    "name": "AÑO NUEVO",
+    "place": "LIMA / LIMA / AÑO NUEVO",
+    "reference": "AV. TUPAC AMARU N° 7837- 7839 MZ. C LT. 010 URB. POPULAR SAN JUAN BAUTISTA I ETAPA, COMAS - LIMA, REF. A UNA CDRA. DE LA ENTRADA DE COLLIQUE"
+  },
+  {
+    "name": "HUAYCAN AV HORACIO ZEVALLOS  ",
+    "place": "LIMA / LIMA / HUAYCAN AV HORACIO ZEVALLOS  ",
+    "reference": "AV. HORACIO ZEBALLOS MZ. V LT. 12 PROG. VIV. RESIDENCIAL PARIACHI (SEC. 031) ZONA 5, ATE - LIMA - LIMA, REF. FRENTE AL CIRCUITO DE MANEJO GARCILASO DE LA VEGA"
+  },
+  {
+    "name": "VARIANTE UCHUMAYO CO",
+    "place": "AREQUIPA / AREQUIPA / VARIANTE UCHUMAYO CO",
+    "reference": "VARIANTE DE UCHUMAYO KM 4.5 VALLE CHILI SECTOR ALTO CURAL, PARCELA 662, SACHACA - AREQUIPA - AREQUIPA, REF. A 50 MTS. DEL ÓVALO VOLVO VARIANTE UCHUMAYO"
+  },
+  {
+    "name": "PACHACUTEC PDRO VC",
+    "place": "CALLAO / CALLAO / PACHACUTEC PDRO VC",
+    "reference": "AV. 225 MZ F LOTE 2 SECTOR A GRUPO RESIDENCIAL A2 - PROYECTO PILOTO NUEVO PACHACUTEC, VENTANILLA - CALLAO - CALLAO, REF. FRENTE AL CENTRO DE SALUD 3 DE FEBRERO"
+  },
+  {
+    "name": "AV ALAMEDA DEL CORREGIDOR",
+    "place": "LIMA / LIMA / AV ALAMEDA DEL CORREGIDOR",
+    "reference": "AV. ALAMEDA DEL CORREGIDOR MZ. U LT. 19 UI 1 - URB LA CAPILLA, LA MOLINA - LIMA - LIMA, REF. A 2 CDRAS. DEL CRUCE CON ALAMEDA DE LOS CÓNDORES"
+  },
+  {
+    "name": "AV. ANGELICA GAMARRA",
+    "place": "LIMA / LIMA / AV. ANGELICA GAMARRA",
+    "reference": "AV. ANGELICA GAMARRA DE LEON VALVERDE N° 621 URB EL TREBOL, LOS OLIVOS - LIMA, REF. A LA ALTURA DEL KFC / CRUCE CON AV. ALFA"
+  },
+  {
+    "name": "AV  BALTA CDRA. 36",
+    "place": "LAMBAYEQUE / CHICLAYO / AV  BALTA CDRA. 36",
+    "reference": "AV. JOSE BALTA N° 3653 C.P.M. PRIMERO DE MAYO JOSE LEONARDO ORTIZ -CHICLAYO -LAMBAYEQUE, REF. ENTRE LA AV. BALTA Y NÉSTOR BARSALLO / A 2 CUADRAS DE LA AV. CHICLAYO"
+  },
+  {
+    "name": "AV  BOLIVAR ",
+    "place": "LIMA / LIMA / AV  BOLIVAR ",
+    "reference": "AV. BOLIVAR 1097, PUEBLO LIBRE - LIMA, REF. A MEDIA CDRA. DEL CRUCE AV. GRAL. JOSÉ MARÍA EGUSQUIZA"
+  },
+  {
+    "name": "AV. CANTA CALLAO CON IZAGUIRRE",
+    "place": "LIMA / LIMA / AV. CANTA CALLAO CON IZAGUIRRE",
+    "reference": "AV. CANTA CALLAO MZ. A LT. 3 ASOC. BRISAS SANTA ROSA 1RA ETAPA, REF. A MEDIA CDRA. DEL COLEGIO AMISTAD Y/O A CUATRO CDRAS. DE LA AV. CARLOS IZAGUIRRE"
+  },
+  {
+    "name": "AV. CANTA CALLAO  CON ALISOS",
+    "place": "LIMA / LIMA / AV. CANTA CALLAO  CON ALISOS",
+    "reference": "AV. CANTA CALLAO, MZ. A LT. 3 URB. ARIZONA - 2DA ETAPA  "
+  },
+  {
+    "name": "AV. CARLOS IZAGUIRRE CDRA. 14",
+    "place": "LIMA / LIMA / AV. CARLOS IZAGUIRRE CDRA. 14",
+    "reference": "CALLE DAVID ALVA MANZANA H LOTE 4 URB. CAJABAMBA LOS OLIVOS - LIMA, REF. ENTRE LA AV. CARLOS IZAGUIRRE CON LA AV. UNIVERSITARIA (FRENTE AL COLEGIO PAMER)"
+  },
+  {
+    "name": "AV  CENTRAL  SMP",
+    "place": "LIMA / LIMA / AV  CENTRAL  SMP",
+    "reference": "AV. CENTRAL MZ. A LT. 07, URB. PROGRAMA DE VIVIENDA LUCERITO DE NARANJAL, SAN MARTÍN DE PORRES - LIMA - LIMA, REF. A 5 CDRAS. DEL CRUCE CON AV. TANTAMAYO"
+  },
+  {
+    "name": "AV CIRCUNVALACIÓN CRUCE CON MARIATEGUI",
+    "place": "JUNIN / HUANCAYO / AV CIRCUNVALACIÓN CRUCE CON MARIATEGUI",
+    "reference": "AV. CIRCUNVALACIÓN 480 T-1, EL TAMBO - HUANCAYO - JUNIN, REF. ESQUINA CON PROLONGACIÓN MARIATEGUI"
+  },
+  {
+    "name": "AV CIRCUNVALACION SJL",
+    "place": "LIMA / LIMA / AV CIRCUNVALACION SJL",
+    "reference": "AV. CIRCUNVALACIÓN MZ. B-5 LT. 20 AA. HH. SARGENTO FERNANDO LORES TENAZOA COMUNA 20, SAN JUAN DE LURIGANCHO - LIMA, REF. A DOS CDRAS. DEL COLEGIO RAMIRO PRIALE"
+  },
+  {
+    "name": "AV. DEL MERCADO",
+    "place": "LIMA / LIMA / AV. DEL MERCADO",
+    "reference": "PROGRAMA CIUDAD MRCAL. CACERES, SECTOR III MZ. Q8 LT. 11 SAN JUAN DE LURIGANCHO - LIMA, REF. A MEDIA CDRA. DEL CRUCE DE AV. DEL MERCADO CON AV. AMPLIACION OESTE"
+  },
+  {
+    "name": "AV. DOS DE OCTUBRE",
+    "place": "LIMA / LIMA / AV. DOS DE OCTUBRE",
+    "reference": "AV. 2 DE OCTUBRE MZ. H LT. 2 - LOS OLIVOS - PRO, REF. AV. 2 DE OCTUBRE CON AV. CANTA CALLAO, AL COSTADO DEL CENTRO DE SAlUD PRO"
+  },
+  {
+    "name": "AV. GERARDO UNGER CDRA 64",
+    "place": "LIMA / LIMA / AV. GERARDO UNGER CDRA 64",
+    "reference": "AV. GERARDO UNGER 6475, URB. SANTA LUISA, 1RA ETAPA, S.M.P., REF. ESQUINA CON AV. 22 DE AGOSTO, LÍMITE CON COMAS / A UNA CDRA. Y MEDIA DE LA COMISARIA SANTA LUZMILA"
+  },
+  {
+    "name": "AV. GRAU",
+    "place": "PIURA / PIURA / AV. GRAU",
+    "reference": "Av. grau manzana N, lote 33 - urbanización la alborada. ref. Grau con marcavelica"
+  },
+  {
+    "name": "AV HNOS UCEDA - AMERICA NORTE",
+    "place": "LA LIBERTAD / TRUJILLO / AV HNOS UCEDA - AMERICA NORTE",
+    "reference": "AV. HERMANOS UCEDA MEZA N° 269 URB MIRAFLORES II ETAPA - TRUJILLO - TRUJILLO - LA LIBERTAD, REF. A UNA CDRA. DE AV. AMERICA NORTE. / ENTRE AV. MIRAFLORES Y AV. SALVADOR LARA"
+  },
+  {
+    "name": "AV JOSE A. QUIÑONES",
+    "place": "LORETO / MAYNAS / AV JOSE A. QUIÑONES",
+    "reference": "AV. JOSÉ ABELARDO QUIÑONES # 2475 SAN JUAN BAUTISTA - MAYNAS - LORETO, REF. FRENTE A LA UNIVERSIDAD CIENTÍFICA DEL PERÚ (UCP)"
+  },
+  {
+    "name": "AV  JOSE GALVEZ",
+    "place": "ANCASH / SANTA / AV  JOSE GALVEZ",
+    "reference": "AV. JOSÉ GÁLVEZ 791, CHIMBOTE - SANTA - ANCASH, REF. A 1 CDRA. ANTES DE LLEGAR AL PUENTE GÁLVEZ"
+  },
+  {
+    "name": "AV JOSE GRANDA CDRA 38",
+    "place": "LIMA / LIMA / AV JOSE GRANDA CDRA 38",
+    "reference": "AV. JOSÉ GRANDA 3826 DE LA URB. CONDEVILLA SEÑOR Y VALDIVIESO MZ. M7 LT 20, 2 ETAPA, 2 SECTOR - S.M.P. , REF.  ENTRE AV. CONDEVILLA Y AV. LOS PRÓCERES"
+  },
+  {
+    "name": "AV JOSE GRANDA CDRA. 25",
+    "place": "LIMA / LIMA / AV JOSE GRANDA CDRA. 25",
+    "reference": "AV. JOSE GRANDA 2546 - SAN MARTIN DE PORRES  -LIMA - LIMA, REF. A UNA CDRA. DEL ÓVALO JOSE GRANDA Y AV. UNIVERSITARIA"
+  },
+  {
+    "name": "AV JOSE LEAL CDRA 6 ",
+    "place": "LIMA / LIMA / AV JOSE LEAL CDRA 6 ",
+    "reference": "AV. CORONEL JOSÉ LEAL 648, URB. FUNDO LOBATÓN, LINCE - LINCE, REF. PARALELA A LA CDRA. 6 DE LA AV. CANEVARO"
+  },
+  {
+    "name": "AV JOSE SACO ROJAS",
+    "place": "LIMA / LIMA / AV JOSE SACO ROJAS",
+    "reference": "AV. JOSÉ SACO ROJAS MZ. A LT. 15 PROGRAMA DE VIVIENDA EL PINO, SAN ANTONIO - CARABAYLLO, REF. FRENTE AL CHIFA HONG FU Y A 3 CUADRAS DEL GRAN MERCADO EL PINO"
+  },
+  {
+    "name": "AV. LAS PALMERAS",
+    "place": "LIMA / LIMA / AV. LAS PALMERAS",
+    "reference": "AV. LAS PALMERAS N° 5236 URB. VILLA NORTE - LOS OLIVOS "
+  },
+  {
+    "name": "AV. LIMA CDRA 38",
+    "place": "LIMA / LIMA / AV. LIMA CDRA 38",
+    "reference": "AV. LIMA 3899 - SMP, REF. A 3 CDRAS. DEL TOTTUS DE QUILCA CON AV. LIMA"
+  },
+  {
+    "name": "AV. LOS PLATINOS",
+    "place": "LIMA / LIMA / AV. LOS PLATINOS",
+    "reference": "AV. LOS PLATINOS N°. 259, MZ. A - LT. 17, URB. LOTIZACIÓN INDUSTRIAL INFANTAS LOS OLIVOS - LIMA, REF. A DOS CDRAS. Y MEDIA DE LA AV. ALFREDO MENDIOLA Y/O PANAMERICANA NORTE (ALTURA DEL PARADERO CASETA)"
+  },
+  {
+    "name": "AV LOS PRECURSORES / LAS AMERICAS",
+    "place": "LIMA / LIMA / AV LOS PRECURSORES / LAS AMERICAS",
+    "reference": "AV. LOS PRECURSORES MZ. B LT. 17 AA.HH EL INTI, SAN JUAN DE MIRAFLORES - LIMA - LIMA, REF. A 1 CDRA. DEL CRUCE CON AV. LOS PRÓCERES"
+  },
+  {
+    "name": "AV MALECON  CHECA CDRA. 1 ",
+    "place": "LIMA / LIMA / AV MALECON  CHECA CDRA. 1 ",
+    "reference": "AV. MALECÓN MIGUEL CHECA EGUIGUREN N° 167 Y 169 DE LA URB. ZÁRATE, SJL - LIMA, REF. ESQUINA CON AV. GRAN CHIMÚ"
+  },
+  {
+    "name": "AV MANUEL VALLE",
+    "place": "LIMA / LIMA / AV MANUEL VALLE",
+    "reference": "AV. MANUEL VALLE SUB - LOTE 2 - 1, NÚMERO DE PARCELA J, PROYECTO HUERTOS DE PACHACAMAC, VALLE LURÍN - PACHACAMAC - LIMA, REF. FRENTE AL ESTUDIO DE CANAL 4 (AMERICA TELEVISIÓN)"
+  },
+  {
+    "name": "AV  MARCO PUENTE",
+    "place": "LIMA / LIMA / AV  MARCO PUENTE",
+    "reference": "AV. MARCO PUENTE LLANOS 309, MZ. A, LT. 03"
+  },
+  {
+    "name": "AV  NICOLAS DUEÑAS CDRA. 5 ",
+    "place": "LIMA / LIMA / AV  NICOLAS DUEÑAS CDRA. 5 ",
+    "reference": "AV. NICOLAS DUEÑAS 584 MZ. C LT. 4 – AAHH PRIMERO DE SETIEMBRE, CERCADO DE LIMA – LIMA - LIMA, REF. A MEDIA CDRA. DEL CRUCE CON JR. PEDRO GAREZON"
+  },
+  {
+    "name": "AV. PACÍFICO BELEN",
+    "place": "ANCASH / SANTA / AV. PACÍFICO BELEN",
+    "reference": "AA.HH. BELEN MZ O LT 28 - NUEVO CHIMBOTE - SANTA - ANCASH, REF. FRENTE AL GRIFO DOXA"
+  },
+  {
+    "name": "AV. PASTOR SEVILLA",
+    "place": "LIMA / LIMA / AV. PASTOR SEVILLA",
+    "reference": "MZ. B LT. 3 BARRIO 3 SECTOR 2 - 4TA ETAPA - VES, REFERENCIA: POR EL ÓVALO CERRO LOMAS, FRENTE AL COLEGIO VIRGEN DEL ROSARIO"
+  },
+  {
+    "name": "AV. PERU 15",
+    "place": "LIMA / LIMA / AV. PERU 15",
+    "reference": "Av. Perú 1589, San Martin de Porres -  Lima. Referencia: a dos cuadras del CruCe con la Av. Canadá."
+  },
+  {
+    "name": "AV. PRIMAVERA 264",
+    "place": "LIMA / LIMA / AV. PRIMAVERA 264",
+    "reference": "AV. PRIMAVERA 264 TDA 187 C.C. CHACARILLA – SANTIAGO DE SURCO - LIMA - LIMA, REF. C.C. CHACARILLA PRIMER PISO (PUERTA PRINCIPAL DEL CENTRO COMERCIAL)"
+  },
+  {
+    "name": "AV. ROOSEVELT",
+    "place": "LIMA / LIMA / AV. ROOSEVELT",
+    "reference": "AV. ROOSEVELT 6297 (ANTES REP. PANAMÁ) - MIRAFLORES"
+  },
+  {
+    "name": "AV. SAN LORENZO",
+    "place": "LIMA / LIMA / AV. SAN LORENZO",
+    "reference": "AV. SAN LORENZO MZ C LT 20 - ADP VIRGEN DE COPACABANA, PUENTE PIEDRA - LIMA. REF, A MEDIA CUADRA DEL PARQUE VIRGEN DE COPACABANA  "
+  },
+  {
+    "name": "AV  SANTA ROSA - STA ANITA",
+    "place": "LIMA / LIMA / AV  SANTA ROSA - STA ANITA",
+    "reference": "AV. SANTA ROSA #147 – URB. SANTA ANITA MZ. B1 LT. 08 UNIDAD INMOBILIARIA N° 1 - SANTA ANITA - LIMA, REF. A UNA CDRA. DE LA CARRETERA CENTRAL"
+  },
+  {
+    "name": "AV. SANTA ROSA CRUCE AV. EL SOL",
+    "place": "LIMA / LIMA / AV. SANTA ROSA CRUCE AV. EL SOL",
+    "reference": "AV. SANTA ROSA DE LIMA MZ. D LT. 4 - AAHH 2 DE SETIEMBRE - SAN JUAN DE LURIGANCHO, REF. A TRES CDRAS. DEL CRUCE CON AV. EL SOL"
+  },
+  {
+    "name": "AV TAHUANTINSUYO",
+    "place": "LA LIBERTAD / TRUJILLO / AV TAHUANTINSUYO",
+    "reference": "AV. TAHUANTINSUYO N° 739, LA ESPERANZA – TRUJILLO – LA LIBERTAD, REF. DIAGONAL A GRIFO EL AMIGO. / ENTRE PASAJE SANTA ANA Y AV. LOS LAURELES"
+  },
+  {
+    "name": "URB. REPARTICIÓN",
+    "place": "LIMA / LIMA / URB. REPARTICIÓN",
+    "reference": "AV. TUPAC AMARU 3184 URB. REPARTICION, COMAS - LIMA - LIMA, REF. A MEDIA CDRA. DE AV. VICTOR ANDRES BELAUNDE Y/O FRENTE A DOLLARCITY"
+  },
+  {
+    "name": "AV. UNIV. PARQUE SINCHI ROCA",
+    "place": "LIMA / LIMA / AV. UNIV. PARQUE SINCHI ROCA",
+    "reference": "AV. UNIVERSITARIA NORTE MZN. Q1 LTE. 030 URB. PRIMAVERA,COMAS-LIMA - LIMA, REF. A MEDIA CDRA. DEL INGRESO AL PARQUE ZONA SINCHI ROCA"
+  },
+  {
+    "name": "AV. UNIVERSITARIA CDRA. 16",
+    "place": "LIMA / LIMA / AV. UNIVERSITARIA CDRA. 16",
+    "reference": "AV. UNIVERSITARIA 1619 - URB. MARIA GRACIA DE ANTARES MZ. B LT. 25 – SAN MARTIN DE PORRES - LIMA, REF. FRENTE AL PLAZA VEA DE UNIVERSITARIA CON TOMAS VALLE"
+  },
+  {
+    "name": "AYABACA",
+    "place": "PIURA / AYABACA / AYABACA",
+    "reference": "CALLE BOLOGNESI N° 136, REF. A 2 CUADRAS DE LA PLAZA DE ARMAS DE AYABACA"
+  },
+  {
+    "name": "CARMEN ALTO",
+    "place": "AYACUCHO / HUAMANGA / CARMEN ALTO",
+    "reference": "ASENTAMIENTO HUMANO CARMEN ALTO MZ B1 LOTE 9 ZONA II ACUCHIMAY CARMEN ALTO – HUAMANGA- AYACUCHO, REF. A 1 CUADRA DE LA MUNICIPALIDAD DE CARMEN ALTO"
+  },
+  {
+    "name": "BAGUA CAPITAL",
+    "place": "AMAZONAS / BAGUA / BAGUA CAPITAL",
+    "reference": "JR. AMAZONAS C-9 MZ. 126 LT. 25, BAGUA - BAGUA - AMAZONAS, REF. FRENTE AL PARQUE JERUSALEN Y/O COSTADO DE AVICOLA YACEG"
+  },
+  {
+    "name": "BAÑOS DEL INCA",
+    "place": "CAJAMARCA / CAJAMARCA / BAÑOS DEL INCA",
+    "reference": "JR. CAHUIDE N° 242 – LOTIZ. HURTADO MILLER – BAÑOS DEL INCA – CAJAMARCA, REF. A ESPALDAS DE SENATI Y A UNA CDRA. DE LA BASE DE SERENAZGO DE BAÑOS DEL INCA"
+  },
+  {
+    "name": "BARRANCA",
+    "place": "LIMA / BARRANCA / BARRANCA",
+    "reference": "JR. ANDRES REYES BUITRON 416. BARRANCA - BARRANCA – LIMA, REF. A 2 CDRS. DEL PARQUE EL OLVIVAR / A MTRS. DE LA CASA DEL MAESTRO"
+  },
+  {
+    "name": "BARRIO SAN JOSE",
+    "place": "CAJAMARCA / CAJAMARCA / BARRIO SAN JOSE",
+    "reference": "Jr. Chanchamayo N° 1162 - Barrio San José Cajamarca,  REFERENCIA: Paralela Con Jr. Huancavelica y Jr. Sara Macdougall."
+  },
+  {
+    "name": "BARRIO SAN MARTÍN",
+    "place": "CAJAMARCA / CAJAMARCA / BARRIO SAN MARTÍN",
+    "reference": "JIRÓN LOS GLADIOLOS N° 336 BARRIO SAN MARTÍN, CAJAMARCA – CAJAMARCA – CAJAMARCA, REF. A LA ALTURA DE LA CDRA. 13 DE LA VÍA DE EVITAMIENTO SUR /A UNA CDRA. DE LA UNIVERSIDAD NACIONAL DE CAJAMARCA"
+  },
+  {
+    "name": "BAYOVAR",
+    "place": "LIMA / LIMA / BAYOVAR",
+    "reference": "AV. FERNANDO WIESSE MZ. E8. LOTE 38B, MARISCAL CÁCERES BAYOVAR - SAN JUAN DE LURIGANCHO - LIMA, REF. AUXILIAR PRÓCERES DE LA INDEPENDENCIA, AL FRENTE DE LA UNIVERSIDAD SAN MARCOS – AGROINDUSTRIAL"
+  },
+  {
+    "name": "BELLAVISTA SULLANA",
+    "place": "PIURA / SULLANA / BELLAVISTA SULLANA",
+    "reference": "CALLE MOQUEGUA 381, BELLAVISTA, REF. REST. PARRILLADAS CHAVELOS"
+  },
+  {
+    "name": "CALLE A  CON AV INDUSTRIAL",
+    "place": "LIMA / LIMA / CALLE A  CON AV INDUSTRIAL",
+    "reference": "CALLE A, MZ. D LT. 26 URBANIZACIÓN PANAMERICANA (PRIMER PISO) INDEPENDENCIA - LIMA - LIMA, REF. A 1 CDRA. DEL CRUCE CON AV. INDUSTRIAL (LATERAL DE MEGAPLAZA)"
+  },
+  {
+    "name": "CALLE EMAÚS",
+    "place": "PIURA / PIURA / CALLE EMAÚS",
+    "reference": "CALLE TRES N° 102, SUBLOTE N° 1D MZ. Y - ZONA INDUSTRIAL II, DISTRITO 26 DE OCTUBRE - REFERENCIA: AL COSTADO DE SENATI"
+  },
+  {
+    "name": "CAÑETE IMPERIAL",
+    "place": "LIMA / CAÑETE / CAÑETE IMPERIAL",
+    "reference": "JR. AUGUSTO B. LEGUÍA N.º 457, MZ E, CENTRO POBLADO IMPERIAL, IMPERIAL - CAÑETE - lima, ref. CEVICHERÍA BRISAS DEL MAR"
+  },
+  {
+    "name": "CARABAYLLO ESTABLO",
+    "place": "LIMA / LIMA / CARABAYLLO ESTABLO",
+    "reference": "AV. TUPAC AMARU N? 441 - 443, MZ. O2 LT. 35, REFERENCIA: PARADERO ESTABLO, A UNA CUADRA DE LA URB. SANTA ISABEL"
+  },
+  {
+    "name": "CATACAOS",
+    "place": "PIURA / PIURA / CATACAOS",
+    "reference": "AV. FRANCISCO BOLOGNESI MZ. 60 LT. 37 CATACAOS - PIURA - PIURA, REF. AL LADO DEL EX PRONEI"
+  },
+  {
+    "name": "CHACHAPOYAS CO DOS DE MAYO",
+    "place": "AMAZONAS / CHACHAPOYAS / CHACHAPOYAS CO DOS DE MAYO",
+    "reference": "JR. DOS DE MAYO CDRA. 15 S/N CHACHAPOYAS, REFERENCIA: JUNTO A TERMINAL DE COMBIS ETSA"
+  },
+  {
+    "name": "CHALLHUAHUACHO",
+    "place": "APURIMAC / COTABAMBAS / CHALLHUAHUACHO",
+    "reference": "BARRIO WICHAYPAMPA LT. 13 - 15 - 16, CHALLHUAHUACHO - COTABAMBAS - APURÍMAC, REF. A DOS CDRAS DEL TERMINAL TERRESTRE DE CHALLHUAHUACHO / A ESPALDAS DEL TALLER E&L"
+  },
+  {
+    "name": "CHAO",
+    "place": "LA LIBERTAD / VIRU / CHAO",
+    "reference": "AV. VICTOR RAUL HAYA DE LA TORRE 575 CHAO - VIRU, REF. A MEDIA CDRA. DE LA COMISARÍA DE CHAO"
+  },
+  {
+    "name": "CHEPEN",
+    "place": "LA LIBERTAD / CHEPEN / CHEPEN",
+    "reference": "PROLONGACION EZEQUIEL GONZALES CACEDA 193 - SEC. CHEPEN, FRENTE AL COLISEO"
+  },
+  {
+    "name": "CHILCA LEONCIO PRADO",
+    "place": "JUNIN / HUANCAYO / CHILCA LEONCIO PRADO",
+    "reference": "JR. LEONICO PRADO 656, CHILCA – HUANCAYO - JUNÍN REFERENCIA: ESQUINA CON JIRON JOSE OLAYA"
+  },
+  {
+    "name": "CHILETE - AGENTE",
+    "place": "CAJAMARCA / CONTUMAZA / CHILETE - AGENTE",
+    "reference": "JR. SANTA ROSA N° 121, CHILETE – CONTUMAZÁ – CAJAMARCA, REF. A UNA CDRA. DEL TERRAPUERTO Y A 100 MTS. DEL PUENTE DE INGRESO A CHILETE"
+  },
+  {
+    "name": "CHORRILLOS CO",
+    "place": "LIMA / LIMA / CHORRILLOS CO",
+    "reference": "AV. SANTA ANITA N.° 580, CHORRILLOS - LIMA, REF. AL COSTADO DEL MERCADO SANTA ANITA, CRUCE CON SAN GENARO"
+  },
+  {
+    "name": "CHULUCANAS",
+    "place": "PIURA / MORROPON / CHULUCANAS",
+    "reference": "JR. HUANCAVELICA N° 548   REFERENCIA : AL LADO DEL TERMINAL DE RONCO"
+  },
+  {
+    "name": "CHUPACA",
+    "place": "JUNIN / CHUPACA / CHUPACA",
+    "reference": "JR. RAMON CASTILLA 201, CHUPACA - CHUPACA - JUNIN, REF. A UNA CDRA. DE LA PLAZA PRINCIPAL DE CHUPACA"
+  },
+  {
+    "name": "CHURÍN",
+    "place": "LIMA / OYON / CHURÍN",
+    "reference": "AV. VÍA DE EVITAMIENTO N° N/S CHURÍN - OYÓN - LIMA, REF. A MEDIA CDRA. DE LA PLAZA DE ARMAS Y DE LA MUNICIPALIDAD"
+  },
+  {
+    "name": "CIENEGUILLA KM. 14.5",
+    "place": "LIMA / LIMA / CIENEGUILLA KM. 14.5",
+    "reference": "AV. ARTERIAL HUAROCHIRI D MZ. B LT. 19, ASOC. DE VIVIENDAS LAS CUMBRES DE CIENEGUILLA, LIMA, REF. AL COSTADO DE LA TIENDA MASS"
+  },
+  {
+    "name": "AV UNIV.  RETABLO",
+    "place": "LIMA / LIMA / AV UNIV.  RETABLO",
+    "reference": "AV. UNIVERSITARIA N° 7241, REFERENCIA: EX BOULEVARD DE RETABLO / A 2 CDRAS DEL METRO DE BELAUNDE"
+  },
+  {
+    "name": "CORRALES",
+    "place": "TUMBES / TUMBES / CORRALES",
+    "reference": "AV. HUÁSCAR Nº 311 INT. 01 CENTRO, CORRALES - TUMBES, REF. A ESPALDAS DE LA PLAZA DE ARMAS"
+  },
+  {
+    "name": "CTRA IQUITOS NAUTA",
+    "place": "LORETO / MAYNAS / CTRA IQUITOS NAUTA",
+    "reference": "CARRETERA IQUITOS NAUTA, S/N MZ. K - LT. 20, SAN JUAN BAUTISTA - MAYNAS - LORETO, REF. AL COSTADO DE LA DISTRIBUIDORA AMAZON GAS."
+  },
+  {
+    "name": "CUSCO URUBAMBA",
+    "place": "CUSCO / URUBAMBA / CUSCO URUBAMBA",
+    "reference": "LT. E-3 FRACCIÓN -1, SECTOR PATAHUASI, URUBAMBA – URUBAMBA - CUSCO, REF. A UNA CDRA. DE LA CARRETERA A OLLANTAYTAMBO / A MEDIA CDRA. DEL PARQUE TERESITA"
+  },
+  {
+    "name": "PUENTE NUEVO",
+    "place": "LIMA / LIMA / PUENTE NUEVO",
+    "reference": "AV 1° DE MAYO 3071 - URB HUANCAYO  referencia : FRENTE AL GRIFO REPSOL"
+  },
+  {
+    "name": "EL MILAGRO",
+    "place": "LA LIBERTAD / TRUJILLO / EL MILAGRO",
+    "reference": "AV. INDUSTRIAL MZ 23 LT. 13 SECTOR II – EL MILAGRO, HUANCHACO - TRUJILLO - LA LIBERTAD, REF. A 2 CDRAS. DE LA PLAZA DE ARMAS DE EL MILAGRO"
+  },
+  {
+    "name": "PIO  PATA",
+    "place": "JUNIN / HUANCAYO / PIO  PATA",
+    "reference": "AV. HUANCAVELICA 1201, EL TAMBO - HUANCAYO - JUNÍN, REF. ESQUINA CON EL JR. LA VICTORIA"
+  },
+  {
+    "name": "FIORI",
+    "place": "LIMA / LIMA / FIORI",
+    "reference": "AV. MIGUEL ANGEL N° 235 - URB. FIORI 4TA ETAPA MZ. N-1 LT. 04 U.I N°6, SAN MARTÍN DE PORRES - LIMA, REF. A 1 CDRA. DEL CRUCE CON AV. MARCO POLO"
+  },
+  {
+    "name": "GARATEA",
+    "place": "ANCASH / SANTA / GARATEA",
+    "reference": "URB. NICOLAS GARATEA MZ. 100 LT. 24 - NUEVO CHIMBOTE - SANTA - ANCASH, REF. FRENTE AL PARADERO AUTOS N.- GARATEA"
+  },
+  {
+    "name": "GUADALUPE LA LIBERTAD",
+    "place": "LA LIBERTAD / PACASMAYO / GUADALUPE LA LIBERTAD",
+    "reference": "AV. NILLA CERRUTY N° 299 - GUADALUPE – PACASMAYO – LA LIBERTAD, ref. AL COSTADO DEL GRIFO REPSOL - NEOTECH"
+  },
+  {
+    "name": "CAJAMARCA HORACIO ZEVALLOS",
+    "place": "CAJAMARCA / CAJAMARCA / CAJAMARCA HORACIO ZEVALLOS",
+    "reference": "JR. EMILIO BARRANTES MZ X LOTE 3 URB. HORACIO ZEVALLOS - CAJAMARCA. REFERENCIA A UNA CUADRA DE LA UNIVERSIDAD PRIVADA DEL NORTE (UPN) Y VÍA DE EVITAMIENTO NORTE CUADRA 13."
+  },
+  {
+    "name": "HUAMBOCANCHA BAJA",
+    "place": "CAJAMARCA / CAJAMARCA / HUAMBOCANCHA BAJA",
+    "reference": "MZ. A LOTE S/N – BARRIO HUAMBOCANCHA BAJA – CAJAMARCA, REF. A UNA CDRA. DEL PARADERO DE LA P13/AL COSTADO DEL CAMPO DEPORTIVO EL PATRIARCA"
+  },
+  {
+    "name": "HUANCAYO JR. ICA",
+    "place": "JUNIN / HUANCAYO / HUANCAYO JR. ICA",
+    "reference": "JR. ICA Nº 1143 - HUANCAYO, REFERENCIA: ENTRE EL JR. ICA Y EL JR. TACNA"
+  },
+  {
+    "name": "HUARACLLA",
+    "place": "CAJAMARCA / CAJAMARCA / HUARACLLA",
+    "reference": "MZ. A LOTE S/N CP HUARACLLA - JESUS - CAJAMARCA, REF. A UNA CDRA. DE LA I.E. JOSÉ OLAYA BALANDRA."
+  },
+  {
+    "name": "HUARMEY",
+    "place": "ANCASH / HUARMEY / HUARMEY",
+    "reference": "CARR. PANAMERICANA NORTE N° KM 293 SECT. PANAMERICANA HUARMEY – ANCASH, REF. A 4 CDRAS. DEL TERMINAL TERRESTRE DE SUR A NORTE"
+  },
+  {
+    "name": "HUAYCAN  EL DESCANSO",
+    "place": "LIMA / LIMA / HUAYCAN  EL DESCANSO",
+    "reference": "AV. JOSE CARLOS MARIATEGUI MZA. B LTE 06, RESIDENCIAL PARIACHI SEC. 031 ZON. 05, ATE - LIMA - LIMA, REF. CRUCE CON LA AV. LOS INCAS"
+  },
+  {
+    "name": "HUAYCAN AV JOSE C MARIATEGUI",
+    "place": "LIMA / LIMA / HUAYCAN AV JOSE C MARIATEGUI",
+    "reference": "AV. JOSÉ CARLOS MARIÁTEGUI Z. E LT. 23 UCV 5 (ZONA COMERCIO) - PUEBLO JOVEN \"PROYECTO ESPECIAL HUAYCÁN\" ATE VITARTE - LIMA, REF. A DOS CDRAS. DEL CRUCE CON AV. 15 DE JULIO"
+  },
+  {
+    "name": "IBERIA",
+    "place": "MADRE DE DIOS / TAHUAMANU / IBERIA",
+    "reference": "AV. JORGE CHAVEZ MZ. H1 SUB LOTE 11-B, IBERIA - TAHUAMANU - MADRE DE DIOS, REF. A UNA CDRA. DE LA EMPRESA REAL DORADO / A UNA CDRA. Y MEDIA DE LA AV JOSE ALDAMIZ"
+  },
+  {
+    "name": "ICA AV. JJ ELIAS",
+    "place": "ICA / ICA / ICA AV. JJ ELIAS",
+    "reference": "MANZANA B, SUB-LOTE 02 DEL FUNDO LA PALMA ICA, REF. CRUCE DE AV. CUTERVO CON AV. J.J ELIAS"
+  },
+  {
+    "name": "ICA URB. MANZANILLA",
+    "place": "ICA / ICA / ICA URB. MANZANILLA",
+    "reference": "AV. MANUEL SANTANA CHIRI N°359 A1 – ICA, REF. CRUCE CON CALLE BALTAZAR CARAVEDO"
+  },
+  {
+    "name": "IGNACIO ESCUDERO",
+    "place": "PIURA / SULLANA / IGNACIO ESCUDERO",
+    "reference": "AV. PANAMERICANA CALLE 26 LOTE 3, IGNACIO ESCUDERO - SULLANA - PIURA, REF. FRENTE A LA INSTITUCIÓN EDUCATIVA IGNACIO ESCUDERO"
+  },
+  {
+    "name": "IQUITOS  AV TUPAC AMARU",
+    "place": "LORETO / MAYNAS / IQUITOS  AV TUPAC AMARU",
+    "reference": "AV.  TUPAC AMARU CON - CALLE LOURDES DE LEÓN #479 IQUITOS MAYNAS - LORETO, REF. FRENTE A LA BOTICA THIAGOFAMA"
+  },
+  {
+    "name": "JAEN CO",
+    "place": "CAJAMARCA / JAEN / JAEN CO",
+    "reference": "AV. PAKAMMUROS CUADRA 6 S/N - referencia: ESQUINA CON CALLE LIBERTAD N° 490"
+  },
+  {
+    "name": "JAUJA",
+    "place": "JUNIN / JAUJA / JAUJA",
+    "reference": "Jr. ESTANISLAO MARQUEZ 286, YAUYOS - JAUJA - JUNÍN, REF. ESQUINA CON JR. 4 DE ENERO"
+  },
+  {
+    "name": "JICAMARCA",
+    "place": "LIMA / HUAROCHIRI / JICAMARCA",
+    "reference": "AV. SINCHI ROCA MZ. P LT. 16A P lote 16A, AAHH LAS PRADERAS DE JICAMARCA – SECTOR EL CERCADO – ANEXO 22 JICAMARCA – HUAROCHIRI, REF. CERCA AL ARCO PORTON DE JICAMARCA"
+  },
+  {
+    "name": "JIRON ANCASH",
+    "place": "LIMA / LIMA / JIRON ANCASH",
+    "reference": "JR. ANCASH MZ. B LT. 11 AAHH ANCIETA ALTA, EL AGUSTINO - LIMA - LIMA, REF. FRENTE AL INGRESO DE AGUSTINO PLAZA"
+  },
+  {
+    "name": "JR. HUARAZ -  BREÑA",
+    "place": "LIMA / LIMA / JR. HUARAZ -  BREÑA",
+    "reference": "JR. HUARAZ 1633, BREÑA -LIMA, REF. EN MEDIO DEL CRUCE DE JR. GRAL ORBEGOSO Y JR. CENTENARIO CON JR. HUARAZ"
+  },
+  {
+    "name": "AV 15 DE AGOSTO",
+    "place": "MADRE DE DIOS / TAMBOPATA / AV 15 DE AGOSTO",
+    "reference": "AV. 15 DE AGOSTO N° 529, TAMBOPATA - TAMBOPATA - MADRE DE DIOS, REF. A ESPALDAS DEL COLEGIO CARLOS FERMIN FITZCARRALD / CRUCE CON JR. ICA"
+  },
+  {
+    "name": "JR. LUNA PIZARRO",
+    "place": "LIMA / LIMA / JR. LUNA PIZARRO",
+    "reference": "JR. LUNA PIZARRO N° 701 - LA VICTORIA,  REFERENCIA: ESQUINA HIPÓLITO UNANUE"
+  },
+  {
+    "name": "JR. SANTA RITA - CAÑETE (POR DEFINIR)",
+    "place": "LIMA / CAÑETE / JR. SANTA RITA - CAÑETE (POR DEFINIR)",
+    "reference": "JR. SANTA RITA 399, REF. CRUCE CON AV. LIBERTADORES"
+  },
+  {
+    "name": "LA CINCUENTA",
+    "place": "LIMA / LIMA / LA CINCUENTA",
+    "reference": "AV. TUPAC AMARU N° 4708 - 4710, REF. A UNA CDRA. DEL PARADERO ESTACIÓN NARANJAL"
+  },
+  {
+    "name": "LA MERCED",
+    "place": "JUNIN / CHANCHAMAYO / LA MERCED",
+    "reference": "AV. PERU 931 SECTOR PAMPA DEL CARMEN, LA MERCED  -CHANCHAMAYO - JUNÍN, REF. FRENTE A LA COOPERATIVA CHANCHAMAYO"
+  },
+  {
+    "name": "TRUJILLO LA PERLA",
+    "place": "LA LIBERTAD / TRUJILLO / TRUJILLO LA PERLA",
+    "reference": "AV. LA PERLA MZ. E LOTE 05 URB. INGENIERIA – TRUJILLO – LA LIBERTAD, REF. A 1 cDRA. DEL COLEGIO BRUNING"
+  },
+  {
+    "name": "LA TINGUIÑA",
+    "place": "ICA / ICA / LA TINGUIÑA",
+    "reference": "CALLE FRANCISCO SALES SOTELO N° 298 SUB LOTE 3, LA TINGUIÑA - ICA – ICA, REF. CRUCE DE LA AV.FRNCISCO SALES SOTELO Y AV. JOSE CARLOS MARIATEGUI"
+  },
+  {
+    "name": "LAMAS",
+    "place": "SAN MARTIN / LAMAS / LAMAS",
+    "reference": "JR. 16 DE OCTUBRE N°1137, REFERENCIA: A LA ESPALDA DEL GRIFO VARGAS TELLO"
+  },
+  {
+    "name": "LAMBAYEQUE PANAMERICANA",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / LAMBAYEQUE PANAMERICANA",
+    "reference": "CALLE PARAGUAY MZ. D LT 2A UNIDAD VECINAL INDOAMÉRICA - LAMBAYEQUE, REF. AL COSTADO DE LA FÁBRICA DE KINKONES BRUNING / A 01 CUADRA DEL PUENTE LAMBAYEQUE"
+  },
+  {
+    "name": "LAS LOMAS",
+    "place": "PIURA / PIURA / LAS LOMAS",
+    "reference": "JR. MIGUEL GRAU MZ. H LT. 7, LAS LOMAS - PIURA, REF. AL COSTADO DE CAJA HUANCAYO Y AL COSTADO DE COMISARIA LAS LOMAS"
+  },
+  {
+    "name": "LOS PINOS",
+    "place": "LIMA / LIMA / LOS PINOS",
+    "reference": "MZ. B1 LT. 25 URBANIZACIÓN LOS PINOS SAN JUAN DE LURIGANCHO, REF. AV. FERNANDO WIESSE - CERCA A LA ESTACIÓN SAN MARTÍN"
+  },
+  {
+    "name": "NUEVO LURIN",
+    "place": "LIMA / LIMA / NUEVO LURIN",
+    "reference": "AV. ANTIGUA PANAMERICANA SUR KM 37 MZ C LT 17 - FUNDO LAS SALINAS  - referencia a cuadra y media del mercado virgen de las mercedes."
+  },
+  {
+    "name": "MALVINAS - JR. GARCIA VILLóN",
+    "place": "LIMA / LIMA / MALVINAS - JR. GARCIA VILLóN",
+    "reference": "JR. PRESBÍTERO GARCÍA VILLON NRO. 560 CERCADO LIMA - LIMA, REF. A LA ALTURA DE LA CDRA. 5 DE AV. OSCAR R. BENAVIDES (EX AV. COLONIAL), EN MEDIO DE LAS AV. GUILLERMO DANSEY Y AV. OSCAR R. BENAVIDES"
+  },
+  {
+    "name": "MANANTAY  AV AGUAYTIA",
+    "place": "UCAYALI / CORONEL PORTILLO / MANANTAY  AV AGUAYTIA",
+    "reference": "AV. AGUAYTIA MZ., 26 LT. 20 MANANTAY - CORONEL PORTILLO - UCAYALI, REF. A MEDIA CDRA. DEL NUEVO MERCADO DE SAN FERNANDO"
+  },
+  {
+    "name": "MANANTAY AV TUPAC AMARU",
+    "place": "UCAYALI / CORONEL PORTILLO / MANANTAY AV TUPAC AMARU",
+    "reference": "AV. TUPAC AMARU 2315 MANANTAY - CORONEL PORTILLO - UCAYALI, REF. A MEDIA CDRA. DE LA POLLERIA EMANUEL"
+  },
+  {
+    "name": "MANCHAY TRES MARIAS",
+    "place": "LIMA / LIMA / MANCHAY TRES MARIAS",
+    "reference": "AV. VICTOR MALASQUEZ MZ. B11 SUB-LOTE 06-A - AAHH CENTRO POBLADO RURAL LOS HUERTOS DE MANCHAY SECTOR B PACHACAMAC - LIMA, REF.  A MEDIA CDRA. DEL PARADERO "
+  },
+  {
+    "name": "MAZUKO",
+    "place": "MADRE DE DIOS / TAMBOPATA / MAZUKO",
+    "reference": "AV. LOS PIONEROS, LT. 2 Y 3, INAMBARI – TAMBOPATA - MADRE DE DIOS, REF. AL COSTADO DEL TERMINAL TERRESTRE DE MAZUKO / AL PIE DE LA CARRETERA AL RIO INAMBARI"
+  },
+  {
+    "name": "MEGAPLAZA INDEPENDENCIA",
+    "place": "LIMA / LIMA / MEGAPLAZA INDEPENDENCIA",
+    "reference": "CENTRO COMERCIAL MEGA PLAZA AV. ALFREDO MENDIOLA 3698 LIMA - INDEPENDENCIA. REF. PRIMER PISO DE MEGA PLAZA / AL COSTADO DEL ESTACIONAMIENTO DE BICICLETA"
+  },
+  {
+    "name": "MOCHE",
+    "place": "LA LIBERTAD / TRUJILLO / MOCHE",
+    "reference": "AV. LA MARINA LOTE 25 - B – MOCHE – TRUJILLO - LA LIBERTAD, REF. A MEDIA CDRA DE LA COMISARÍA DE MOCHE"
+  },
+  {
+    "name": "MONSEFU",
+    "place": "LAMBAYEQUE / CHICLAYO / MONSEFU",
+    "reference": "AV. VENEZUELA N° 221, MONSEFÚ - CHICLAYO - LAMBAYEQUE, REF. REF 01: A MEDIA CDRA. DE LA CALLE DIEGO FERRE Y A CDRA. Y MEDIA DEL PARQUE ARTESANAL DE MONSEFÚ"
+  },
+  {
+    "name": "MORROPON",
+    "place": "PIURA / MORROPON / MORROPON",
+    "reference": "JR. ADRIANZÉN N° 099, MORROPON - MORROPON - PIURA, REF, A ESPALDAS DE DEL TERMINAL TERRESTRE DE TRAMPSA"
+  },
+  {
+    "name": "MOYOBAMBA  CENTRO",
+    "place": "SAN MARTIN / MOYOBAMBA / MOYOBAMBA  CENTRO",
+    "reference": "JR. SERAFÍN FILOMENO N°279, MOYOBAMBA - MOYOBAMBA - SAN MARTÍN, REF. A UNA CUADRA IMEDIA DEL CUMO (CENTRO CULTURAL DE MOYOBAMBA)"
+  },
+  {
+    "name": "NUEVA CAJAMARCA",
+    "place": "SAN MARTIN / RIOJA / NUEVA CAJAMARCA",
+    "reference": "AV. CAJAMARCA NORTE MZ. 51 LT. 15, REFERENCIA: AL COSTADO DE ESSALUD"
+  },
+  {
+    "name": "OLMOS",
+    "place": "LAMBAYEQUE / LAMBAYEQUE / OLMOS",
+    "reference": "AV. AUGUSTO B. LEGUÍA MZ. 87 LT. 32  - OLMOS - LAMBAYEQUE, REF. AL FRENTE DE LA COMISARIA DE OLMOS."
+  },
+  {
+    "name": "OROPESA",
+    "place": "CUSCO / QUISPICANCHI / OROPESA",
+    "reference": "MZ. C LT. 3 DEL PREDIO DENOMINADO FRACCIÓN \"B\" QUISPICANCHIS – PUNA PUNABAMBA, REF. AL COSTADO DE PANIFICADORA LOS MARQUESES, A ORILLAS DE LA CTRA. A PAUCARTAMBO"
+  },
+  {
+    "name": "OTUZCO",
+    "place": "LA LIBERTAD / OTUZCO / OTUZCO",
+    "reference": "AV. ALFREDO GUTIÉRREZ N° 120 - Otuzco - Otuzco - La Libertad."
+  },
+  {
+    "name": "OUTLET ARAUCO FAUCETT",
+    "place": "CALLAO / CALLAO / OUTLET ARAUCO FAUCETT",
+    "reference": "AV. ELMER FAUCETT 3443 - CALLAO, REF. AL COSTADO DEL AEROPUERTO JORGE CHÁVEZ"
+  },
+  {
+    "name": "OXAPAMPA",
+    "place": "PASCO / OXAPAMPA / OXAPAMPA",
+    "reference": "MZ. 239 SUB LOTE H – 1 OXAPAMPA - OXAPAMPA - PASCO, REF. ENTRE AV. ANGÉLICA FREY Y JR. LIMA"
+  },
+  {
+    "name": "PACANGUILLA",
+    "place": "LA LIBERTAD / CHEPEN / PACANGUILLA",
+    "reference": "CARRETERA PANAMERICANA  # 835 - URB. PACANGUILLA - DISTRITO PACANGA, REFERENCIA: EN LA MISMA PANAMERICANA"
+  },
+  {
+    "name": "PACASMAYO LAS PALMERAS",
+    "place": "LA LIBERTAD / PACASMAYO / PACASMAYO LAS PALMERAS",
+    "reference": "CTRA. PANAMERICANA NORTE N° MZ. P LT. 4A - A.H. LAS PALMERAS, REFERENCIA: ENTRE AV. SUCRE Y AV. LEONCIO PRADO"
+  },
+  {
+    "name": "PACHACUTEC  AV 150",
+    "place": "CALLAO / CALLAO / PACHACUTEC  AV 150",
+    "reference": "AV. 150 IZQUIERDA MZ. W2 LT. 01 PROYECTO PILOTO NUEVO PACHACUTEC, VENTANILLA - CALLAO - CALLAO, REF. A 1 CDRA. DEL CRUCE AV. CAMINO DEL INCA"
+  },
+  {
+    "name": "PAIJAN",
+    "place": "LA LIBERTAD / ASCOPE / PAIJAN",
+    "reference": "AV. PANAMERICANA NRO. 2321 LA LIBERTAD - ASCOPE - PAIJAN, REF. A 1 CDRA. DEL ESTADIO MUNICIPAL DE PAIJÁN"
+  },
+  {
+    "name": "PAIMAS",
+    "place": "PIURA / AYABACA / PAIMAS",
+    "reference": "AV. SULLANA S/N, REF. FRENTE AL COMPLEJO EDUCATIVO JUAN VELASCO ALVARADO"
+  },
+  {
+    "name": "PAITA",
+    "place": "PIURA / PAITA / PAITA",
+    "reference": "MZ. H LT. 14 URB. SOL Y MAR  - PAITA, REFERENCIA: AL COSTADO DE LA EMPRESA SAN MIGUEL"
+  },
+  {
+    "name": "PAMPA GRANDE TUMBES",
+    "place": "TUMBES / TUMBES / PAMPA GRANDE TUMBES",
+    "reference": "MZ. 0U LT. 00A AA.HH. PAMPA GRANDE, TUMBES, REF. FRENTE A LA AV. UNIVERSITARIA, Y AL FRENTE A LA IGLESIA MORMONES Y AL LADO DE UN LAVADERO DE AUTOS."
+  },
+  {
+    "name": "PARQUE LA MOLINA",
+    "place": "LIMA / LIMA / PARQUE LA MOLINA",
+    "reference": "AV. LA MOLINA 2448, LA MOLINA 15026, LA MOLINA - LIMA - LIMA, REF. ESTACIONAMIENTO NIVEL -3"
+  },
+  {
+    "name": "PATAPO",
+    "place": "LAMBAYEQUE / CHICLAYO / PATAPO",
+    "reference": "AV. CHONGOYAPE N° S/N SECTOR CERRO MIRADOR, PATAPO - CHICLAYO - LAMBAYEQUE, REF. A UNA CDRA. Y MEDIA DE LA INTERSECCIÓN CON AV TRAPICHE / AL FRENTE DEL POLIDEPORTIVO DEL CERRO MIRADOR"
+  },
+  {
+    "name": "PILCOMAYO",
+    "place": "JUNIN / HUANCAYO / PILCOMAYO",
+    "reference": "PLAZA INDEPENDENCIA 131, PILCOMAYO - HUANCAYO - JUNÍN, REF. PLAZA PRINCIPAL DE PILCOMAYO"
+  },
+  {
+    "name": "SJL-AV.PROCERES",
+    "place": "LIMA / LIMA / SJL-AV.PROCERES",
+    "reference": "AV. PRÓCERES DE LA INDEPENDENCIA NRO.  1295 - 1299 REFERENCIA: AL COSTADO DEL BANCO DE LA NACIÓN DE AV. LOS TUSILAGOS OESTE"
+  },
+  {
+    "name": "AV. LA MARINA",
+    "place": "LIMA / LIMA / AV. LA MARINA",
+    "reference": "AV. LA MARINA 1640 - REFERENCIA :  A UNA CUADRA DEL CENTRO COMERCIAL PLAZA SAN MIGUEL"
+  },
+  {
+    "name": "PUENTE ARICA",
+    "place": "LIMA / LIMA / PUENTE ARICA",
+    "reference": "PANAMERICANA NORTE  KM 32.5 , A 1/2  CUADRA DEL PUENTE ARICA  - AL COSTADO DEL GRIFO REPSOL"
+  },
+  {
+    "name": "PUENTE LURIN",
+    "place": "LIMA / LIMA / PUENTE LURIN",
+    "reference": "ANTIGUA PANAMERICANA SUR, LOTE 2, MZ. B, PRIMER PISO LURÍN - LIMA, REF. A CDRA. Y MEDIA DEL CRUCE CON AV. SANTA CRUZ"
+  },
+  {
+    "name": "PUNCHANA",
+    "place": "LORETO / MAYNAS / PUNCHANA",
+    "reference": "CALLE BORJA N°648 PUNCHANA - MAYNAS - LORETO, REF. AL COSTADO DE LA FARMACIA SAN CARLOS CENTRO MÉDICO"
+  },
+  {
+    "name": "PUNTA HERMOSA ",
+    "place": "LIMA / LIMA / PUNTA HERMOSA ",
+    "reference": "AV. GARCIA RADA MZ.B LT.04, AAHH ASOCIACION DE VIVIENDA Y DESARROLLO INTEGRAL NUEVA GENERACION, PUNTA HERMOSA - LIMA, REF. A UNA CDRA. DEL PARADERO PEATONAL DE PUNTA HERMOSA"
+  },
+  {
+    "name": "REQUE",
+    "place": "LAMBAYEQUE / CHICLAYO / REQUE",
+    "reference": "AV. MARISCAL RAMON CASTILLA MZ. 4 LOTE 14, REQUE - CHICLAYO - LAMBAYEQUE, REF. A MEDIA CDRA. DE LA INTERSECCION CON CALLE SAN MARTIN / A UNOS MTRS DE ALBORADA EVENTOS Y RECEPCIONES"
+  },
+  {
+    "name": "RIOJA",
+    "place": "SAN MARTIN / RIOJA / RIOJA",
+    "reference": "CTRA. FERNANDO BELAÚNDE TERRY N° 415, REFERENCIA: AL COSTADO DE LA CLÍNICA CHILCON HOPE"
+  },
+  {
+    "name": "SALAS ICA",
+    "place": "ICA / ICA / SALAS ICA",
+    "reference": "SUB LOTE 01 ZONA PANAMERICANA SUR KM. 293.350, SALAS GUADALUPE -  ICA - ICA, REF. FRENTE AL ESTADIO DE SALAS GUADALUPE"
+  },
+  {
+    "name": "SAN CARLOS HUANCAYO",
+    "place": "JUNIN / HUANCAYO / SAN CARLOS HUANCAYO",
+    "reference": "PJ. SAN FERNANDO 209 HUANCAYO - HUANCAYO - JUNIN, REF. ESQUINA DEL JR. SAN FERNANDO Y MÁRTIRES DEL PERIODISMO"
+  },
+  {
+    "name": "SAN IGNACIO",
+    "place": "CAJAMARCA / SAN IGNACIO / SAN IGNACIO",
+    "reference": "PASAJE TRES N° 113 URB SANTA ROSA, CAJAMARCA - SAN IGNACIO, REF. FRENTE AL ESTADO MUNICIPAL"
+  },
+  {
+    "name": "SAN JOSE DE SISA",
+    "place": "SAN MARTIN / EL DORADO / SAN JOSE DE SISA",
+    "reference": "JR. BOLOGNESI CDRA 6, SAN JOSE DE SISA - EL DORADO - SAN MARTIN, REF. ALTURA DE JR LAMAS Y JR ELADIO TAPULLIMA"
+  },
+  {
+    "name": "SAN JUAN BAUTISTA",
+    "place": "AYACUCHO / HUAMANGA / SAN JUAN BAUTISTA",
+    "reference": "AV. VENEZUELA N° 431 – URB. APROVISA, SAN JUAN BAUTISTA - HUAMANGA - AYACUCHO, REF. ALTURA DEL HOSTAL LA ORIENTAL, CERCA AL SEGURO DE ESSALUD"
+  },
+  {
+    "name": "AV. 13 DE ENERO",
+    "place": "LIMA / LIMA / AV. 13 DE ENERO",
+    "reference": "AV. 13 DE ENERO Nº2057, URB. SAN HILARIÓN, REFERENCIA: CERCA A LA ESTACIÓN LOS POSTES"
+  },
+  {
+    "name": "AV SANTA ROSA URB LOS ALAMOS",
+    "place": "LIMA / LIMA / AV SANTA ROSA URB LOS ALAMOS",
+    "reference": "Av. Santa Rosa MZ. D1 lote 1 Urb. Los Alamos 2da Etapa  - referencia altura de la cuadra 13 del paradero canto grande"
+  },
+  {
+    "name": "SAN MARTIN BELLAVISTA",
+    "place": "SAN MARTIN / BELLAVISTA / SAN MARTIN BELLAVISTA",
+    "reference": "AV. LIMA S/N C-4 MZ 71 – LOTE A – TERCER PISO, BELLAVISTA- BELLAVISTA- SAN MARTIN, REF. ESPALDAS DE FERRETERÍA EL IMAN"
+  },
+  {
+    "name": "SANTA",
+    "place": "ANCASH / SANTA / SANTA",
+    "reference": "PANAMERICANA NORTE KM 442 - B, SANTA, REF. AL LADO DE LA FERRETERIA LA LLAVE"
+  },
+  {
+    "name": "SANTO DOMINGO",
+    "place": "LIMA / LIMA / SANTO DOMINGO",
+    "reference": "AV. A MZ. L2 LT. 20 URB. SANTO DOMINGO – VI ETAPA CARABAYLLO - LIMA, REF. EN EL CRUCE DE LAS AV. CHILLON TRAPICHE Y AV. CAMINO REAL "
+  },
+  {
+    "name": "SANTO TOMAS",
+    "place": "CUSCO / CHUMBIVILCAS / SANTO TOMAS",
+    "reference": "CALLE BOLOGNESI MZ. 02 LT. 25, SANTO TOMAS - CHUMBIVILCAS - CUSCO, REF. A ESPALDAS DE LA POLLERIA PICO DORADO Y A MEDIA CDRA. DE LA AV SANTA BARBARA"
+  },
+  {
+    "name": "SAPOSOA",
+    "place": "SAN MARTIN / HUALLAGA / SAPOSOA",
+    "reference": "AV. LORETO S/N - SAPOSOA - EL HUALLAGA - SAN MARTIN, REF. EN EL HOSTAL EL GATO, A UNA CDRA. Y MEDIA DE LA PLAZA DE ARMAS"
+  },
+  {
+    "name": "SEGUNDA JERUSALEN",
+    "place": "SAN MARTIN / RIOJA / SEGUNDA JERUSALEN",
+    "reference": "JR. LIMA MZ. 43 LT. 08 , ELIAS SOPLIN VARGAS - RIOJA - SAN MARTIN, REF. AL COSTADO DE TIENDA CHINGAY"
+  },
+  {
+    "name": "ATOCONGO",
+    "place": "LIMA / LIMA / ATOCONGO",
+    "reference": "AV. DE LOS HÉROES N° 228 - SAN JUAN DE MIRAFLORES - (ESTACIÓN ATOCONGO)"
+  },
+  {
+    "name": "SULLANA SANTA ROSA",
+    "place": "PIURA / SULLANA / SULLANA SANTA ROSA",
+    "reference": "Carretera Panamericana Norte Nº 790 SULLANA   REFERENCIA : FRENTE AL COLEGIO CHIQUITITOS"
+  },
+  {
+    "name": "SUNAMPE  CO",
+    "place": "ICA / CHINCHA / SUNAMPE  CO",
+    "reference": "CARR. PANAMERICANA SUR NRO. 198 -B , SIN BARRIO CERCADO SUNAMPE, SUNAMPE - CHINCHA - ICA, REF. ANTIGUA PANAMERICANA SUR FRENTE A LA ENTRADA DE GROCIO PRADO."
+  },
+  {
+    "name": "SUPE",
+    "place": "LIMA / BARRANCA / SUPE",
+    "reference": "AV. FRANCISCO VIDAL 1120, SUPE - BARRANCA - LIMA, REF. AL COSTADO DE LUBRICENTRO CIRIACO Y MEDIA CDRA. DE LA CRUZ MISIONERA"
+  },
+  {
+    "name": "TAMBO GRANDE",
+    "place": "PIURA / PIURA / TAMBO GRANDE",
+    "reference": "AA. HH. EL HUERTO MZ. E LT. 08 TAMBO GRANDE – PIURA - PIURA, REF. ATRÁS DEL COLEGIO INA 54 AGROPECUARIO, A LA ALTURA DEL CAMPO CAMPESTRE RIVERA DEL RÍO"
+  },
+  {
+    "name": "TARAPOTO CO JR ALFONSO UGARTE",
+    "place": "SAN MARTIN / SAN MARTIN / TARAPOTO CO JR ALFONSO UGARTE",
+    "reference": "JR. ALFONSO UGARTE N°2283 - TARAPOTO - SAN MARTIN - SAN MARTIN, REF. FRENTE A LA CANCHA SINTÉTICO EL GOLAZO"
+  },
+  {
+    "name": "TEMBLADERA  CAJAMARCA",
+    "place": "CAJAMARCA / CONTUMAZA / TEMBLADERA  CAJAMARCA",
+    "reference": "JR. BOLOGNESI S/N – TEMBLADERA - YONAN - CONTUMAZÁ - CAJAMARCA, REF. AL FRENTE DEL PARQUE VÍCTOR RAÚL HAYA DE LA TORRE"
+  },
+  {
+    "name": "TERMINAL DE BUS",
+    "place": "JUNIN / HUANCAYO / TERMINAL DE BUS",
+    "reference": "Av. Evitamiento s/n - counter N°13"
+  },
+  {
+    "name": "TERMINAL JAUJA",
+    "place": "JUNIN / JAUJA / TERMINAL JAUJA",
+    "reference": "JR.LUIS BARDALES S/N, JAUJA – JAUJA – JUNÍN, REF. TERMINAL TERRESTRE HATUN XAUXA"
+  },
+  {
+    "name": "AV. TRAPICHE",
+    "place": "LIMA / LIMA / AV. TRAPICHE",
+    "reference": "AV. TRAPICHE 886 A 16 2P 2 - URB. PINAR, REFERENCIA: FRENTE AL COMPLEJO DEPORTIVO WALON"
+  },
+  {
+    "name": "TRES DE OCTUBRE",
+    "place": "ANCASH / SANTA / TRES DE OCTUBRE",
+    "reference": "AV. JOSÉ PARDO MZ. K, LT. 17 - TRES DE OCTUBRE, REFERENCIA: FRENTE AL ÓVALO LAS AMÉRICAS"
+  },
+  {
+    "name": "URB SANTA ELVIRA ",
+    "place": "LIMA / LIMA / URB SANTA ELVIRA ",
+    "reference": "AV. FERROCARRIL MZ. C LT. 19 PARCELA 3, URB. SANTA ELVIRA SEC. 018 ZONA 3, REF. A MEDIA CDRA. DEL CRUCE CON AV. DE LA CULTURA"
+  },
+  {
+    "name": "TUNGASUCA",
+    "place": "LIMA / LIMA / TUNGASUCA",
+    "reference": "AV. TRAPICHE MZ. P LT. 48, URB. TUNGASUCA REFERENCIA: AUX. AV. CHIMPU OCLLO CON AUX. CHILLÓN TRAPICHE, A 1 CUADRA DEL MERCADO QATUNA"
+  },
+  {
+    "name": "PUENTE VIRU",
+    "place": "LA LIBERTAD / VIRU / PUENTE VIRU",
+    "reference": "PANAMERICANA NORTE N° 933 PUENTE VIRÚ - VIRÚ - LA LIBERTAD, REF. a MEDIA CDRA. DEL GRIFO ZONA ETNA/MEDIA CDRA. DEL SEMAFORO ZONA ETNA"
+  },
+  {
+    "name": "WICHANZAO",
+    "place": "LA LIBERTAD / TRUJILLO / WICHANZAO",
+    "reference": "MZ. 1 LT. 23 AA.HH WICHANZAO – LA ESPERANZA – TRUJILLO – LA LIBERTAD, REF. AL COSTADO DEL ALMACÉN SUNAT. / DIAGONAL AL HOSPITAL DE ALTA COMPLEJIDAD VIRGEN DE LA PUERTA"
+  },
+  {
+    "name": "YARINACOCHA  AV UNIVERSITARIA",
+    "place": "UCAYALI / CORONEL PORTILLO / YARINACOCHA  AV UNIVERSITARIA",
+    "reference": "AV. UNIVERSITARIA MZA A LOTE 6, YARINACOCHA - CORONEL PORTILLO - UCAYALI, REF. A MEDIA CDRA. DEL LOCAL ROKALPA"
+  },
+  {
+    "name": "JR CHINCHAYSUYO CDRA 4",
+    "place": "LIMA / LIMA / JR CHINCHAYSUYO CDRA 4",
+    "reference": "JR. CHINCHAYSUYO 468 ZARATE, SAN JUAN DE LURIGANCHO - LIMA, REF. A 1 CDRA. DE TIENDAS 3 A"
+  },
+  {
+    "name": "ZARUMILLA",
+    "place": "TUMBES / ZARUMILLA / ZARUMILLA",
+    "reference": "JIRON INDEPENDENCIA 309 ZARUMILLA, REF. ATRÁS DE LA PLAZA DE ARMAS Y FRENTE AL DORADO PASANDO 5 CASAS"
+  }
+];
