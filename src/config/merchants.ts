@@ -1,6 +1,7 @@
 import { MerchantConfig } from '../types/merchant';
 
 export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
+///////////////////-FABET-///////////////////////  
   'merchant-fabet': {
     id: 'FABET',
     name: 'Fabet Fajas',
@@ -126,6 +127,134 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       },
     ],
   },
+
+  'merchant-skyblue-fabet': {
+    id: 'FABETSKYBLUE',
+    name: 'Fabet Fajas',
+    logo: new URL('../../assets/imgs/FABET-LOGO.jpg', import.meta.url).href,
+    badgeText: 'Tienda Verificada',
+    primaryColor: '#e93a3a', // Indigo
+    secondaryColor: '#e95555',
+    theme: {
+      primary: '#e93a3a',
+      primaryHover: '#e93a3a',
+      primaryLight: '#eef2ff',
+      primaryForeground: '#ffffff',
+    },
+    phoneCountryCode: '+51',
+    phonePlaceholder: '9XXXXXXXX',
+    cutoffTime: '21:00',
+    cutoffEnabled: true,
+    cutoffNoticeTitle: 'Hora de corte: 9:00 p. m.',
+    cutoffNoticeMessage: 'Asegura tu envío registrando tus datos antes de la hora de corte para despacho lo más pronto posible.',
+    cutoffPassedMessage: 'Registraste tu pedido después de las 9:00 p. m. Se despachará el próximo día hábil.',
+    whatsappEnabled: true,
+    whatsappNumber: '+51917285646',
+    formTitle: 'Formulario de Envío',
+    formSubtitle: 'Ingresa los datos del destinatario para coordinar y despachar tu pedido.',
+    successTitle: '¡Registro Exitoso!',
+    successMessage: 'Tu envío ha sido programado correctamente. Verifica los datos y envíalos por chat con el botón verde.',
+    allowedCouriers: ['Shalom', 'Olva Courier', 'Delivery (Solo Lima-Metropolitana)', /*'Marvisur'*/],
+    defaultCourier: 'Shalom',
+    supportPhone: '+51917285646',
+    supportEmail: 'contacto.fabet@gmail.com',
+    fields: [
+      {
+        id: 'phone',
+        type: 'phone',
+        label: 'Tu WhatsApp',
+        placeholder: '9XXXXXXXX',
+        required: true,
+        helpText: 'Te contactaremos por este número para enviarte tu clave de recojo y boleta.',
+        section: 'personal',
+      },
+      {
+        id: 'fullName',
+        type: 'text',
+        label: 'Nombre completo del destinatario',
+        placeholder: 'Ej: Ayrton Rodriguez...',
+        required: true,
+        section: 'personal',
+      },
+      {
+        id: 'documentNumber',
+        type: 'text',
+        label: 'DNI / Documento de Identidad',
+        placeholder: '8 dígitos para DNI o CE',
+        required: true,
+        helpText: 'Requerido por la agencia courier para entregar el paquete.',
+        section: 'personal',
+      },
+      {
+        id: 'deliveryType',
+        type: 'select',
+        label: 'Modalidad de Entrega',
+        required: true,
+        defaultValue: 'agencia',
+        options: [
+          { value: 'agencia', label: '🏢 Retiro en Agencia (Shalom / Olva)' },
+          { value: 'domicilio', label: '🏠 Envío a Domicilio' },
+          { value: 'delivery', label: '📦 Delivery (Solo Lima Metropolitana)' },
+        ],
+        section: 'delivery',
+      },
+      {
+        id: 'courier',
+        type: 'select',
+        label: 'Courier o Empresa de Transporte',
+        required: true,
+        defaultValue: 'Shalom',
+        options: [
+          { value: 'Shalom', label: 'Shalom (Recomendado - Rápido y económico)' },
+          { value: 'Olva Courier', label: 'Olva Courier' },
+          { value: 'Delivery (Solo Lima-Metropolitana)', label: 'Delivery (Solo Lima-Metropolitana)' },
+          // { value: 'Marvisur', label: 'Marvisur carga pesada' },
+          // { value: 'Motorizado', label: 'Motorizado Express (Solo Lima)' },
+        ],
+        section: 'delivery',
+      },
+      {
+        id: 'department',
+        type: 'select',
+        label: 'Departamento / Provincia / Distrito',
+        placeholder: 'Ej: Lima / Lima / Comas',
+        required: true,
+        section: 'delivery',
+      },
+      {
+        id: 'destinationSede',
+        type: 'select',
+        label: 'Sede de Agencia o Dirección de Entrega',
+        placeholder: 'Ej: Agencia Shalom Año Nuevo / Av. Tupac Amaru N° 7837',
+        required: true,
+        options: [
+          { value: 'Shalom', label: 'Shalom Empresarial' },
+          { value: 'Olva Courier', label: 'Olva Courier Puerta a Puerta' },
+          { value: 'Delivery (Solo Lima-Metropolitana)', label: 'Delivery (Solo Lima-Metropolitana)' },
+        ],
+        section: 'delivery',
+      },
+      {
+        id: 'reference',
+        type: 'text',
+        label: 'Referencia adicional',
+        placeholder: 'Ej: A una cuadra de la entrada de Collique, frente a farmacia',
+        required: false,
+        section: 'delivery',
+      },
+      {
+        id: 'notes',
+        type: 'textarea',
+        label: 'Notas del pedido o instrucciones especiales',
+        placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
+        required: false,
+        rows: 2,
+        section: 'additional',
+      },
+    ],
+  },
+/////////////////////////////////////////////////
+
 ///////////////////-MAYUL-///////////////////////
   'merchant-mayul': {
     id: 'merchant-test',

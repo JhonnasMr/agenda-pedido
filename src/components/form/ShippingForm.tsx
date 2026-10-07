@@ -76,6 +76,22 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   const selectedCourier = watch('courier');
   const destinationQuery = watch('destinationSede') || '';
   const districtQuery = watch('district') || '';
+  const documentNumber = watch('documentNumber') || '';
+  const fullNameValue = watch('fullName') || '';
+
+  const isPhoneValid = merchant.phoneCountryCode === '+51' || !merchant.phoneCountryCode
+    ? isValidPeruvianPhone(currentPhone)
+    : isValidPhoneNumber(currentPhone, merchant.phoneCountryCode);
+
+  const hasPhone = Boolean(currentPhone && isPhoneValid);
+  const hasDeliveryType = Boolean(selectedDeliveryType);
+  const hasDestinationSelection = selectedDeliveryType === 'delivery'
+    ? districtQuery.trim().length > 0
+    : destinationQuery.trim().length > 0;
+  const hasPersonalData = documentNumber.trim().length > 0 && fullNameValue.trim().length > 0;
+  const showDeliveryTypeStep = hasPhone;
+  const showShippingDetailsStep = showDeliveryTypeStep && hasDeliveryType;
+  const showDateAndNotesStep = showShippingDetailsStep && hasDestinationSelection && hasPersonalData;
   const [isAgencyListOpen, setIsAgencyListOpen] = useState(false);
   const [activeAgencyIndex, setActiveAgencyIndex] = useState(-1);
   const [isDistrictListOpen, setIsDistrictListOpen] = useState(false);
@@ -121,11 +137,6 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
         .includes(normalizedQuery)
     );
   }, [districtQuery]);
-
-  // Check whether the phone is currently valid
-  const isPhoneValid = merchant.phoneCountryCode === '+51' || !merchant.phoneCountryCode
-    ? isValidPeruvianPhone(currentPhone)
-    : isValidPhoneNumber(currentPhone, merchant.phoneCountryCode);
 
   // Progressive disclosure state
   const [isPhoneUnlocked, setIsPhoneUnlocked] = useState<boolean>(() => {
@@ -205,34 +216,11 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
       )}
 
       {/* Step Tracker */}
-      <div className="flex items-center justify-between pb-1 border-b border-slate-100 text-xs font-semibold">
-        <div className="flex items-center gap-1.5 text-slate-800">
-          <span
-            className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold ${
-              isPhoneUnlocked
-                ? 'bg-emerald-500 text-white'
-                : 'bg-merchant-primary text-white'
-            }`}
-          >
-            {isPhoneUnlocked ? '✓' : '1'}
-          </span>
-          <span>1. Tu WhatsApp</span>
-        </div>
-
-        <div className="flex items-center gap-1.5 text-slate-400">
-          <span
-            className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold ${
-              isPhoneUnlocked
-                ? 'bg-merchant-primary text-white'
-                : 'bg-slate-200 text-slate-500'
-            }`}
-          >
-            2
-          </span>
-          <span className={isPhoneUnlocked ? 'text-slate-800 font-semibold' : ''}>
-            2. Destino & Fecha
-          </span>
-        </div>
+      <div className="hidden" aria-hidden="true">
+        <span className={hasPhone ? 'text-slate-800' : 'text-slate-400'}>Tu WhatsApp</span>
+        <span className={showDeliveryTypeStep ? 'text-slate-800' : 'text-slate-400'}>Tipo de envío</span>
+        <span className={showShippingDetailsStep ? 'text-slate-800' : 'text-slate-400'}>Destino y datos</span>
+        <span className={showDateAndNotesStep ? 'text-slate-800' : 'text-slate-400'}>Fecha y nota</span>
       </div>
 
       {/* The Form */}
@@ -332,9 +320,11 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               ))}
             </div>
 
-            {/* 1. Empresa de Transporte */}
-            {selectedDeliveryType !== 'delivery' && (
-            <div className="w-full text-left space-y-1.5">
+            {selectedDeliveryType && (
+              <div className="space-y-4 pt-1 animate-fadeIn">
+                {/* 1. Empresa de Transporte */}
+                {selectedDeliveryType !== 'delivery' && (
+                <div className="w-full text-left space-y-1.5">
               <label
                 htmlFor="courier"
                 className="block text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1.5"
@@ -640,43 +630,47 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               />
             </div>
 
-            {/* 5. Agendar Fecha (Día siguiente y dejando 2 días) */}
-            <div className="pt-2">
-              <Controller
-                name="preferredDate"
-                control={control}
-                render={({ field }) => (
-                  <DateScheduler
-                    value={field.value}
-                    cutoffTime={merchant.cutoffTime}
-                    onChange={(val) => {
-                      field.onChange(val);
-                      setValue('preferredDate', val, { shouldValidate: true });
-                    }}
-                    error={errors.preferredDate?.message}
-                    disabled={isSubmitting}
+            {showDateAndNotesStep && (
+              <div className="space-y-4 pt-1 animate-fadeIn">
+                {/* 5. Agendar Fecha (Día siguiente y dejando 2 días) */}
+                <div className="pt-2">
+                  <Controller
+                    name="preferredDate"
+                    control={control}
+                    render={({ field }) => (
+                      <DateScheduler
+                        value={field.value}
+                        cutoffTime={merchant.cutoffTime}
+                        onChange={(val) => {
+                          field.onChange(val);
+                          setValue('preferredDate', val, { shouldValidate: true });
+                        }}
+                        error={errors.preferredDate?.message}
+                        disabled={isSubmitting}
+                      />
+                    )}
                   />
-                )}
-              />
-            </div>
+                </div>
 
-            {/* Notas opcionales */}
-            <div className="w-full text-left pt-1">
-              <label
-                htmlFor="notes"
-                className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1"
-              >
-                Indicaciones u Observaciones (Opcional)
-              </label>
-              <textarea
-                id="notes"
-                rows={2}
-                placeholder="Ej: Color de prenda, referencia de ubicación, etc."
-                disabled={isSubmitting}
-                {...register('notes')}
-                className="block w-full p-3 rounded-xl border border-slate-200 text-sm text-slate-900 bg-white placeholder:text-slate-400 focus:outline-none focus:border-merchant-primary focus:ring-4 focus:ring-merchant-primary/10"
-              />
-            </div>
+                {/* Notas opcionales */}
+                <div className="w-full text-left pt-1">
+                  <label
+                    htmlFor="notes"
+                    className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1"
+                  >
+                    Indicaciones u Observaciones (Opcional)
+                  </label>
+                  <textarea
+                    id="notes"
+                    rows={2}
+                    placeholder="Ej: Color de prenda, referencia de ubicación, etc."
+                    disabled={isSubmitting}
+                    {...register('notes')}
+                    className="block w-full p-3 rounded-xl border border-slate-200 text-sm text-slate-900 bg-white placeholder:text-slate-400 focus:outline-none focus:border-merchant-primary focus:ring-4 focus:ring-merchant-primary/10"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* Form Action CTA */}
             <FormActions
@@ -686,6 +680,8 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
             />
           </div>
         )}
+      </div>
+    )}
       </form>
     </div>
   );
