@@ -33,8 +33,8 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
 
     const [year, month, day] = raw.split('-').map(Number);
     const dateObj = new Date(year, month - 1, day, 12, 0, 0);
-    if (dateObj.getDay() === 0 || dateObj.getDay() === 6) {
-      setCustomDateError('No atendemos sábados ni domingos. Selecciona un día de lunes a viernes.');
+    if (dateObj.getDay() === 0) {
+      setCustomDateError('No atendemos domingos. Selecciona un día de lunes a sábado.');
       e.target.value = '';
       return;
     }
@@ -55,7 +55,7 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
         </label>
         <span className="text-[11px] font-medium text-slate-500 flex items-center gap-1">
           <Clock className="w-3 h-3 text-slate-400" />
-          Lunes a viernes
+          Lunes a sábado
         </span>
       </div>
 
