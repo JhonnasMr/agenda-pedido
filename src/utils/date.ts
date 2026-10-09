@@ -87,25 +87,25 @@ export interface FutureScheduleOption {
   isTomorrow: boolean;
 }
 
-function isWeekend(date: Date): boolean {
-  return date.getDay() === 0 || date.getDay() === 6;
+function isClosedDay(date: Date): boolean {
+  return date.getDay() === 0;
 }
 
-function nextWeekday(date: Date): Date {
+function nextWorkingDay(date: Date): Date {
   const nextDate = new Date(date);
-  while (isWeekend(nextDate)) {
+  while (isClosedDay(nextDate)) {
     nextDate.setDate(nextDate.getDate() + 1);
   }
   return nextDate;
 }
 
-function addWeekdays(date: Date, amount: number): Date {
+function addWorkingDays(date: Date, amount: number): Date {
   const result = new Date(date);
-  let weekdaysAdded = 0;
+  let workingDaysAdded = 0;
 
-  while (weekdaysAdded < amount) {
+  while (workingDaysAdded < amount) {
     result.setDate(result.getDate() + 1);
-    if (!isWeekend(result)) weekdaysAdded += 1;
+    if (!isClosedDay(result)) workingDaysAdded += 1;
   }
 
   return result;
@@ -129,10 +129,10 @@ export function getFutureScheduleOptions(
   const cutoffPassed = isCutoffPassed(cutoffTime, now);
   const tomorrow = new Date(now);
   tomorrow.setDate(tomorrow.getDate() + 1);
-  const firstDate = nextWeekday(tomorrow);
+  const firstDate = nextWorkingDay(tomorrow);
 
   return Array.from({ length: 4 }, (_, index) => {
-    const d = addWeekdays(firstDate, index * 2);
+    const d = addWorkingDays(firstDate, index * 2);
     d.setHours(12, 0, 0, 0); // normalize time
     const daysFromToday = Math.ceil((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
     const isTomorrow = daysFromToday === 1;
@@ -177,8 +177,8 @@ export function getMinimumDispatchIsoString(
 ): string {
   const minimumDate = new Date(now);
   minimumDate.setDate(minimumDate.getDate() + 1);
-  if (isCutoffPassed(cutoffTime, now) || isWeekend(minimumDate)) {
-    minimumDate.setTime(nextWeekday(minimumDate).getTime());
+  if (isCutoffPassed(cutoffTime, now) || isClosedDay(minimumDate)) {
+    minimumDate.setTime(nextWorkingDay(minimumDate).getTime());
   }
   const year = minimumDate.getFullYear();
   const month = String(minimumDate.getMonth() + 1).padStart(2, '0');
