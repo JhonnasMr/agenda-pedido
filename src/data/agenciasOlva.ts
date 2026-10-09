@@ -312,11 +312,6 @@ export const agencias: Agencia[] = [
     "reference": "AV. PERU  NRO 104 "
   },
   {
-    "name": "AGENTE CARAVELI - AV. PERU  NRO 104",
-    "place": "AREQUIPA / CARAVELI / CARAVELI",
-    "reference": "AV PERU NRO 104 "
-  },
-  {
     "name": "AGENTE ACARI - S. BARRANCA N°1012  MZ 29 LTE 5",
     "place": "AREQUIPA / CARAVELI / ACARI",
     "reference": "S. BARRANCA N°1012  MZ 29 LTE 5 "
