@@ -67,7 +67,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
         defaultValue: 'agencia',
         options: [
           { value: 'agencia', label: '🏢 Retiro en Agencia (Shalom / Olva)' },
-          { value: 'domicilio', label: '🏠 Envío a Domicilio' },
+          // { value: 'domicilio', label: '🏠 Envío a Domicilio' },
           { value: 'delivery', label: '📦 Delivery (Solo Lima Metropolitana)' },
         ],
         section: 'delivery',
@@ -193,7 +193,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
         defaultValue: 'agencia',
         options: [
           { value: 'agencia', label: '🏢 Retiro en Agencia (Shalom / Olva)' },
-          { value: 'domicilio', label: '🏠 Envío a Domicilio' },
+          // { value: 'domicilio', label: '🏠 Envío a Domicilio' },
           { value: 'delivery', label: '📦 Delivery (Solo Lima Metropolitana)' },
         ],
         section: 'delivery',

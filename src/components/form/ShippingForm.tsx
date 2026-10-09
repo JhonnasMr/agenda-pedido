@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Truck, MapPin, CreditCard, User, CheckCircle2, Lock, ArrowDown } from 'lucide-react';
+import { Truck, MapPin, CreditCard, User, CheckCircle2, Lock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { MerchantConfig } from '../../types/merchant';
 import { ShipmentData } from '../../types/shipment';
 import { baseShipmentSchema, BaseShipmentFormValues } from '../../utils/validation';
@@ -64,6 +64,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     handleSubmit,
     setValue,
     watch,
+    trigger,
     formState: { errors, submitCount },
   } = useForm<BaseShipmentFormValues>({
     resolver: zodResolver(baseShipmentSchema),
@@ -76,22 +77,12 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   const selectedCourier = watch('courier');
   const destinationQuery = watch('destinationSede') || '';
   const districtQuery = watch('district') || '';
-  const documentNumber = watch('documentNumber') || '';
-  const fullNameValue = watch('fullName') || '';
 
   const isPhoneValid = merchant.phoneCountryCode === '+51' || !merchant.phoneCountryCode
     ? isValidPeruvianPhone(currentPhone)
     : isValidPhoneNumber(currentPhone, merchant.phoneCountryCode);
 
-  const hasPhone = Boolean(currentPhone && isPhoneValid);
-  const hasDeliveryType = Boolean(selectedDeliveryType);
-  const hasDestinationSelection = selectedDeliveryType === 'delivery'
-    ? districtQuery.trim().length > 0
-    : destinationQuery.trim().length > 0;
-  const hasPersonalData = documentNumber.trim().length > 0 && fullNameValue.trim().length > 0;
-  const showDeliveryTypeStep = hasPhone;
-  const showShippingDetailsStep = showDeliveryTypeStep && hasDeliveryType;
-  const showDateAndNotesStep = showShippingDetailsStep && hasDestinationSelection && hasPersonalData;
+  const [currentStep, setCurrentStep] = useState(1);
   const [isAgencyListOpen, setIsAgencyListOpen] = useState(false);
   const [activeAgencyIndex, setActiveAgencyIndex] = useState(-1);
   const [isDistrictListOpen, setIsDistrictListOpen] = useState(false);
@@ -138,18 +129,6 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     );
   }, [districtQuery]);
 
-  // Progressive disclosure state
-  const [isPhoneUnlocked, setIsPhoneUnlocked] = useState<boolean>(() => {
-    return Boolean(initialValues?.phone && isValidPeruvianPhone(initialValues.phone));
-  });
-
-  // Auto-unlock progressive fields as soon as phone reaches a valid 9-digit format
-  useEffect(() => {
-    if (isPhoneValid) {
-      setIsPhoneUnlocked(true);
-    }
-  }, [isPhoneValid]);
-
   // Smooth scroll to first error if submit fails
   useEffect(() => {
     if (submitCount === 0 || submitCount === lastErrorSubmitCount.current) return;
@@ -189,6 +168,30 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
     onSubmit(shipment);
   };
 
+  const handleNextStep = async () => {
+    const fieldsByStep: Record<number, (keyof BaseShipmentFormValues)[]> = {
+      1: ['phone'],
+      2: ['deliveryType'],
+      3: selectedDeliveryType === 'delivery'
+        ? ['district', 'destinationSede']
+        : ['courier', 'destinationSede'],
+      4: ['documentNumber', 'fullName'],
+    };
+    const fieldsToValidate = fieldsByStep[currentStep];
+
+    if (fieldsToValidate && !(await trigger(fieldsToValidate))) return;
+    setCurrentStep((step) => Math.min(step + 1, 5));
+  };
+
+  const handleStepSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (currentStep === 5) {
+      void handleSubmit(onFormSubmit)(event);
+      return;
+    }
+    void handleNextStep();
+  };
+
   const handleFormFocusCapture = (event: React.FocusEvent<HTMLFormElement>) => {
     const focusedField = event.target;
     if (!(focusedField instanceof HTMLElement)) return;
@@ -215,23 +218,38 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
         </Alert>
       )}
 
-      {/* Step Tracker */}
-      <div className="hidden" aria-hidden="true">
-        <span className={hasPhone ? 'text-slate-800' : 'text-slate-400'}>Tu WhatsApp</span>
-        <span className={showDeliveryTypeStep ? 'text-slate-800' : 'text-slate-400'}>Tipo de envío</span>
-        <span className={showShippingDetailsStep ? 'text-slate-800' : 'text-slate-400'}>Destino y datos</span>
-        <span className={showDateAndNotesStep ? 'text-slate-800' : 'text-slate-400'}>Fecha y nota</span>
-      </div>
+      <nav aria-label="Progreso del formulario" className="space-y-2">
+        <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>Paso {currentStep} de 5</span>
+          <span>{['WhatsApp', 'Tipo de envío', 'Destino', 'Datos personales', 'Fecha y nota'][currentStep - 1]}</span>
+        </div>
+        <ol className="grid grid-cols-5 gap-1.5">
+          {['Número', 'Tipo', 'Destino', 'Datos', 'Fecha'].map((label, index) => {
+            const step = index + 1;
+            return (
+              <li
+                key={label}
+                aria-current={step === currentStep ? 'step' : undefined}
+                className={`h-1.5 rounded-full transition-colors ${
+                  step <= currentStep ? 'bg-merchant-primary' : 'bg-slate-200'
+                }`}
+              >
+                <span className="sr-only">{label}</span>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
 
       {/* The Form */}
       <form
         ref={formRef}
-        onSubmit={handleSubmit(onFormSubmit)}
+        onSubmit={handleStepSubmit}
         onFocusCapture={handleFormFocusCapture}
         noValidate
         className="space-y-5 text-left"
       >
-        {/* STEP 1: WhatsApp Input */}
+        {currentStep === 1 && (
         <div className="bg-slate-50/60 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 space-y-3">
           <Controller
             name="phone"
@@ -243,7 +261,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                 value={field.value || ''}
                 defaultCountryCode={merchant.phoneCountryCode || '+51'}
                 placeholder={merchant.phonePlaceholder || '9XXXXXXXX'}
-                helpText="Ingresa los 9 dígitos de tu celular personal. Al validarlo, se habilitarán los datos de envío."
+                helpText="Ingresa los 9 dígitos de tu celular personal para continuar."
                 required
                 error={errors.phone?.message}
                 disabled={isSubmitting}
@@ -256,7 +274,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
           />
 
           {/* Validation Status message below phone input */}
-          {!isPhoneUnlocked ? (
+          {!isPhoneValid ? (
             <div className="flex items-center gap-2 p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/70 text-amber-800 text-xs animate-fadeIn">
               <Lock className="w-4 h-4 text-amber-600 shrink-0" />
               <span>
@@ -274,22 +292,29 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               </span>
             </div>
           )}
+          <button
+            type="button"
+            onClick={() => void handleNextStep()}
+            disabled={isSubmitting}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-merchant-primary px-4 py-3 font-bold text-white transition-colors hover:bg-merchant-primary-hover disabled:opacity-60"
+          >
+            Continuar <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
+        )}
 
-        {/* STEP 2: Progressive Fields (Unlocked when phone is valid) */}
-        {isPhoneUnlocked && (
+        {currentStep === 2 && (
           <div className="space-y-4 pt-1 animate-fadeIn">
-            {/* Divider notice */}
             <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider pt-1">
-              <ArrowDown className="w-4 h-4 text-merchant-primary animate-bounce" />
-              <span>Selecciona tipo de envio</span>
+              <Truck className="w-4 h-4 text-merchant-primary" />
+              <span>Selecciona tipo de envío</span>
             </div>
 
             <div className="grid grid-cols-3 gap-2">
               {([
                 { value: 'agencia', label: 'Agencia' },
-                { value: 'domicilio', label: 'A domicilio' },
-                { value: 'delivery', label: 'Delivery' },
+                // { value: 'domicilio', label: 'A domicilio' },
+                { value: 'delivery', label: 'Delivery (Lima Metropolitana)' },
               ] as const).map(({ value, label }) => (
                 <button
                   key={value}
@@ -320,7 +345,28 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               ))}
             </div>
 
-            {selectedDeliveryType && (
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => setCurrentStep(1)}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700"
+              >
+                <ArrowLeft className="h-4 w-4" /> Atrás
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleNextStep()}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-merchant-primary px-4 py-3 font-bold text-white transition-colors hover:bg-merchant-primary-hover disabled:opacity-60"
+              >
+                Continuar <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 3 && selectedDeliveryType && (
               <div className="space-y-4 pt-1 animate-fadeIn">
                 {/* 1. Empresa de Transporte */}
                 {selectedDeliveryType !== 'delivery' && (
@@ -443,7 +489,9 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                       <ul
                         id="district-options"
                         role="listbox"
-                        className="absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg"
+                          className={`absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg ${
+                            matchingDistricts.length === 0 ? 'pointer-events-none' : ''
+                          }`}
                       >
                         {matchingDistricts.length > 0 ? (
                           matchingDistricts.map((district, index) => (
@@ -550,7 +598,9 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                     <ul
                       id="destinationSede-options"
                       role="listbox"
-                      className="absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg"
+                      className={`absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg ${
+                        matchingAgencies.length === 0 ? 'pointer-events-none' : ''
+                      }`}
                     >
                       {matchingAgencies.length > 0 ? (
                         matchingAgencies.map((agency, index) => (
@@ -603,7 +653,33 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               )}
             />
 
-            {/* 3. DNI & 4. Nombre Completo */}
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => setCurrentStep(2)}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700"
+              >
+                <ArrowLeft className="h-4 w-4" /> Atrás
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleNextStep()}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-merchant-primary px-4 py-3 font-bold text-white transition-colors hover:bg-merchant-primary-hover disabled:opacity-60"
+              >
+                Continuar <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 4 && (
+          <div className="space-y-4 pt-1 animate-fadeIn">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider">
+              <User className="h-4 w-4 text-merchant-primary" />
+              <span>Datos personales</span>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <Input
                 id="documentNumber"
@@ -630,8 +706,33 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
               />
             </div>
 
-            {showDateAndNotesStep && (
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => setCurrentStep(3)}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700"
+              >
+                <ArrowLeft className="h-4 w-4" /> Atrás
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleNextStep()}
+                disabled={isSubmitting}
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-merchant-primary px-4 py-3 font-bold text-white transition-colors hover:bg-merchant-primary-hover disabled:opacity-60"
+              >
+                Continuar <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 5 && (
               <div className="space-y-4 pt-1 animate-fadeIn">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  <CheckCircle2 className="h-4 w-4 text-merchant-primary" />
+                  <span>Fecha de envío y observaciones</span>
+                </div>
                 {/* 5. Agendar Fecha (Día siguiente y dejando 2 días) */}
                 <div className="pt-2">
                   <Controller
@@ -669,19 +770,21 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                     className="block w-full p-3 rounded-xl border border-slate-200 text-sm text-slate-900 bg-white placeholder:text-slate-400 focus:outline-none focus:border-merchant-primary focus:ring-4 focus:ring-merchant-primary/10"
                   />
                 </div>
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(4)}
+                  disabled={isSubmitting}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700"
+                >
+                  <ArrowLeft className="h-4 w-4" /> Atrás
+                </button>
+                <FormActions
+                  isSubmitting={isSubmitting}
+                  submitButtonText="Agendar y ver resumen"
+                  submittingText="Procesando..."
+                />
               </div>
-            )}
-
-            {/* Form Action CTA */}
-            <FormActions
-              isSubmitting={isSubmitting}
-              submitButtonText="Agendar y ver resumen"
-              submittingText="Procesando..."
-            />
-          </div>
         )}
-      </div>
-    )}
       </form>
     </div>
   );
