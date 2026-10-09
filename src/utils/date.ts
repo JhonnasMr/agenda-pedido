@@ -99,15 +99,25 @@ function nextWeekday(date: Date): Date {
   return nextDate;
 }
 
+function addWeekdays(date: Date, amount: number): Date {
+  const result = new Date(date);
+  let weekdaysAdded = 0;
+
+  while (weekdaysAdded < amount) {
+    result.setDate(result.getDate() + 1);
+    if (!isWeekend(result)) weekdaysAdded += 1;
+  }
+
+  return result;
+}
+
 function isCutoffPassed(cutoffTime: string | undefined, now: Date): boolean {
   return Boolean(cutoffTime) && !isBeforeCutoff(cutoffTime, now);
 }
 
 /**
- * Generates future schedule date options:
- * - 1st option: Tomorrow (+1 day)
- * - Following options: every 2 days afterwards (+3 days, +5 days, +7 days)
- * ONLY future dates are included.
+ * Generates future schedule options on weekdays only, spacing options by two
+ * business days. ONLY future dates are included.
  */
 export function getFutureScheduleOptions(
   now: Date = new Date(),
@@ -116,29 +126,16 @@ export function getFutureScheduleOptions(
   const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'];
 
-  // Days offset: +1 (tomorrow), then leaving 2 days: +3, +5, +7
-  const offsets = [
-    { offset: 1, subtitle: 'Día siguiente (Más rápido)', badge: 'Recomendado', isTomorrow: true },
-    { offset: 3, subtitle: 'En 3 días', isTomorrow: false },
-    { offset: 5, subtitle: 'En 5 días', isTomorrow: false },
-    { offset: 7, subtitle: 'En 1 semana', isTomorrow: false },
-  ];
-
   const cutoffPassed = isCutoffPassed(cutoffTime, now);
-  const firstDate = new Date(now);
-  firstDate.setDate(firstDate.getDate() + 1);
-  if (cutoffPassed) {
-    firstDate.setTime(nextWeekday(firstDate).getTime());
-  }
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const firstDate = nextWeekday(tomorrow);
 
-  return offsets.map(({ offset, subtitle, badge, isTomorrow }, index) => {
-    const d = new Date(firstDate);
-    d.setDate(d.getDate() + (cutoffPassed ? index * 2 : offset - 1));
-    if (cutoffPassed) {
-      d.setTime(nextWeekday(d).getTime());
-    }
+  return Array.from({ length: 4 }, (_, index) => {
+    const d = addWeekdays(firstDate, index * 2);
     d.setHours(12, 0, 0, 0); // normalize time
     const daysFromToday = Math.ceil((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+    const isTomorrow = daysFromToday === 1;
 
     const dayName = daysOfWeek[d.getDay()];
     const dayNum = String(d.getDate()).padStart(2, '0');
@@ -150,12 +147,12 @@ export function getFutureScheduleOptions(
       value,
       dayName: isTomorrow && !cutoffPassed ? `Mañana (${dayName})` : dayName,
       formattedDate: `${dayNum} ${monthName}`,
-      subtitle: cutoffPassed
-        ? index === 0
-          ? 'Próximo día hábil'
-          : `En ${daysFromToday} ${daysFromToday === 1 ? 'día' : 'días'}`
-        : subtitle,
-      badge,
+      subtitle: index === 0
+        ? isTomorrow && !cutoffPassed
+          ? 'Día siguiente (Más rápido)'
+          : 'Próximo día hábil'
+        : `En ${daysFromToday} ${daysFromToday === 1 ? 'día' : 'días'}`,
+      badge: index === 0 ? 'Recomendado' : undefined,
       dateObj: d,
       isTomorrow,
     };
@@ -180,7 +177,7 @@ export function getMinimumDispatchIsoString(
 ): string {
   const minimumDate = new Date(now);
   minimumDate.setDate(minimumDate.getDate() + 1);
-  if (isCutoffPassed(cutoffTime, now)) {
+  if (isCutoffPassed(cutoffTime, now) || isWeekend(minimumDate)) {
     minimumDate.setTime(nextWeekday(minimumDate).getTime());
   }
   const year = minimumDate.getFullYear();

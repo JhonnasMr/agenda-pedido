@@ -48,5 +48,11 @@ export const districts: District[] = [
     { id: 40, name: 'Santiago de Surco', place: 'Lima', reference: '' },
     { id: 41, name: 'Surquillo', place: 'Lima', reference: '' },
     { id: 42, name: 'Villa El Salvador', place: 'Lima', reference: '' },
-    { id: 43, name: 'Villa María del Triunfo', place: 'Lima', reference: '' }
+    { id: 43, name: 'Villa María del Triunfo', place: 'Lima', reference: '' },
+    { id: 44, name: 'Callao', place: 'Callao', reference: '' },
+    { id: 45, name: 'Bellavista', place: 'Callao', reference: '' },
+    { id: 46, name: 'Carmen de la Legua Reynoso', place: 'Callao', reference: '' },
+    { id: 47, name: 'La Perla', place: 'Callao', reference: '' },
+    { id: 48, name: 'La Punta', place: 'Callao', reference: '' },
+    { id: 49, name: 'Ventanilla', place: 'Callao', reference: '' },
   ];

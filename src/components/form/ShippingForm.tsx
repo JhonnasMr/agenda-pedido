@@ -90,11 +90,13 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   const lastErrorSubmitCount = useRef(0);
 
   const matchingAgencies = useMemo(() => {
-    const normalizedQuery = destinationQuery
+    const normalizeSearchText = (value: string) => value
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLocaleLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
       .trim();
+    const normalizedQuery = normalizeSearchText(destinationQuery);
     const normalizedCourier = selectedCourier?.toLocaleLowerCase() || '';
     const courierAgencies = normalizedCourier.includes('shalom')
       ? agenciasShalom
@@ -102,15 +104,21 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
         ? agenciasOlva
         : [];
 
-    return courierAgencies
-      .filter(({ name, place, reference }) => {
-        const searchableText = `${name} ${place} ${reference}`
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toLocaleLowerCase();
-        return searchableText.includes(normalizedQuery);
-      })
-      /*.slice(0, 8)*/;
+    const seenAgencies = new Set<string>();
+    return courierAgencies.filter(({ name, place, reference }) => {
+      const normalizedName = normalizeSearchText(name);
+      const normalizedPlace = normalizeSearchText(place);
+      const normalizedReference = normalizeSearchText(reference);
+      const searchableText = `${normalizedName} ${normalizedPlace} ${normalizedReference}`;
+      const agencyKey = `${normalizedName}|${normalizedPlace}|${normalizedReference}`;
+
+      if (!searchableText.includes(normalizedQuery) || seenAgencies.has(agencyKey)) {
+      return false;
+      }
+
+      seenAgencies.add(agencyKey);
+      return true;
+    });
   }, [destinationQuery, selectedCourier]);
 
   const matchingDistricts = useMemo(() => {

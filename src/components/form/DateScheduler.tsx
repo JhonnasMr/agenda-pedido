@@ -19,6 +19,7 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
 }) => {
   const options = getFutureScheduleOptions(new Date(), cutoffTime);
   const [showCustomPicker, setShowCustomPicker] = useState(false);
+  const [customDateError, setCustomDateError] = useState<string | null>(null);
   const minFutureDate = getMinimumDispatchIsoString(cutoffTime);
 
   const handleSelectOption = (optValue: string) => {
@@ -30,9 +31,15 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
     const raw = e.target.value;
     if (!raw) return;
 
-    // Format custom date in Spanish
     const [year, month, day] = raw.split('-').map(Number);
     const dateObj = new Date(year, month - 1, day, 12, 0, 0);
+    if (dateObj.getDay() === 0 || dateObj.getDay() === 6) {
+      setCustomDateError('No atendemos sábados ni domingos. Selecciona un día de lunes a viernes.');
+      e.target.value = '';
+      return;
+    }
+
+    setCustomDateError(null);
     const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'];
 
@@ -48,7 +55,7 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
         </label>
         <span className="text-[11px] font-medium text-slate-500 flex items-center gap-1">
           <Clock className="w-3 h-3 text-slate-400" />
-          Solo fechas futuras
+          Lunes a viernes
         </span>
       </div>
 
@@ -139,10 +146,10 @@ export const DateScheduler: React.FC<DateSchedulerProps> = ({
         )}
       </div>
 
-      {error ? (
+      {customDateError || error ? (
         <p role="alert" className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-          {error}
+          {customDateError || error}
         </p>
       ) : null}
     </div>
