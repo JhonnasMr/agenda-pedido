@@ -4,6 +4,7 @@ export interface ShipmentData {
   phone: string; // E.164 format, e.g. "+51987654321"
   rawPhone?: string; // Number without country prefix, e.g. "987654321"
   fullName: string;
+  email?: string;
   documentType?: 'DNI' | 'CE' | 'RUC' | 'Pasaporte' | string;
   documentNumber?: string;
   deliveryType?: 'agencia' | 'domicilio' | 'delivery';

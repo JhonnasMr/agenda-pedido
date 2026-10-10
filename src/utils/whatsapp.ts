@@ -8,7 +8,7 @@ import { formatLogisticsDate } from './date';
  */
 export function buildWhatsAppMessage(
   shipment: ShipmentData,
-  merchant?: MerchantConfig
+  _merchant?: MerchantConfig
 ): string {
   const isAgency = shipment.deliveryType === 'agencia' || (!shipment.deliveryType && shipment.courier !== 'Motorizado');
   const deliveryHeader = isAgency
@@ -19,11 +19,7 @@ export function buildWhatsAppMessage(
 
   const lines: string[] = [];
 
-  // Title / Store name
   lines.push(deliveryHeader);
-  if (merchant?.name) {
-    lines.push(`🏪 Tienda: ${merchant.name}`);
-  }
   lines.push(''); // blank line
 
   // Customer identity
@@ -32,6 +28,9 @@ export function buildWhatsAppMessage(
   // Phone (display raw mobile or cleaned without '+')
   const phoneDisplay = shipment.rawPhone || shipment.phone.replace(/^\+51/, '') || shipment.phone;
   lines.push(`📱 ${phoneDisplay}`);
+  if (shipment.email) {
+    lines.push(`✉️ ${shipment.email}`);
+  }
 
   // Document if provided
   if (shipment.documentNumber) {
@@ -52,7 +51,7 @@ export function buildWhatsAppMessage(
   // Exact address or agency branch
   if (shipment.destinationSede) {
     let addressLine = isAgency
-      ? `🏢 Agencia de destino: ${shipment.courier?.toLocaleUpperCase() || 'SHALOM'}, ${shipment.destinationSede.trim()}`
+      ? `📍 Destino: ${shipment.destinationSede.trim()}`
       : `📍 Dirección de destino: ${shipment.destinationSede.trim()}`;
     if (shipment.reference) {
       addressLine += ` (Ref: ${shipment.reference.trim()})`;
@@ -61,7 +60,7 @@ export function buildWhatsAppMessage(
   }
 
   // Courier service
-  if (shipment.courier) {
+  if (shipment.courier && shipment.deliveryType !== 'delivery') {
     lines.push(`🚚 Courier: ${shipment.courier}`);
   }
 

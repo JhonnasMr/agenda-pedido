@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Truck, MapPin, CreditCard, User, CheckCircle2, Lock, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Truck, MapPin, CreditCard, User, Mail, CheckCircle2, Lock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { MerchantConfig } from '../../types/merchant';
 import { ShipmentData } from '../../types/shipment';
 import { baseShipmentSchema, BaseShipmentFormValues } from '../../utils/validation';
@@ -46,6 +46,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
   const defaultValues: BaseShipmentFormValues = {
     phone: initialValues?.phone || '',
     fullName: initialValues?.fullName || '',
+    email: initialValues?.email || '',
     documentType: initialValues?.documentType || 'DNI',
     documentNumber: initialValues?.documentNumber || '',
     deliveryType: initialValues?.deliveryType || 'agencia',
@@ -160,6 +161,7 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
       phone: data.phone,
       rawPhone: rawMobile,
       fullName: data.fullName.trim(),
+      email: data.email?.trim() || undefined,
       documentType: data.documentType || 'DNI',
       documentNumber: data.documentNumber?.trim(),
       deliveryType: data.deliveryType || 'agencia',
@@ -713,6 +715,17 @@ export const ShippingForm: React.FC<ShippingFormProps> = ({
                 {...register('fullName')}
               />
             </div>
+            <Input
+              id="email"
+              type="email"
+              label="Correo electrónico (Opcional)"
+              placeholder="cliente@ejemplo.com"
+              leftIcon={<Mail className="w-4 h-4" />}
+              error={errors.email?.message}
+              helpText="Lo usaremos para enviarte información de tu pedido."
+              disabled={isSubmitting}
+              {...register('email')}
+            />
 
             <div className="flex gap-3">
               <button

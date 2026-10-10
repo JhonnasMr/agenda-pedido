@@ -116,8 +116,8 @@ function isCutoffPassed(cutoffTime: string | undefined, now: Date): boolean {
 }
 
 /**
- * Generates future schedule options on weekdays only, spacing options by two
- * business days. ONLY future dates are included.
+ * Generates future schedule options from Monday through Saturday, spacing
+ * options by two days that are not Sunday. ONLY future dates are included.
  */
 export function getFutureScheduleOptions(
   now: Date = new Date(),

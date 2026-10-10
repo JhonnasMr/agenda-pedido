@@ -80,9 +80,10 @@ export const baseShipmentSchema = z.object({
   preferredDate: z
     .string({ required_error: 'Selecciona una fecha de envío' })
     .min(1, 'Selecciona una fecha de envío')
-    .refine((date) => !/^(?:Sábado|Domingo)\b/i.test(date.trim()), {
-      message: 'Solo puedes agendar de lunes a viernes',
+    .refine((date) => !/^Domingo\b/i.test(date.trim()), {
+      message: 'Solo puedes agendar de lunes a sábado',
     }),
+  email: z.string().trim().email('Ingresa un correo válido').optional().or(z.literal('')),
   notes: z.string().trim().optional(),
 }).superRefine((shipment, context) => {
   const isAvailableDistrict = districts.some(
