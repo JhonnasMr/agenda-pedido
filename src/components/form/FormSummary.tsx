@@ -83,6 +83,12 @@ export const FormSummary: React.FC<FormSummaryProps> = ({
                 </p>
               </div>
             )}
+            {shipment.email && (
+              <div>
+                <p className="text-xs text-slate-500">Correo electrónico</p>
+                <p className="text-sm font-semibold text-slate-900 mt-0.5">{shipment.email}</p>
+              </div>
+            )}
           </div>
         </div>
 

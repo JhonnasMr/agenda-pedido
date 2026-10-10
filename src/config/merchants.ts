@@ -119,7 +119,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Notas del pedido o instrucciones especiales',
+        label: 'Notas del pedido, talla o Color',
         placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
@@ -245,7 +245,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Notas del pedido o instrucciones especiales',
+        label: 'Notas del pedido, talla o Color',
         placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
@@ -343,8 +343,8 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Indicaciones sobre el paquete',
-        placeholder: 'Ej: Manejar con cuidado (Pantalla/Vidrio templado)',
+        label: 'Notas del pedido, talla o Color',
+        placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
         section: 'additional',
@@ -439,8 +439,8 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Indicaciones sobre el paquete',
-        placeholder: 'Ej: Manejar con cuidado (Pantalla/Vidrio templado)',
+        label: 'Notas del pedido, talla o Color',
+        placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
         section: 'additional',
@@ -528,7 +528,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Detalles de paquetes o mercadería',
+        label: 'Notas del pedido, talla o Color',
         placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
@@ -615,7 +615,7 @@ export const MOCK_MERCHANTS: Record<string, MerchantConfig> = {
       {
         id: 'notes',
         type: 'textarea',
-        label: 'Detalles de paquetes o mercadería',
+        label: 'Notas del pedido, talla o Color',
         placeholder: 'Ej: Deseo guía de talla, color beige, 2 unidades de faja, etc.',
         required: false,
         rows: 2,
